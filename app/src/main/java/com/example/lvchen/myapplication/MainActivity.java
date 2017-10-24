@@ -3,9 +3,8 @@ package com.example.lvchen.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,10 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity
-		implements NavigationView.OnNavigationItemSelectedListener {
+		implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +43,10 @@ public class MainActivity extends AppCompatActivity
 		NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 		navigationView.setNavigationItemSelectedListener(this);
 
-		Button button = (Button) findViewById(R.id.button);
-		button.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				startActivity(new Intent(MainActivity.this,GranzortViewActivity.class));
-			}
-		});
+		Button button = (Button) findViewById(R.id.granzort_btn);
+		button.setOnClickListener(this);
+		Button viewpager_btn = (Button) findViewById(R.id.viewpager_btn);
+		viewpager_btn.setOnClickListener(this);
 	}
 
 	@Override
@@ -107,5 +104,19 @@ public class MainActivity extends AppCompatActivity
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawer.closeDrawer(GravityCompat.START);
 		return true;
+	}
+
+	@Override
+	public void onClick(View view) {
+		switch (view.getId()) {
+			case R.id.granzort_btn:
+				startActivity(new Intent(MainActivity.this, GranzortViewActivity.class));
+				break;
+			case R.id.viewpager_btn:
+				startActivity(new Intent(MainActivity.this, ViewPagerActivity.class));
+				break;
+			default:
+				break;
+		}
 	}
 }
