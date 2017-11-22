@@ -1,10 +1,10 @@
-package com.example.lvchen.myapplication;
+package com.example.lvchen.myapplication.utils;
 
 /**
  * Created by lvchen on 2017/10/24.
  */
 
-class ProdctBean {
+public class ProdctBean {
 	String name;
 	int url;
 

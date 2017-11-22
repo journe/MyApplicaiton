@@ -1,4 +1,4 @@
-package com.example.lvchen.myapplication;
+package com.example.lvchen.myapplication.utils;
 
 
 import android.content.Context;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.lvchen.myapplication.BuildConfig;
+import com.example.lvchen.myapplication.R;
 
 import java.util.List;
 

@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.lvchen.myapplication.utils.MyGridViewAdpter;
+import com.example.lvchen.myapplication.utils.ProdctBean;
+
 import java.util.ArrayList;
 import java.util.List;
 

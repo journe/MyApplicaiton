@@ -1,6 +1,10 @@
 package com.example.lvchen.myapplication;
 
+import android.app.WallpaperManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -10,13 +14,21 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity
 		implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+
+	private ImageView imageView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +57,14 @@ public class MainActivity extends AppCompatActivity
 
 		Button button = (Button) findViewById(R.id.granzort_btn);
 		button.setOnClickListener(this);
-		Button viewpager_btn = (Button) findViewById(R.id.viewpager_btn);
-		viewpager_btn.setOnClickListener(this);
+
+		Button viewpagerBtn = (Button) findViewById(R.id.viewpager_btn);
+		viewpagerBtn.setOnClickListener(this);
+
+		Button wallpaperBtn = (Button) findViewById(R.id.wallpaper_btn);
+		wallpaperBtn.setOnClickListener(this);
+
+		imageView = (ImageView) findViewById(R.id.imageView);
 	}
 
 	@Override
@@ -90,7 +108,7 @@ public class MainActivity extends AppCompatActivity
 		if (id == R.id.nav_camera) {
 			// Handle the camera action
 		} else if (id == R.id.nav_gallery) {
-
+			startActivity(new Intent(MainActivity.this, RecycleViewActivity.class));
 		} else if (id == R.id.nav_slideshow) {
 
 		} else if (id == R.id.nav_manage) {
@@ -114,6 +132,30 @@ public class MainActivity extends AppCompatActivity
 				break;
 			case R.id.viewpager_btn:
 				startActivity(new Intent(MainActivity.this, ViewPagerActivity.class));
+				break;
+			case R.id.wallpaper_btn:
+				WallpaperManager wallpaperManager = WallpaperManager
+						.getInstance(getApplicationContext());
+				// 获取当前壁纸
+				BitmapDrawable drawable = (BitmapDrawable) wallpaperManager.getDrawable();
+				Log.d("MainActivity", "drawable.getIntrinsicHeight():" + drawable.getIntrinsicHeight());
+				imageView.setImageDrawable(drawable);
+				Bitmap bitmap = drawable.getBitmap();
+				FileOutputStream fos = null;
+				try {
+					fos = openFileOutput("image.png", Context.MODE_PRIVATE);
+					bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+				} catch (FileNotFoundException e) {
+				} finally {
+					if (fos != null) {
+						try {
+							fos.flush();
+							fos.close();
+						} catch (IOException e) {
+						}
+					}
+				}
+
 				break;
 			default:
 				break;

@@ -1,4 +1,4 @@
-package com.example.lvchen.myapplication;
+package com.example.lvchen.myapplication.utils;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -16,6 +16,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+
+import com.example.lvchen.myapplication.R;
 
 /**
  * Created by lvchen on 2017/9/6.
