@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -26,7 +27,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity
-		implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+		implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener,BlankFragment.OnFragmentInteractionListener {
 
 	private ImageView imageView;
 
@@ -63,6 +64,9 @@ public class MainActivity extends AppCompatActivity
 
 		Button wallpaperBtn = (Button) findViewById(R.id.wallpaper_btn);
 		wallpaperBtn.setOnClickListener(this);
+
+		Button fragmentBtn = (Button) findViewById(R.id.fragment_btn);
+		fragmentBtn.setOnClickListener(this);
 
 		imageView = (ImageView) findViewById(R.id.imageView);
 	}
@@ -133,6 +137,10 @@ public class MainActivity extends AppCompatActivity
 			case R.id.viewpager_btn:
 				startActivity(new Intent(MainActivity.this, ViewPagerActivity.class));
 				break;
+			case R.id.fragment_btn:
+				BlankFragment fragment = new BlankFragment();
+				getSupportFragmentManager().beginTransaction().replace(R.id.fragmentview,fragment).commit();
+				break;
 			case R.id.wallpaper_btn:
 				WallpaperManager wallpaperManager = WallpaperManager
 						.getInstance(getApplicationContext());
@@ -155,10 +163,14 @@ public class MainActivity extends AppCompatActivity
 						}
 					}
 				}
-
 				break;
 			default:
 				break;
 		}
+	}
+
+	@Override
+	public void onFragmentInteraction(Uri uri) {
+
 	}
 }
