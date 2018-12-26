@@ -1,7 +1,8 @@
-package com.example.lvchen.myapplication;
+package com.example.lvchen.myapplication.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.lvchen.myapplication.R;
 
 public class GranzortViewActivity extends AppCompatActivity {
 

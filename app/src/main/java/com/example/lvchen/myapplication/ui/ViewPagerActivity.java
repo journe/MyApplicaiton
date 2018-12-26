@@ -1,4 +1,4 @@
-package com.example.lvchen.myapplication;
+package com.example.lvchen.myapplication.ui;
 
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.lvchen.myapplication.R;
 import com.example.lvchen.myapplication.utils.MyGridViewAdpter;
 import com.example.lvchen.myapplication.utils.ProdctBean;
 

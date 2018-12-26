@@ -1,4 +1,4 @@
-package com.example.lvchen.myapplication;
+package com.example.lvchen.myapplication.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.example.lvchen.myapplication.R;
 
 public class RecycleViewActivity extends AppCompatActivity {
 
