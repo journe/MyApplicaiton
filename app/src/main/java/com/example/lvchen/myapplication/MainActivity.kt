@@ -20,6 +20,7 @@ import android.view.View
 import cn.idaddy.android.opensdk.lib.IdaddySdk
 import com.example.lvchen.myapplication.ui.BlankFragment
 import com.example.lvchen.myapplication.ui.GranzortViewActivity
+import com.example.lvchen.myapplication.ui.NotificationActivity
 import com.example.lvchen.myapplication.ui.PActivity
 import com.example.lvchen.myapplication.ui.RecycleViewActivity
 import com.example.lvchen.myapplication.ui.ScrollingActivity
@@ -32,6 +33,7 @@ import kotlinx.android.synthetic.main.app_bar_main.toolbar
 import kotlinx.android.synthetic.main.content_main.fragment_btn
 import kotlinx.android.synthetic.main.content_main.granzort_btn
 import kotlinx.android.synthetic.main.content_main.imageView
+import kotlinx.android.synthetic.main.content_main.notification_btn
 import kotlinx.android.synthetic.main.content_main.scroll_button
 import kotlinx.android.synthetic.main.content_main.viewpager_btn
 import kotlinx.android.synthetic.main.content_main.wallpaper_btn
@@ -72,6 +74,7 @@ class MainActivity : AppCompatActivity(),
     fragment_btn.setOnClickListener(this)
     scroll_button.setOnClickListener(this)
     xiao_ai_btn.setOnClickListener { startActivity(Intent(this, XiaoAiTestActivity::class.java)) }
+    notification_btn.setOnClickListener { startActivity(Intent(this, NotificationActivity::class.java)) }
   }
 
   override fun onBackPressed() {
