@@ -1,131 +1,186 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright (C) 2014 The Android Open Source Project
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~      http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License
-  -->
+<?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
-    android:layout_height="64dp"
-    android:baselineAligned="false"
-    android:orientation="horizontal">
+    android:layout_height="@dimen/notification_small_image_size"
+    android:background="@color/white"
+    >
 
-    <FrameLayout
-        android:id="@+id/icon_group"
-        android:layout_width="@dimen/notification_large_icon_width"
-        android:layout_height="@dimen/notification_large_icon_height"
-        android:layout_weight="0">
+  <ImageView
+      android:id="@+id/image"
+      android:layout_width="@dimen/notification_small_image_size"
+      android:layout_height="@dimen/notification_big_image_size"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentTop="true"
+      android:scaleType="centerCrop"
+      android:src="@drawable/default_album_art"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:ignore="ContentDescription"
+      />
+  <ImageView
+      android:layout_width="46dp"
+      android:layout_height="match_parent"
+      android:layout_alignParentTop="true"
+      android:layout_alignStart="@+id/image"
+      android:src="@drawable/shape_notification_img_bg"
+      />
+  <ImageButton
+      android:id="@+id/action_quit"
+      android:layout_width="20dp"
+      android:layout_height="20dp"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentRight="true"
+      android:padding="0dp"
+      android:scaleType="fitCenter"
+      android:src="@drawable/ic_close_24dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:ignore="ContentDescription"
+      style="@style/Widget.AppCompat.Button.Borderless"
+      />
 
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="12dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:scaleType="centerInside"
-            tools:ignore="ContentDescription" />
-
-    </FrameLayout>
+  <LinearLayout
+      android:id="@+id/media_titles"
+      android:layout_width="match_parent"
+      android:layout_height="70dp"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentTop="true"
+      android:layout_marginEnd="8dp"
+      android:layout_marginStart="14dp"
+      android:layout_marginTop="4dp"
+      android:layout_toLeftOf="@id/media_actions"
+      android:minHeight="@dimen/notification_large_icon_height"
+      android:orientation="vertical"
+      app:layout_constraintEnd_toStartOf="@+id/image"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      >
 
     <LinearLayout
-        android:id="@+id/media_titles"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="fill_vertical"
-        android:layout_weight="1"
-        android:minHeight="@dimen/notification_large_icon_height"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ellipsize="marquee"
-            android:fadingEdge="horizontal"
-            android:gravity="bottom"
-            android:singleLine="true"
-            android:textAppearance="@style/Theme.Phonograph.Notification.Title"
-            tools:ignore="NestedWeights" />
-
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:ellipsize="marquee"
-            android:fadingEdge="horizontal"
-            android:singleLine="true"
-            android:textAppearance="@style/Theme.Phonograph.Notification" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/media_actions"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical|end"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
-        android:layoutDirection="ltr"
+        android:layout_height="20dp"
+        android:gravity="center"
         android:orientation="horizontal"
-        tools:ignore="UnusedAttribute">
-
-        <!-- media buttons will be added here -->
-        <ImageButton
-            android:id="@+id/action_prev"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="8dp"
-            android:scaleType="fitCenter"
-            tools:ignore="ContentDescription" />
-
-        <ImageButton
-            android:id="@+id/action_play_pause"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="8dp"
-            android:scaleType="fitCenter"
-            tools:ignore="ContentDescription" />
-
-        <ImageButton
-            android:id="@+id/action_next"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="8dp"
-            android:scaleType="fitCenter"
-            tools:ignore="ContentDescription" />
-
+        >
+      <ImageView
+          android:layout_width="16dp"
+          android:layout_height="16dp"
+          android:src="@drawable/ic_notification_logo"
+          />
+      <TextView
+          android:id="@+id/title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="6dp"
+          android:layout_weight="1"
+          android:ellipsize="marquee"
+          android:fadingEdge="horizontal"
+          android:singleLine="true"
+          android:text="口袋故事"
+          android:textAppearance="@style/Theme.Phonograph.Notification.Title"
+          android:textSize="10sp"
+          />
     </LinearLayout>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:ellipsize="marquee"
+        android:fadingEdge="horizontal"
+        android:singleLine="true"
+        android:textAppearance="@style/Theme.Phonograph.Notification"
+        android:textSize="14sp"
+        tools:text="@string/app_name"
+        />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
+        android:layout_weight="1"
+        android:ellipsize="marquee"
+        android:fadingEdge="horizontal"
+        android:singleLine="true"
+        android:textAppearance="@style/Theme.Phonograph.Notification"
+        android:textColor="@color/black04"
+        android:textSize="14sp"
+        tools:text="@string/app_name"
+        />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/media_actions"
+      android:layout_width="110dp"
+      android:layout_height="28dp"
+      android:layout_above="@id/bottom_ll"
+      android:layout_alignParentEnd="true"
+      android:layout_marginEnd="55dp"
+      android:layoutDirection="ltr"
+      android:orientation="horizontal"
+      tools:ignore="UnusedAttribute"
+      >
+
+    <!-- media buttons will be added here -->
+    <ImageButton
+        android:id="@+id/action_prev"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_notification_previous"
+        tools:ignore="ContentDescription"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        />
+
+    <ImageButton
+        android:id="@+id/action_play_pause"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="13dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_notification_playing"
+        tools:ignore="ContentDescription"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        />
+
+    <ImageButton
+        android:id="@+id/action_next"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="13dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_notification_next"
+        tools:ignore="ContentDescription"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        />
+
+  </LinearLayout>
+  <LinearLayout
+      android:id="@+id/bottom_ll"
+      android:layout_width="match_parent"
+      android:layout_height="26dp"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentStart="true"
+      android:orientation="horizontal"
+      >
+  </LinearLayout>
+</RelativeLayout>

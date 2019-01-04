@@ -5,15 +5,12 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.support.v4.app.NotificationCompat
 import android.text.TextUtils
 import android.view.View
 import android.widget.RemoteViews
-import cn.idaddy.android.opensdk.lib.play.IDYPlayerController
 import com.example.lvchen.myapplication.MainActivity
 import com.example.lvchen.myapplication.R
 
@@ -35,15 +32,14 @@ class PlayingNotificationImpl : PlayingNotification() {
       notificationLayout.setViewVisibility(R.id.media_titles, View.INVISIBLE)
     } else {
       notificationLayout.setViewVisibility(R.id.media_titles, View.VISIBLE)
-      notificationLayout.setTextViewText(R.id.title, title)
       notificationLayout.setTextViewText(R.id.text, artistName)
+      notificationLayout.setTextViewText(R.id.text2, albumName)
     }
 
     if (TextUtils.isEmpty(title) && TextUtils.isEmpty(artistName) && TextUtils.isEmpty(albumName)) {
       notificationLayoutBig.setViewVisibility(R.id.media_titles, View.INVISIBLE)
     } else {
       notificationLayoutBig.setViewVisibility(R.id.media_titles, View.VISIBLE)
-      notificationLayoutBig.setTextViewText(R.id.title, title)
       notificationLayoutBig.setTextViewText(R.id.text, artistName)
       notificationLayoutBig.setTextViewText(R.id.text2, albumName)
     }
@@ -68,40 +64,11 @@ class PlayingNotificationImpl : PlayingNotification() {
           .setOngoing(isPlaying)
           .build()
 
-    val prev = BitmapFactory.decodeResource(
-        service.resources,
-        R.drawable.ic_skip_previous_white_24dp
-    )
-    val next = BitmapFactory.decodeResource(
-        service.resources,
-        R.drawable.ic_skip_next_white_24dp
-    )
-    val playPause = BitmapFactory.decodeResource(
-        service.resources,
-        if (IDYPlayerController.isPlaying)
-          R.drawable.ic_pause_white_24dp
-        else
-          R.drawable.ic_play_arrow_white_24dp
-    )
-
-//    notificationLayout.setTextColor(R.id.title, primary)
-//    notificationLayout.setTextColor(R.id.text, secondary)
-    notificationLayout.setImageViewBitmap(R.id.action_prev, prev)
-    notificationLayout.setImageViewBitmap(R.id.action_next, next)
-    notificationLayout.setImageViewBitmap(R.id.action_play_pause, playPause)
-
-//    notificationLayoutBig.setTextColor(R.id.title, primary)
-//    notificationLayoutBig.setTextColor(R.id.text, secondary)
-//    notificationLayoutBig.setTextColor(R.id.text2, secondary)
-    notificationLayoutBig.setImageViewBitmap(R.id.action_prev, prev)
-    notificationLayoutBig.setImageViewBitmap(R.id.action_next, next)
-    notificationLayoutBig.setImageViewBitmap(R.id.action_play_pause, playPause)
-
     val bigNotificationImageSize =
       service.resources.getDimensionPixelSize(R.dimen.notification_big_image_size)
 
     service.runOnUiThread {
-//      if (bitmap != null) {
+      //      if (bitmap != null) {
 //        notificationLayout.setImageViewBitmap(R.id.image, bitmap)
 //        notificationLayoutBig.setImageViewBitmap(R.id.image, bitmap)
 //      } else {
@@ -113,10 +80,7 @@ class PlayingNotificationImpl : PlayingNotification() {
 //      }
 
       notificationLayout.setImageViewResource(R.id.image, R.drawable.default_album_art)
-      notificationLayoutBig.setImageViewResource(
-          R.id.image,
-          R.drawable.default_album_art
-      )
+//      notificationLayoutBig.setImageViewResource(R.id.image, R.drawable.default_album_art)
 
       if (stopped) {
         return@runOnUiThread  // notification has been stopped before loading was finished

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -17,12 +17,18 @@
       android:layout_alignParentEnd="true"
       android:layout_alignParentTop="true"
       android:scaleType="centerCrop"
+      android:src="@drawable/default_album_art"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       tools:ignore="ContentDescription"
-      tools:src="@drawable/default_album_art"
       />
-
+  <ImageView
+      android:layout_width="58dp"
+      android:layout_height="match_parent"
+      android:layout_alignParentTop="true"
+      android:layout_alignStart="@+id/image"
+      android:src="@drawable/shape_notification_img_bg"
+      />
   <ImageButton
       android:id="@+id/action_quit"
       android:layout_width="20dp"
@@ -40,12 +46,13 @@
 
   <LinearLayout
       android:id="@+id/media_titles"
-      android:layout_width="0dp"
-      android:layout_height="64dp"
+      android:layout_width="match_parent"
+      android:layout_height="70dp"
       android:layout_alignParentStart="true"
       android:layout_alignParentTop="true"
       android:layout_marginEnd="8dp"
       android:layout_marginStart="14dp"
+      android:layout_marginTop="4dp"
       android:layout_toLeftOf="@id/image"
       android:minHeight="@dimen/notification_large_icon_height"
       android:orientation="vertical"
@@ -54,58 +61,71 @@
       app:layout_constraintTop_toTopOf="parent"
       >
 
-    <TextView
-        android:id="@+id/title"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ellipsize="marquee"
-        android:fadingEdge="horizontal"
-        android:singleLine="true"
-        android:textAppearance="@style/Theme.Phonograph.Notification.Title"
-        />
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+      <ImageView
+          android:layout_width="16dp"
+          android:layout_height="16dp"
+          android:src="@drawable/ic_notification_logo"
+          />
+      <TextView
+          android:id="@+id/title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="6dp"
+          android:layout_weight="1"
+          android:ellipsize="marquee"
+          android:fadingEdge="horizontal"
+          android:singleLine="true"
+          android:text="口袋故事"
+          android:textAppearance="@style/Theme.Phonograph.Notification.Title"
+          android:textSize="10sp"
+          />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="-1dp"
-        android:layout_marginTop="-1dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:ellipsize="marquee"
         android:fadingEdge="horizontal"
         android:singleLine="true"
         android:textAppearance="@style/Theme.Phonograph.Notification"
+        android:textSize="14sp"
+        tools:text="@string/app_name"
         />
 
     <TextView
         android:id="@+id/text2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:layout_gravity="center"
+        android:layout_marginTop="2dp"
         android:layout_weight="1"
         android:ellipsize="marquee"
         android:fadingEdge="horizontal"
         android:singleLine="true"
         android:textAppearance="@style/Theme.Phonograph.Notification"
+        android:textColor="@color/black04"
+        android:textSize="14sp"
+        tools:text="@string/app_name"
         />
 
   </LinearLayout>
 
   <LinearLayout
       android:id="@+id/media_actions"
-      android:layout_width="wrap_content"
+      android:layout_width="110dp"
       android:layout_height="28dp"
-      android:layout_alignParentStart="true"
-      android:layout_below="@+id/media_titles"
-      android:layout_marginBottom="12dp"
+      android:layout_above="@id/bottom_ll"
       android:layout_marginStart="6dp"
-      android:layout_toLeftOf="@id/image"
-      android:layoutDirection="ltr"
       android:orientation="horizontal"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      tools:ignore="UnusedAttribute"
       >
 
     <!-- media buttons will be added here -->
@@ -151,5 +171,13 @@
         />
 
   </LinearLayout>
-
-</android.support.constraint.ConstraintLayout>
+  <LinearLayout
+      android:id="@+id/bottom_ll"
+      android:layout_width="match_parent"
+      android:layout_height="12dp"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentStart="true"
+      android:orientation="horizontal"
+      >
+  </LinearLayout>
+</RelativeLayout>

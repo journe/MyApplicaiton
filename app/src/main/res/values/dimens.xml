@@ -8,4 +8,5 @@
   <dimen name="app_bar_height">180dp</dimen>
   <dimen name="text_margin">16dp</dimen>
   <dimen name="notification_big_image_size">117dp</dimen>
+  <dimen name="notification_small_image_size">92dp</dimen>
 </resources>
