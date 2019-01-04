@@ -7,6 +7,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.support.v4.app.NotificationCompat
 import android.text.TextUtils
 import android.view.View
@@ -21,7 +22,12 @@ class PlayingNotificationImpl : PlayingNotification() {
 
     val isPlaying = true
 
-    val notificationLayout = RemoteViews(service.packageName, R.layout.notification)
+    val notificationLayout =
+      if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
+        RemoteViews(service.packageName, R.layout.notification)
+      } else {
+        RemoteViews(service.packageName, R.layout.notification_24)
+      }
     val notificationLayoutBig = RemoteViews(service.packageName, R.layout.notification_big)
 
     val title = "爷爷泡的茶"
@@ -44,7 +50,7 @@ class PlayingNotificationImpl : PlayingNotification() {
       notificationLayoutBig.setTextViewText(R.id.text2, albumName)
     }
 
-    linkButtons(notificationLayout, notificationLayoutBig)
+//    linkButtons(notificationLayout, notificationLayoutBig)
 
     val action = Intent(service, MainActivity::class.java)
     action.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP

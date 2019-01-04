@@ -6,13 +6,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
-    android:layout_height="117dp"
+    android:layout_height="92dp"
+    android:background="@color/white"
     >
 
   <ImageView
       android:id="@+id/image"
-      android:layout_width="117dp"
-      android:layout_height="117dp"
+      android:layout_width="92dp"
+      android:layout_height="92dp"
       android:layout_alignParentEnd="true"
       android:layout_alignParentTop="true"
       android:scaleType="centerCrop"
@@ -22,7 +23,7 @@
       tools:ignore="ContentDescription"
       />
   <ImageView
-      android:layout_width="58dp"
+      android:layout_width="46dp"
       android:layout_height="match_parent"
       android:layout_alignParentTop="true"
       android:layout_alignStart="@+id/image"
@@ -52,7 +53,7 @@
       android:layout_marginEnd="8dp"
       android:layout_marginStart="14dp"
       android:layout_marginTop="4dp"
-      android:layout_toLeftOf="@id/image"
+      android:layout_toLeftOf="@id/media_actions"
       android:minHeight="@dimen/notification_large_icon_height"
       android:orientation="vertical"
       app:layout_constraintEnd_toStartOf="@+id/image"
@@ -96,7 +97,6 @@
         android:fadingEdge="horizontal"
         android:singleLine="true"
         android:textAppearance="@style/Theme.Phonograph.Notification"
-        android:textColor="@color/black"
         android:textSize="14sp"
         tools:text="@string/app_name"
         />
@@ -124,8 +124,11 @@
       android:layout_width="110dp"
       android:layout_height="28dp"
       android:layout_above="@id/bottom_ll"
-      android:layout_marginStart="6dp"
+      android:layout_alignParentEnd="true"
+      android:layout_marginEnd="55dp"
+      android:layoutDirection="ltr"
       android:orientation="horizontal"
+      tools:ignore="UnusedAttribute"
       >
 
     <!-- media buttons will be added here -->
@@ -174,7 +177,7 @@
   <LinearLayout
       android:id="@+id/bottom_ll"
       android:layout_width="match_parent"
-      android:layout_height="12dp"
+      android:layout_height="26dp"
       android:layout_alignParentBottom="true"
       android:layout_alignParentStart="true"
       android:orientation="horizontal"
