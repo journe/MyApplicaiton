@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:id="@+id/rootView"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivTreasure"
+        android:layout_width="75dp"
+        android:layout_height="60dp"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/tvTips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_main_treasure_tips"
+        android:layout_below="@id/ivTreasure"
+        android:layout_marginTop="-10dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:text="+30朵金花"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:id="@+id/llCountdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/ivTreasure"
+        android:layout_marginTop="-10dp"
+        android:background="@drawable/bg_main_treasure_tips_grey"
+        android:gravity="center"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/tvCountdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="#6b6d6b"
+            android:text="142:00 后"/>
+
+        <TextView
+            android:id="@+id/tvCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="#6b6d6b"
+            android:text="可领180朵金花"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

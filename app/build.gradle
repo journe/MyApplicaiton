@@ -43,4 +43,5 @@ dependencies {
   implementation 'cat.ereza:customactivityoncrash:2.2.0'
   implementation 'com.orhanobut:logger:2.2.0'
   implementation 'io.jsonwebtoken:jjwt:0.9.1'
+  implementation 'org.jetbrains.anko:anko:0.10.8'
 }
