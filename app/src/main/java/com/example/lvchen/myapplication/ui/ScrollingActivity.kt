@@ -4,14 +4,14 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
-import com.example.lvchen.myapplication.R.layout
+import com.example.lvchen.myapplication.R
 import kotlinx.android.synthetic.main.activity_scrolling.*
 
 class ScrollingActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(layout.activity_scrolling)
+    setContentView(R.layout.activity_scrolling)
     setSupportActionBar(story_detail_toolbar)
     story_detail_fab.setOnClickListener { view ->
       Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
