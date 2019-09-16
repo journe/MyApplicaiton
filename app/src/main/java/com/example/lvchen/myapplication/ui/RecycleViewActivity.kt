@@ -54,6 +54,21 @@ class RecycleViewActivity : AppCompatActivity() {
         newState: Int
       ) {
         super.onScrollStateChanged(recyclerView, newState)
+        when (newState) {
+          RecyclerView.SCROLL_STATE_DRAGGING -> {
+            treasureView.visibility = View.GONE
+          }
+          else -> {
+            treasureView.visibility = View.VISIBLE
+          }
+        }
+        //direction为 -1 表示手指向下滑动（屏幕向上滑动）， 1 表示手指向上滑动（屏幕向下滑动）
+        if (!recyclerView.canScrollVertically(1) || !recyclerView.canScrollVertically(-1)) {
+          treasureView.visibility = View.VISIBLE
+        } else {
+
+        }
+
       }
     })
 //    Looper.myQueue()
