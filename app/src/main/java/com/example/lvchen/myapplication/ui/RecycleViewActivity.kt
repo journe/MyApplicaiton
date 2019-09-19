@@ -1,5 +1,10 @@
 package com.example.lvchen.myapplication.ui
 
+import android.animation.Animator
+import android.animation.LayoutTransition
+import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Looper
 import android.support.v7.app.AppCompatActivity
@@ -8,6 +13,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -56,18 +63,22 @@ class RecycleViewActivity : AppCompatActivity() {
         super.onScrollStateChanged(recyclerView, newState)
         when (newState) {
           RecyclerView.SCROLL_STATE_DRAGGING -> {
-            treasureView.visibility = View.GONE
+//            treasureView.visibility = View.GONE
+            treasureView.animate().translationX(250f)
+//                .interpolator = AccelerateInterpolator()
           }
           else -> {
-            treasureView.visibility = View.VISIBLE
+//            treasureView.visibility = View.VISIBLE
+            treasureView.animate().translationX(-25f)
+//                .interpolator = DecelerateInterpolator()
           }
         }
         //direction为 -1 表示手指向下滑动（屏幕向上滑动）， 1 表示手指向上滑动（屏幕向下滑动）
-        if (!recyclerView.canScrollVertically(1) || !recyclerView.canScrollVertically(-1)) {
-          treasureView.visibility = View.VISIBLE
-        } else {
-
-        }
+//        if (!recyclerView.canScrollVertically(1) || !recyclerView.canScrollVertically(-1)) {
+//          treasureView.visibility = View.VISIBLE
+//        } else {
+//
+//        }
 
       }
     })
@@ -80,6 +91,7 @@ class RecycleViewActivity : AppCompatActivity() {
     initTreasureView()
   }
 
+  @SuppressLint("ObjectAnimatorBinding")
   private fun initTreasureView(): Boolean {
     val params = RelativeLayout.LayoutParams(
         ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
@@ -98,6 +110,35 @@ class RecycleViewActivity : AppCompatActivity() {
     treasureView.llCountdown.visibility = View.GONE
     treasureView.tvTips.text = "+25朵金花"
     recycleRootView.addView(treasureView, params)
+
+//    val transition  = LayoutTransition()
+//    recycleRootView.layoutTransition = transition
+//
+//    //使用翻转进入的动画代替默认动画
+//    val appearAnim = ObjectAnimator.ofFloat(null, "rotationY", 90f, 0f)
+//        .setDuration(transition.getDuration(LayoutTransition.APPEARING))
+//    transition.setAnimator(LayoutTransition.APPEARING, appearAnim)
+//
+//    //使用翻转消失的动画代替默认动画
+//    val disappearAnim = ObjectAnimator.ofFloat(null, "rotationX", 0f,
+//    90f).setDuration(
+//    transition.getDuration(LayoutTransition.DISAPPEARING))
+//    transition.setAnimator(LayoutTransition.DISAPPEARING, disappearAnim)
+
+    //使用滑动动画代替默认布局改变的动画
+    //这个动画会让视图滑动进入并短暂地缩小一半，具有平滑和缩放的效果
+//    val pvhSlide = PropertyValuesHolder.ofFloat("y", 0f, 1f)
+//    val pvhScaleY = PropertyValuesHolder.ofFloat("scaleY",
+//    1f, 0.5f, 1f)
+//    val pvhScaleX = PropertyValuesHolder.ofFloat("scaleX",
+//    1f, 0.5f, 1f)
+//
+//    //这里将上面三个动画综合
+//    val changingDisappearAnim = ObjectAnimator.ofPropertyValuesHolder(
+//        this, pvhSlide, pvhScaleY, pvhScaleX)
+//    changingDisappearAnim.duration = transition.getDuration(LayoutTransition.CHANGE_DISAPPEARING)
+//    transition.setAnimator(LayoutTransition.CHANGE_DISAPPEARING,
+//        changingDisappearAnim)
     return true
   }
 
