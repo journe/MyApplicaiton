@@ -27,6 +27,8 @@ import kotlinx.android.synthetic.main.app_bar_main.toolbar
 import kotlinx.android.synthetic.main.content_main.notification_btn
 import kotlinx.android.synthetic.main.content_main.viewpager_btn
 import kotlinx.android.synthetic.main.content_main.wallpaper_btn
+import com.alibaba.android.arouter.launcher.ARouter
+import kotlinx.android.synthetic.main.content_main.router_btn
 
 /**
  * @author lvchen
@@ -69,6 +71,13 @@ class MainActivity : AppCompatActivity(),
       startActivity(
           Intent(this, WallPaperActivity::class.java)
       )
+    }
+    router_btn.setOnClickListener {
+      ARouter.getInstance()
+          .build("/test/activity")
+          .withInt("audit", 666)
+          .withString("comment", "888")
+          .navigation()
     }
   }
 
