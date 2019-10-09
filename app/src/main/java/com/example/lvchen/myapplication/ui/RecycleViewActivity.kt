@@ -1,20 +1,13 @@
 package com.example.lvchen.myapplication.ui
 
-import android.animation.Animator
-import android.animation.LayoutTransition
-import android.animation.ObjectAnimator
-import android.animation.PropertyValuesHolder
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.os.Looper
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.PagerSnapHelper
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AccelerateInterpolator
-import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -22,14 +15,13 @@ import com.bumptech.glide.Glide
 import com.example.lvchen.myapplication.R
 import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.activity_recycle_view.recycleRootView
+import kotlinx.android.synthetic.main.activity_recycle_view.recycle_view
 import kotlinx.android.synthetic.main.layout_main_treasure.view.ivTreasure
 import kotlinx.android.synthetic.main.layout_main_treasure.view.llCountdown
 import kotlinx.android.synthetic.main.layout_main_treasure.view.tvTips
 import org.jetbrains.anko.dip
 
 class RecycleViewActivity : AppCompatActivity() {
-
-  private lateinit var mViewRecyclerView: RecyclerView
 
   private val proName = arrayOf(
       "名称0", "名称1", "名称2", "名称3", "名称4", "名称5",
@@ -44,10 +36,8 @@ class RecycleViewActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_recycle_view)
-    mViewRecyclerView = findViewById(R.id.recycle_view)
-    mViewRecyclerView.layoutManager = LinearLayoutManager(this)
-    mViewRecyclerView.adapter = MyRecycleAdapter()
-    mViewRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+    recycle_view.adapter = MyRecycleAdapter()
+    recycle_view.addOnScrollListener(object : RecyclerView.OnScrollListener() {
       override fun onScrolled(
         recyclerView: RecyclerView,
         dx: Int,
@@ -61,6 +51,7 @@ class RecycleViewActivity : AppCompatActivity() {
         newState: Int
       ) {
         super.onScrollStateChanged(recyclerView, newState)
+        Logger.d(newState)
         when (newState) {
           RecyclerView.SCROLL_STATE_DRAGGING -> {
 //            treasureView.visibility = View.GONE
@@ -84,6 +75,21 @@ class RecycleViewActivity : AppCompatActivity() {
     })
 //    Looper.myQueue()
 //        .addIdleHandler { initTreasureView() }
+
+    val snapHelper = object : PagerSnapHelper() {
+      override fun findTargetSnapPosition(layoutManager: RecyclerView.LayoutManager?, velocityX: Int, velocityY: Int): Int {
+        val position = super.findTargetSnapPosition(layoutManager, velocityX, velocityY)
+
+//        if (position >= 0 && position < feedVideoAdapter.data.size) {
+//          feedVideoAdapter.data[position]?.let {
+//            switchVideo(it, position)
+//          }
+//        }
+
+        return position
+      }
+    }
+    snapHelper.attachToRecyclerView(recycle_view)
   }
 
   override fun onResume() {
@@ -150,7 +156,7 @@ class RecycleViewActivity : AppCompatActivity() {
     ): RecycleViewHolder {
       return RecycleViewHolder(
           LayoutInflater.from(this@RecycleViewActivity)
-              .inflate(R.layout.view_pager_grid_view_item, null)
+              .inflate(R.layout.view_recycle_view_item, null)
       )
     }
 

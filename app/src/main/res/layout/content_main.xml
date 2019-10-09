@@ -58,5 +58,15 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/notification_btn"
       />
+  <Button
+      android:id="@+id/catalogue"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="catalogue"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/router_btn"
+      />
 
 </android.support.constraint.ConstraintLayout>

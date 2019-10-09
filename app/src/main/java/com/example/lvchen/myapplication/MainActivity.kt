@@ -24,11 +24,9 @@ import kotlinx.android.synthetic.main.activity_main.drawer_layout
 import kotlinx.android.synthetic.main.activity_main.nav_view
 import kotlinx.android.synthetic.main.app_bar_main.fab
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
-import kotlinx.android.synthetic.main.content_main.notification_btn
-import kotlinx.android.synthetic.main.content_main.viewpager_btn
-import kotlinx.android.synthetic.main.content_main.wallpaper_btn
+import kotlinx.android.synthetic.main.content_main.*
 import com.alibaba.android.arouter.launcher.ARouter
-import kotlinx.android.synthetic.main.content_main.router_btn
+import com.example.lvchen.myapplication.ui.CatalogueActivity
 
 /**
  * @author lvchen
@@ -72,11 +70,16 @@ class MainActivity : AppCompatActivity(),
           Intent(this, WallPaperActivity::class.java)
       )
     }
+    catalogue.setOnClickListener {
+      startActivity(
+          Intent(this, CatalogueActivity::class.java)
+      )
+    }
     router_btn.setOnClickListener {
       ARouter.getInstance()
-          .build("/test/activity")
-          .withInt("audit", 666)
-          .withString("comment", "888")
+          .build("/test/activity2")
+//          .withInt("audit", 666)
+//          .withString("comment", "888")
           .navigation()
     }
   }
