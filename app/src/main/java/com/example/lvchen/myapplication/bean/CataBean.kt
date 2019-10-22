@@ -5,6 +5,7 @@ package com.example.lvchen.myapplication.bean
  */
 data class CataBean(
   val name: String,
+  val itemIcon: Int = 0,
   val cataList: ArrayList<CataItem>
 )
 

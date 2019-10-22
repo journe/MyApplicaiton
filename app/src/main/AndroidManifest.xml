@@ -21,7 +21,8 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme"
       tools:ignore="GoogleAppIndexingWarning">
-    <activity android:name=".ui.CatalogueActivity"></activity>
+    <activity android:name=".ui.Catalogue2Activity"></activity>
+    <activity android:name=".ui.CatalogueActivity" />
     <activity android:name=".ui.BaseActivity" />
     <activity android:name=".ui.ArouterActivity" />
     <activity android:name=".ui.Arouter2Activity" />

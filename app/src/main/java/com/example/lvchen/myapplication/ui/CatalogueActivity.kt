@@ -20,13 +20,11 @@ class CatalogueActivity : AppCompatActivity() {
 
   val cataBeans = arrayListOf<CataBean>()
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_catalogue)
+  init {
 
     cataBeans.add(
         CataBean(
-            name = "健康养生", cataList = arrayListOf(
+            name = "健康养生", itemIcon = R.mipmap.ic_launcher_round, cataList = arrayListOf(
             CataItem(itemName = "养生课堂", itemIcon = R.mipmap.ic_launcher_round),
             CataItem(itemName = "减肥1", itemIcon = R.mipmap.ic_launcher_round),
             CataItem(itemName = "减肥2", itemIcon = R.mipmap.ic_launcher_round),
@@ -38,7 +36,7 @@ class CatalogueActivity : AppCompatActivity() {
     )
     cataBeans.add(
         CataBean(
-            name = "穿搭百科", cataList = arrayListOf(
+            name = "穿搭百科", itemIcon = R.mipmap.ic_launcher_round, cataList = arrayListOf(
             CataItem(itemName = "穿搭百科1", itemIcon = R.mipmap.ic_launcher_round),
             CataItem(itemName = "穿搭百科2", itemIcon = R.mipmap.ic_launcher_round),
             CataItem(itemName = "穿搭百科3", itemIcon = R.mipmap.ic_launcher_round),
@@ -50,7 +48,7 @@ class CatalogueActivity : AppCompatActivity() {
     )
     cataBeans.add(
         CataBean(
-            name = "美食相关", cataList = arrayListOf(
+            name = "美食相关", itemIcon = R.mipmap.ic_launcher_round, cataList = arrayListOf(
             CataItem(itemName = "美食相关1", itemIcon = R.mipmap.ic_launcher_round),
             CataItem(itemName = "美食相关2", itemIcon = R.mipmap.ic_launcher_round),
             CataItem(itemName = "美食相关3", itemIcon = R.mipmap.ic_launcher_round),
@@ -62,7 +60,7 @@ class CatalogueActivity : AppCompatActivity() {
     )
     cataBeans.add(
         CataBean(
-            name = "美妆个护", cataList = arrayListOf(
+            name = "美妆个护", itemIcon = R.mipmap.ic_launcher_round, cataList = arrayListOf(
             CataItem(itemName = "美妆个护1", itemIcon = R.mipmap.ic_launcher_round),
             CataItem(itemName = "美妆个护2", itemIcon = R.mipmap.ic_launcher_round),
             CataItem(itemName = "美妆个护3", itemIcon = R.mipmap.ic_launcher_round),
@@ -71,12 +69,17 @@ class CatalogueActivity : AppCompatActivity() {
         )
         )
     )
+  }
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_catalogue)
 
     catalogue_rv.adapter = getCataAdapter(cataBeans)
     catalogue_item_rv.adapter = getCataItemAdapter(cataBeans[0].cataList)
   }
 
-  private fun changeCataItem(position:Int){
+  private fun changeCataItem(position: Int) {
     catalogue_item_rv.adapter = getCataItemAdapter(cataBeans[position].cataList)
   }
 

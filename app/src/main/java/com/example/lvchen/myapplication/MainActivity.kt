@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.app_bar_main.fab
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
 import kotlinx.android.synthetic.main.content_main.*
 import com.alibaba.android.arouter.launcher.ARouter
+import com.example.lvchen.myapplication.ui.Catalogue2Activity
 import com.example.lvchen.myapplication.ui.CatalogueActivity
 
 /**
@@ -73,6 +74,11 @@ class MainActivity : AppCompatActivity(),
     catalogue.setOnClickListener {
       startActivity(
           Intent(this, CatalogueActivity::class.java)
+      )
+    }
+    catalogue2.setOnClickListener {
+      startActivity(
+          Intent(this, Catalogue2Activity::class.java)
       )
     }
     router_btn.setOnClickListener {
