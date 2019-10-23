@@ -13,13 +13,14 @@
     <item name="windowNoTitle">true</item>
   </style>
 
-  <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+  <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-  <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+  <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
   <style name="style_textsize">
     <item name="android:textSize">22sp</item>
   </style>
+
   <style name="Theme.Phonograph.Notification" parent="@android:style/TextAppearance.Material.Notification" />
 
   <style name="Theme.Phonograph.Notification.Title" parent="@android:style/TextAppearance.Material.Notification.Title" />

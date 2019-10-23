@@ -9,4 +9,6 @@
   <dimen name="text_margin">16dp</dimen>
   <dimen name="notification_big_image_size">117dp</dimen>
   <dimen name="notification_small_image_size">92dp</dimen>
+  <dimen name="appbar_padding">16dp</dimen>
+  <dimen name="appbar_padding_top">8dp</dimen>
 </resources>

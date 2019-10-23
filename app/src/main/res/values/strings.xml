@@ -103,4 +103,7 @@
   <string name="action_play_pause">play_pause</string>
   <string name="action_previous">previous</string>
   <string name="action_next">next</string>
+  <string name="title_activity_topic_list">TopicListActivity</string>
+  <string name="tab_text_1">Tab 1</string>
+  <string name="tab_text_2">Tab 2</string>
 </resources>

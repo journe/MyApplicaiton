@@ -1,15 +1,16 @@
 package com.example.lvchen.myapplication.ui
 
-import android.support.v7.app.AppCompatActivity
+import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
-import android.view.View
+import android.support.v7.app.AppCompatActivity
 import com.example.lvchen.myapplication.R
 import com.example.lvchen.myapplication.R.mipmap
 import com.example.lvchen.myapplication.bean.CataBean
 import com.example.lvchen.myapplication.bean.CataItem
 import com.zhy.adapter.recyclerview.CommonAdapter
 import com.zhy.adapter.recyclerview.base.ViewHolder
-import kotlinx.android.synthetic.main.activity_catalogue2.*
+import kotlinx.android.synthetic.main.activity_catalogue2.cata2_rv
 
 class Catalogue2Activity : AppCompatActivity() {
 
@@ -73,24 +74,71 @@ class Catalogue2Activity : AppCompatActivity() {
 
   private fun getCataAdapter(cataBeans: ArrayList<CataBean>): CommonAdapter<CataBean> {
     return object : CommonAdapter<CataBean>(this, R.layout.item_catalogue_grid, cataBeans) {
-      var lastPosition = 0
+      var count = cataBeans.size
       override fun convert(
         holder: ViewHolder?,
-        t: CataBean?,
+        bean: CataBean?,
         position: Int
       ) {
-        holder?.setText(R.id.catalogue_tag_name, t?.name)
-        holder?.setImageResource(R.id.catalogue_tag_iv, t?.itemIcon!!)
-//        holder?.setOnClickListener(
-//            R.id.linearLayout
-//        ) { v ->
-//          if (position != lastPosition) {
-//            v.isSelected = true
+        //二级菜单
+        if (bean!!.cataList.isEmpty()) {
+          holder?.setBackgroundColor(R.id.catalogue_tag_iv, Color.WHITE)
+        } else {
+          holder?.setBackgroundColor(R.id.catalogue_tag_iv, Color.GRAY)
+        }
+        holder?.setText(R.id.catalogue_tag_name, bean?.name)
+        holder?.setImageResource(R.id.catalogue_tag_iv, bean?.itemIcon!!)
+
+        holder?.setOnClickListener(
+            R.id.catalogue_tag_cl
+        ) { v ->
+          if (bean.cataList.isEmpty()) {
+            startActivity(Intent(this@Catalogue2Activity,TopicListActivity::class.java))
+            return@setOnClickListener
+          }
+          if (!bean.isExpend) {
+            val cata2 = bean.cataList.map {
+              CataBean(it.itemName, it.itemIcon, cataList = arrayListOf())
+            }
+            count += cata2.size
+            cataBeans.addAll(position + 1, cata2)
+
+            //插入或者移除后其他的item中的position不会变
+            notifyItemRangeInserted(position + 1, cata2.size)
+            //刷新后面的item更新position
+            notifyItemRangeChanged(position + cata2.size, count)
+//            notifyItemRangeChanged(0, count, "change_position")
 //            notifyDataSetChanged()
-//          }
-//          lastPosition = position
+          } else {
+            count -= bean.cataList.size
+            bean.cataList.forEach { item ->
+              cataBeans.removeAll { it.name == item.itemName }
+            }
+//            notifyItemMoved(position + 1, position + 1 + bean.cataList.size)
+            notifyDataSetChanged()
+          }
+          bean.isExpend = !bean.isExpend
+        }
+
+      }
+
+//      override fun onBindViewHolder(
+//        holder: ViewHolder,
+//        position: Int,
+//        payloads: MutableList<Any>
+//      ) {
+//        if (payloads.isEmpty()) {
+//          super.onBindViewHolder(holder, position, payloads)
+//        } else {
+//          val str = payloads[0] as String
+//          Logger.d(position)
+//          holder.setTag(R.id.catalogue_tag_name, position)
+//          holder.position
 //        }
-//        holder?.getView<View>(R.id.linearLayout)!!.isSelected = lastPosition == position
+//      }
+
+      override fun getItemCount(): Int {
+        return count
       }
     }
   }

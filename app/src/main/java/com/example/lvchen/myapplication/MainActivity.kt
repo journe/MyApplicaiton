@@ -7,12 +7,10 @@ import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import cn.idaddy.android.opensdk.lib.IdaddySdk
-import com.example.lvchen.myapplication.ui.FragmentActivity
 import com.example.lvchen.myapplication.ui.GranzortViewActivity
 import com.example.lvchen.myapplication.ui.NotificationActivity
 import com.example.lvchen.myapplication.ui.RecycleViewActivity
@@ -26,13 +24,14 @@ import kotlinx.android.synthetic.main.app_bar_main.fab
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
 import kotlinx.android.synthetic.main.content_main.*
 import com.alibaba.android.arouter.launcher.ARouter
+import com.example.lvchen.myapplication.ui.BaseActivity
 import com.example.lvchen.myapplication.ui.Catalogue2Activity
 import com.example.lvchen.myapplication.ui.CatalogueActivity
 
 /**
  * @author lvchen
  */
-class MainActivity : AppCompatActivity(),
+class MainActivity : BaseActivity(),
     NavigationView.OnNavigationItemSelectedListener {
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -119,7 +118,7 @@ class MainActivity : AppCompatActivity(),
   override fun onNavigationItemSelected(item: MenuItem): Boolean {
     // Handle navigation view item clicks here.
     when (item.itemId) {
-      R.id.nav_camera -> startActivity(Intent(this, FragmentActivity::class.java))
+//      R.id.nav_camera -> startActivity(Intent(this, FragmentActivity::class.java))
       R.id.nav_manage -> startActivity(Intent(this, ScrollingActivity::class.java))
       R.id.nav_gallery -> startActivity(Intent(this, RecycleViewActivity::class.java))
       R.id.nav_slideshow -> startActivity(Intent(this, GranzortViewActivity::class.java))
