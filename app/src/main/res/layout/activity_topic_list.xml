@@ -5,24 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.TopicListActivity"
+
     >
 
   <android.support.design.widget.AppBarLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:background="@drawable/bg_cata2_topic_list"
       android:theme="@style/AppTheme.AppBarOverlay"
       >
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.CollapsingToolbarLayout
+        android:id="@+id/story_detail_toolbar_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:minHeight="?actionBarSize"
-        android:padding="@dimen/appbar_padding"
-        android:text="@string/app_name"
-        android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
-        />
+        android:fitsSystemWindows="true"
+        app:contentScrim="@color/white"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed"
+        app:titleEnabled="true"
+        app:toolbarId="@+id/story_detail_toolbar"
+        >
+      <android.support.v7.widget.RecyclerView
+          android:layout_width="match_parent"
+          android:layout_height="300dp"
+          />
+      <android.support.v7.widget.Toolbar
+          android:id="@+id/story_detail_toolbar"
+          android:layout_width="match_parent"
+          android:layout_height="?attr/actionBarSize"
+          app:contentScrim="@color/black"
+          app:layout_collapseMode="pin"
+          app:popupTheme="@style/AppTheme.PopupOverlay"
+          app:title="topiclist"
+          ></android.support.v7.widget.Toolbar>
+    </android.support.design.widget.CollapsingToolbarLayout>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabs"

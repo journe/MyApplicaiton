@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+  <FrameLayout
+      android:id="@+id/flCountdown"
+      android:layout_width="33dp"
+      android:layout_height="33dp"
+      >
+
+    <ImageView
+        android:id="@+id/ivCenter"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_baby_head_img_def"
+        />
+
+
+  </FrameLayout>
+  <TextView
+      android:id="@+id/tvIncome"
+      android:layout_width="33dp"
+      android:layout_height="33dp"
+      android:alpha="0"
+      android:gravity="center"
+      android:text="+100"
+      android:textSize="18sp"
+      />
+</RelativeLayout>

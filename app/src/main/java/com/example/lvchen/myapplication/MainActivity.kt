@@ -7,10 +7,19 @@ import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
+import android.widget.FrameLayout
 import cn.idaddy.android.opensdk.lib.IdaddySdk
+import com.alibaba.android.arouter.launcher.ARouter
+import com.example.lvchen.myapplication.ui.BaseActivity
+import com.example.lvchen.myapplication.ui.Catalogue2Activity
+import com.example.lvchen.myapplication.ui.CatalogueActivity
+import com.example.lvchen.myapplication.ui.CountDownViewWrap2
 import com.example.lvchen.myapplication.ui.GranzortViewActivity
 import com.example.lvchen.myapplication.ui.NotificationActivity
 import com.example.lvchen.myapplication.ui.RecycleViewActivity
@@ -22,11 +31,14 @@ import kotlinx.android.synthetic.main.activity_main.drawer_layout
 import kotlinx.android.synthetic.main.activity_main.nav_view
 import kotlinx.android.synthetic.main.app_bar_main.fab
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
-import kotlinx.android.synthetic.main.content_main.*
-import com.alibaba.android.arouter.launcher.ARouter
-import com.example.lvchen.myapplication.ui.BaseActivity
-import com.example.lvchen.myapplication.ui.Catalogue2Activity
-import com.example.lvchen.myapplication.ui.CatalogueActivity
+import kotlinx.android.synthetic.main.content_main.catalogue
+import kotlinx.android.synthetic.main.content_main.catalogue2
+import kotlinx.android.synthetic.main.content_main.main_frameLayout
+import kotlinx.android.synthetic.main.content_main.notification_btn
+import kotlinx.android.synthetic.main.content_main.router_btn
+import kotlinx.android.synthetic.main.content_main.viewpager_btn
+import kotlinx.android.synthetic.main.content_main.wallpaper_btn
+import org.jetbrains.anko.dip
 
 /**
  * @author lvchen
@@ -34,11 +46,30 @@ import com.example.lvchen.myapplication.ui.CatalogueActivity
 class MainActivity : BaseActivity(),
     NavigationView.OnNavigationItemSelectedListener {
 
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
     setSupportActionBar(toolbar)
-
+    val cdView = CountDownViewWrap2(this, null)
+    main_frameLayout.addView(cdView)
+    cdView.layoutParams = (cdView.layoutParams as FrameLayout.LayoutParams).apply {
+      topMargin = dip(36)
+      rightMargin = dip(80)
+      gravity = Gravity.RIGHT
+      width = ViewGroup.LayoutParams.WRAP_CONTENT
+      height = ViewGroup.LayoutParams.WRAP_CONTENT
+    }
+    cdView.isClickable = true
+    cdView.setOnTouchListener(object :View.OnTouchListener{
+      override fun onTouch(
+        v: View?,
+        event: MotionEvent?
+      ): Boolean {
+        MetTouchLeftClick(event!!,v!!)
+        return true
+      }
+    })
     fab.setOnClickListener { view ->
       Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
           .setAction("Action", null)
@@ -86,6 +117,42 @@ class MainActivity : BaseActivity(),
 //          .withInt("audit", 666)
 //          .withString("comment", "888")
           .navigation()
+    }
+  }
+
+  var y1 = 0;
+  var newY = 0;
+  var dY = 0;
+  var dX = 0;
+  var newX = 0;
+  var x1 = 0;
+
+  private fun MetTouchLeftClick(
+    event: MotionEvent,
+    cdView: View
+  ) {
+    when (event.action) {
+      MotionEvent.ACTION_DOWN -> {
+        //当手指按下的时候
+        x1 = event.rawX.toInt()
+        y1 = event.rawY.toInt()
+      }
+      MotionEvent.ACTION_MOVE -> {
+        newY = event.rawY.toInt()
+        newX = event.rawX.toInt()
+        dY = newY - y1
+        dX = newX - x1
+        var l = cdView.getLeft()
+        var t = cdView.getTop()
+        l += dX
+        t += dY
+        val r = l + cdView.getWidth()
+        val b = t + cdView.getHeight()
+        cdView.layout(l, t, r, b)
+
+        x1 = newX
+        y1 = newY
+      }
     }
   }
 
