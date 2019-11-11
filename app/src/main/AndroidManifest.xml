@@ -21,10 +21,14 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme"
       tools:ignore="GoogleAppIndexingWarning">
+    <activity android:name=".ui.WaterFallDetailActivity"
+        android:theme="@style/PlanetDetailTheme"
+        />
+    <activity android:name=".ui.WaterFallActivity" />
     <activity
         android:name=".ui.TopicListActivity"
         android:label="@string/title_activity_topic_list"
-        android:theme="@style/AppTheme.NoActionBar"></activity>
+        android:theme="@style/AppTheme.NoActionBar" />
     <activity android:name=".ui.Catalogue2Activity" />
     <activity android:name=".ui.CatalogueActivity" />
     <activity android:name=".ui.BaseActivity" />

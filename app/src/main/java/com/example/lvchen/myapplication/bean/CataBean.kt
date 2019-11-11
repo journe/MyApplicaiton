@@ -14,3 +14,7 @@ data class CataItem(
   val itemName: String,
   val itemIcon: Int
 )
+data class WaterFallItemData(
+  var topicVideo: String = ""
+
+)

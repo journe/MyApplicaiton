@@ -24,5 +24,8 @@
   <style name="Theme.Phonograph.Notification" parent="@android:style/TextAppearance.Material.Notification" />
 
   <style name="Theme.Phonograph.Notification.Title" parent="@android:style/TextAppearance.Material.Notification.Title" />
-
+  <style name="PlanetDetailTheme" parent="AppTheme.NoActionBar">
+    <item name="android:windowEnterTransition">@transition/enter_transform_planet_detail</item>
+    <item name="android:windowSharedElementEnterTransition">@transition/change_image_transform</item>
+  </style>
 </resources>
