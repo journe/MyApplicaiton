@@ -14,6 +14,7 @@ import android.view.MenuItem
 import android.view.View
 import cn.idaddy.android.opensdk.lib.IdaddySdk
 import com.alibaba.android.arouter.launcher.ARouter
+import com.example.lvchen.myapplication.network.NetworkService
 import com.example.lvchen.myapplication.ui.BaseActivity
 import com.example.lvchen.myapplication.ui.Catalogue2Activity
 import com.example.lvchen.myapplication.ui.CatalogueActivity
@@ -25,11 +26,16 @@ import com.example.lvchen.myapplication.ui.ViewPagerActivity
 import com.example.lvchen.myapplication.ui.WallPaperActivity
 import com.example.lvchen.myapplication.ui.WaterFallActivity
 import com.example.lvchen.myapplication.ui.XiaoAiTestActivity
+import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.activity_main.drawer_layout
 import kotlinx.android.synthetic.main.activity_main.nav_view
 import kotlinx.android.synthetic.main.app_bar_main.fab
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
 import kotlinx.android.synthetic.main.content_main.*
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * @author lvchen
@@ -110,6 +116,24 @@ class MainActivity : AppCompatActivity(),
 //          .withString("comment", "888")
           .navigation()
     }
+    NetworkService.apiService.sendVerifyCode2("18512527462")
+        .enqueue(object :
+            Callback<ResponseBody> {
+          override fun onFailure(
+            call: Call<ResponseBody>,
+            t: Throwable
+          ) {
+            Logger.d(t.message)
+          }
+
+          override fun onResponse(
+            call: Call<ResponseBody>,
+            response: Response<ResponseBody>
+          ) {
+            Logger.d(response.body().toString())
+          }
+
+        })
   }
 
   override fun onBackPressed() {

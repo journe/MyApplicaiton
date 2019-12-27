@@ -21,9 +21,12 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme"
       tools:ignore="GoogleAppIndexingWarning">
-    <activity android:name=".ui.WaterFallDetailActivity"
-        android:theme="@style/PlanetDetailTheme"
-        />
+    <activity
+        android:name=".ui.login.LoginActivity"
+        android:label="@string/title_activity_login"></activity>
+    <activity
+        android:name=".ui.WaterFallDetailActivity"
+        android:theme="@style/PlanetDetailTheme" />
     <activity android:name=".ui.WaterFallActivity" />
     <activity
         android:name=".ui.TopicListActivity"
