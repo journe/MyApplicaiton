@@ -5,11 +5,11 @@ import android.content.Intent
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.support.graphics.drawable.Animatable2Compat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.RecyclerView.State
-import android.support.v7.widget.StaggeredGridLayoutManager
+import androidx.vectordrawable.graphics.drawable.Animatable2Compat
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.State
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide
@@ -43,11 +43,11 @@ class WaterFallActivity : AppCompatActivity() {
       items.add(WaterFallItemData(topicVideo = it))
     }
     water_recycle_view.adapter = getCataItemAdapter(items)
-    water_recycle_view.addItemDecoration(object : RecyclerView.ItemDecoration() {
+    water_recycle_view.addItemDecoration(object : androidx.recyclerview.widget.RecyclerView.ItemDecoration() {
       override fun getItemOffsets(
         outRect: Rect,
         view: View,
-        parent: RecyclerView,
+        parent: androidx.recyclerview.widget.RecyclerView,
         state: State
       ) {
         super.getItemOffsets(outRect, view, parent, state)
@@ -57,9 +57,9 @@ class WaterFallActivity : AppCompatActivity() {
         outRect.bottom = dip(8)
       }
     })
-    water_recycle_view.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+    water_recycle_view.addOnScrollListener(object : androidx.recyclerview.widget.RecyclerView.OnScrollListener() {
       override fun onScrollStateChanged(
-        recyclerView: RecyclerView,
+        recyclerView: androidx.recyclerview.widget.RecyclerView,
         newState: Int
       ) {
         super.onScrollStateChanged(recyclerView, newState)
@@ -88,7 +88,7 @@ class WaterFallActivity : AppCompatActivity() {
   }
 
   fun getVisibleItemsId(): ArrayList<Int> {
-    val lm = water_recycle_view.layoutManager as StaggeredGridLayoutManager
+    val lm = water_recycle_view.layoutManager as androidx.recyclerview.widget.StaggeredGridLayoutManager
     val startId = lm.findFirstVisibleItemPositions(null)[0]
     val lastIds = lm.findLastVisibleItemPositions(null)
     val lastId = lastIds[lastIds.size - 1]

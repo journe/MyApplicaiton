@@ -2,9 +2,9 @@ package com.example.lvchen.myapplication.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.PagerSnapHelper
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,9 +37,9 @@ class RecycleViewActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_recycle_view)
     recycle_view.adapter = MyRecycleAdapter()
-    recycle_view.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+    recycle_view.addOnScrollListener(object : androidx.recyclerview.widget.RecyclerView.OnScrollListener() {
       override fun onScrolled(
-        recyclerView: RecyclerView,
+        recyclerView: androidx.recyclerview.widget.RecyclerView,
         dx: Int,
         dy: Int
       ) {
@@ -47,13 +47,13 @@ class RecycleViewActivity : AppCompatActivity() {
       }
 
       override fun onScrollStateChanged(
-        recyclerView: RecyclerView,
+        recyclerView: androidx.recyclerview.widget.RecyclerView,
         newState: Int
       ) {
         super.onScrollStateChanged(recyclerView, newState)
         Logger.d(newState)
         when (newState) {
-          RecyclerView.SCROLL_STATE_DRAGGING -> {
+          androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_DRAGGING -> {
 //            treasureView.visibility = View.GONE
             treasureView.animate().translationX(250f)
 //                .interpolator = AccelerateInterpolator()
@@ -76,8 +76,8 @@ class RecycleViewActivity : AppCompatActivity() {
 //    Looper.myQueue()
 //        .addIdleHandler { initTreasureView() }
 
-    val snapHelper = object : PagerSnapHelper() {
-      override fun findTargetSnapPosition(layoutManager: RecyclerView.LayoutManager?, velocityX: Int, velocityY: Int): Int {
+    val snapHelper = object : androidx.recyclerview.widget.PagerSnapHelper() {
+      override fun findTargetSnapPosition(layoutManager: androidx.recyclerview.widget.RecyclerView.LayoutManager?, velocityX: Int, velocityY: Int): Int {
         val position = super.findTargetSnapPosition(layoutManager, velocityX, velocityY)
 
 //        if (position >= 0 && position < feedVideoAdapter.data.size) {
@@ -148,7 +148,7 @@ class RecycleViewActivity : AppCompatActivity() {
     return true
   }
 
-  internal inner class MyRecycleAdapter : RecyclerView.Adapter<MyRecycleAdapter.RecycleViewHolder>() {
+  internal inner class MyRecycleAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<MyRecycleAdapter.RecycleViewHolder>() {
 
     override fun onCreateViewHolder(
       parent: ViewGroup,
@@ -172,7 +172,7 @@ class RecycleViewActivity : AppCompatActivity() {
       return proName.size
     }
 
-    internal inner class RecycleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    internal inner class RecycleViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
       var imageView: ImageView = itemView.findViewById(R.id.grid_item_iv)
       var textView: TextView = itemView.findViewById(R.id.grid_item_tv)
     }

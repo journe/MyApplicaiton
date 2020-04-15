@@ -1,7 +1,7 @@
 package com.example.lvchen.myapplication.ui.login
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.lvchen.myapplication.data.LoginDataSource
 import com.example.lvchen.myapplication.data.LoginRepository
 

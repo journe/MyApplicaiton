@@ -3,7 +3,7 @@ package com.example.lvchen.myapplication.ui
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.example.lvchen.myapplication.R
 import com.example.lvchen.myapplication.R.mipmap
 import com.example.lvchen.myapplication.bean.CataBean

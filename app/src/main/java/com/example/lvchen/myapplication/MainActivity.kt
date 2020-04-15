@@ -3,39 +3,32 @@ package com.example.lvchen.myapplication
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
-import android.support.v4.view.GravityCompat
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import cn.idaddy.android.opensdk.lib.IdaddySdk
 import com.alibaba.android.arouter.launcher.ARouter
-import com.example.lvchen.myapplication.network.NetworkService
-import com.example.lvchen.myapplication.ui.BaseActivity
 import com.example.lvchen.myapplication.ui.Catalogue2Activity
 import com.example.lvchen.myapplication.ui.CatalogueActivity
 import com.example.lvchen.myapplication.ui.GranzortViewActivity
 import com.example.lvchen.myapplication.ui.NotificationActivity
 import com.example.lvchen.myapplication.ui.RecycleViewActivity
-import com.example.lvchen.myapplication.ui.ScrollingActivity
+import com.example.lvchen.myapplication.ui.CoordinatorLayoutActivity
 import com.example.lvchen.myapplication.ui.ViewPagerActivity
 import com.example.lvchen.myapplication.ui.WallPaperActivity
 import com.example.lvchen.myapplication.ui.WaterFallActivity
 import com.example.lvchen.myapplication.ui.XiaoAiTestActivity
-import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.activity_main.drawer_layout
 import kotlinx.android.synthetic.main.activity_main.nav_view
 import kotlinx.android.synthetic.main.app_bar_main.fab
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
 import kotlinx.android.synthetic.main.content_main.*
-import okhttp3.ResponseBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 /**
  * @author lvchen
@@ -116,28 +109,28 @@ class MainActivity : AppCompatActivity(),
 //          .withString("comment", "888")
           .navigation()
     }
-    NetworkService.apiService.sendVerifyCode2("18512527462")
-        .enqueue(object :
-            Callback<ResponseBody> {
-          override fun onFailure(
-            call: Call<ResponseBody>,
-            t: Throwable
-          ) {
-            Logger.d(t.message)
-          }
-
-          override fun onResponse(
-            call: Call<ResponseBody>,
-            response: Response<ResponseBody>
-          ) {
-            Logger.d(response.body().toString())
-          }
-
-        })
+//    NetworkService.apiService.sendVerifyCode2("18512527462")
+//        .enqueue(object :
+//            Callback<ResponseBody> {
+//          override fun onFailure(
+//            call: Call<ResponseBody>,
+//            t: Throwable
+//          ) {
+//            Logger.d(t.message)
+//          }
+//
+//          override fun onResponse(
+//            call: Call<ResponseBody>,
+//            response: Response<ResponseBody>
+//          ) {
+//            Logger.d(response.body().toString())
+//          }
+//
+//        })
   }
 
   override fun onBackPressed() {
-    val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
+    val drawer = findViewById<View>(R.id.drawer_layout) as androidx.drawerlayout.widget.DrawerLayout
     if (drawer.isDrawerOpen(GravityCompat.START)) {
       drawer.closeDrawer(GravityCompat.START)
     } else {
@@ -166,14 +159,14 @@ class MainActivity : AppCompatActivity(),
     // Handle navigation view item clicks here.
     when (item.itemId) {
 //      R.id.nav_camera -> startActivity(Intent(this, FragmentActivity::class.java))
-      R.id.nav_manage -> startActivity(Intent(this, ScrollingActivity::class.java))
+      R.id.nav_manage -> startActivity(Intent(this, CoordinatorLayoutActivity::class.java))
       R.id.nav_gallery -> startActivity(Intent(this, RecycleViewActivity::class.java))
       R.id.nav_slideshow -> startActivity(Intent(this, GranzortViewActivity::class.java))
       R.id.nav_share -> IdaddySdk.start()
       R.id.nav_send -> startActivity(Intent(this, XiaoAiTestActivity::class.java))
     }
 
-    val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
+    val drawer = findViewById<View>(R.id.drawer_layout) as androidx.drawerlayout.widget.DrawerLayout
     drawer.closeDrawer(GravityCompat.START)
     return true
   }

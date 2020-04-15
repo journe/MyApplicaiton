@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.CatalogueActivity"
     >
-  <android.support.v7.widget.RecyclerView
+  <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/catalogue_rv"
       android:layout_width="110dp"
       android:layout_height="match_parent"
       android:background="#f6f6f6"
-      app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       tools:listitem="@layout/item_catalogue"
       >
 
-  </android.support.v7.widget.RecyclerView>
+  </androidx.recyclerview.widget.RecyclerView>
 
-  <android.support.v7.widget.RecyclerView
+  <androidx.recyclerview.widget.RecyclerView
       android:background="@color/white"
       android:id="@+id/catalogue_item_rv"
       android:layout_width="0dp"
       android:layout_height="match_parent"
-      app:layoutManager="android.support.v7.widget.GridLayoutManager"
+      app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toEndOf="@+id/catalogue_rv"
@@ -33,4 +33,4 @@
       app:spanCount="3"
       tools:listitem="@layout/item_catalogue_grid"
       />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
