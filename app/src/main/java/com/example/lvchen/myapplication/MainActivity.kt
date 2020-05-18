@@ -6,7 +6,6 @@ import android.os.Bundle
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
@@ -20,6 +19,7 @@ import com.example.lvchen.myapplication.ui.GranzortViewActivity
 import com.example.lvchen.myapplication.ui.NotificationActivity
 import com.example.lvchen.myapplication.ui.RecycleViewActivity
 import com.example.lvchen.myapplication.ui.CoordinatorLayoutActivity
+import com.example.lvchen.myapplication.ui.RoomActivity
 import com.example.lvchen.myapplication.ui.ViewPagerActivity
 import com.example.lvchen.myapplication.ui.WallPaperActivity
 import com.example.lvchen.myapplication.ui.WaterFallActivity
@@ -108,6 +108,11 @@ class MainActivity : AppCompatActivity(),
 //          .withInt("audit", 666)
 //          .withString("comment", "888")
           .navigation()
+    }
+    room_btn.setOnClickListener {
+      startActivity(
+          Intent(this, RoomActivity::class.java)
+      )
     }
 //    NetworkService.apiService.sendVerifyCode2("18512527462")
 //        .enqueue(object :
