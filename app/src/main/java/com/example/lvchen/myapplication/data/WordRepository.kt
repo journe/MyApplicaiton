@@ -14,5 +14,8 @@ class WordRepository(private val wordDao: WordDao) {
   suspend fun insert(vararg word: Word) {
     wordDao.insert(*word)
   }
+  suspend fun update(vararg word: Word) {
+    wordDao.update(*word)
+  }
 
 }

@@ -17,4 +17,10 @@ class RoomViewModel(private val wordRepository: WordRepository) : ViewModel() {
       wordRepository.insert(word = *word)
     }
   }
+
+  fun update(vararg word: Word) {
+    viewModelScope.launch {
+      wordRepository.update(word = *word)
+    }
+  }
 }

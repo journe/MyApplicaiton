@@ -12,7 +12,7 @@ interface BaseDao<T> {
   suspend fun insert(vararg obj: T)
 
   @Update
-  fun update(vararg obj: T)
+  suspend fun update(vararg obj: T)
 
   @Delete
   fun delete(vararg obj: T)

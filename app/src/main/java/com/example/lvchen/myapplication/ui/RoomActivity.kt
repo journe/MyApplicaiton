@@ -31,8 +31,19 @@ class RoomActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_room)
     insert.setOnClickListener {
-      viewModel.insert(Word("hello", "你好"), Word("hello2", "你好2"))
+//      viewModel.insert(Word("hello1", "你好1"),Word("world2", "世界2"))
+      val a = Word("insert", "你好28")
+      a.id=2
+      viewModel.update(a)
     }
+    var string = "1"
+    update.setOnClickListener {
+      string +="2"
+      val a = Word(string, "你好28")
+      a.id=2
+      viewModel.update(a)
+    }
+
     viewModel.wordLiveData.observe(this, Observer {
       var text = ""
       it.forEach {
@@ -40,8 +51,6 @@ class RoomActivity : AppCompatActivity() {
       }
       textView4.text = text
     })
-    update.setOnClickListener {
-    }
   }
 
 }
