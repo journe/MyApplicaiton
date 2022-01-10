@@ -10,17 +10,18 @@ import kotlinx.coroutines.launch
 /**
  * Created by journey on 2020/5/18.
  */
-class RoomViewModel(private val wordRepository: WordRepository) : ViewModel() {
-  val wordLiveData: LiveData<List<Word>> = wordRepository.getAll()
+class RoomViewModel() : ViewModel() {
+//  private val wordRepository: WordRepository
+//  val wordLiveData: LiveData<List<Word>> = wordRepository.getAll()
   fun insert(vararg word: Word) {
     viewModelScope.launch {
-      wordRepository.insert(word = *word)
+//      wordRepository.insert(word = *word)
     }
   }
 
   fun update(vararg word: Word) {
     viewModelScope.launch {
-      wordRepository.update(word = *word)
+//      wordRepository.update(word = *word)
     }
   }
 }

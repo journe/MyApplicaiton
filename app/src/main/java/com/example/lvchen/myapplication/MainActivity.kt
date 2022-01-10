@@ -19,6 +19,7 @@ import com.example.lvchen.myapplication.ui.GranzortViewActivity
 import com.example.lvchen.myapplication.ui.NotificationActivity
 import com.example.lvchen.myapplication.ui.RecycleViewActivity
 import com.example.lvchen.myapplication.ui.CoordinatorLayoutActivity
+import com.example.lvchen.myapplication.ui.CycleHeadActivity
 import com.example.lvchen.myapplication.ui.RoomActivity
 import com.example.lvchen.myapplication.ui.ViewPagerActivity
 import com.example.lvchen.myapplication.ui.WallPaperActivity
@@ -29,6 +30,7 @@ import kotlinx.android.synthetic.main.activity_main.nav_view
 import kotlinx.android.synthetic.main.app_bar_main.fab
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
 import kotlinx.android.synthetic.main.content_main.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
 
 /**
  * @author lvchen
@@ -112,6 +114,12 @@ class MainActivity : AppCompatActivity(),
     room_btn.setOnClickListener {
       startActivity(
           Intent(this, RoomActivity::class.java)
+      )
+    }
+
+    cycle_head_btn.setOnClickListener {
+      startActivity(
+          Intent(this, CycleHeadActivity::class.java)
       )
     }
 //    NetworkService.apiService.sendVerifyCode2("18512527462")
