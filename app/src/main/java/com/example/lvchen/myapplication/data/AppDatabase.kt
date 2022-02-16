@@ -11,7 +11,7 @@ import androidx.work.WorkManager
 /**
  * Created by journey on 2020/5/18.
  */
-@Database(entities = [Word::class], version = 1, exportSchema = true)
+@Database(entities = [Word::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
   abstract fun getWordDao(): WordDao
 

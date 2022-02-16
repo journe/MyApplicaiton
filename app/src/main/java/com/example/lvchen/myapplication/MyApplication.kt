@@ -2,7 +2,7 @@ package com.example.lvchen.myapplication
 
 import android.app.Application
 
-import cn.idaddy.android.opensdk.lib.IdaddySdk
+//import cn.idaddy.android.opensdk.lib.IdaddySdk
 import com.alibaba.android.arouter.launcher.ARouter
 
 /**
@@ -11,7 +11,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 class MyApplication : Application() {
   override fun onCreate() {
     super.onCreate()
-    IdaddySdk.init(this, false)
+//    IdaddySdk.init(this, false)
     ARouter.init(this)
   }
 }

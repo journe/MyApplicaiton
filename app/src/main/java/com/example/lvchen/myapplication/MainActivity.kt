@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import cn.idaddy.android.opensdk.lib.IdaddySdk
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.lvchen.myapplication.ui.Catalogue2Activity
 import com.example.lvchen.myapplication.ui.CatalogueActivity
@@ -175,7 +174,7 @@ class MainActivity : AppCompatActivity(),
       R.id.nav_manage -> startActivity(Intent(this, CoordinatorLayoutActivity::class.java))
       R.id.nav_gallery -> startActivity(Intent(this, RecycleViewActivity::class.java))
       R.id.nav_slideshow -> startActivity(Intent(this, GranzortViewActivity::class.java))
-      R.id.nav_share -> IdaddySdk.start()
+//      R.id.nav_share -> IdaddySdk.start()
       R.id.nav_send -> startActivity(Intent(this, XiaoAiTestActivity::class.java))
     }
 
