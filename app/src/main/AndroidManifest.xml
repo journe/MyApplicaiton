@@ -25,7 +25,7 @@
         android:name=".ui.ChipActivity"
         android:exported="false"
         android:label="@string/title_activity_chip"
-        android:theme="@style/AppTheme.NoActionBar" />
+        android:theme="@style/ClipTheme" />
     <activity android:name=".ui.CycleHeadActivity" />
     <activity android:name=".ui.RoomActivity" />
     <activity
