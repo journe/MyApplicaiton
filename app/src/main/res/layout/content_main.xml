@@ -92,14 +92,23 @@
       app:layout_constraintStart_toEndOf="@+id/room_btn"
       app:layout_constraintTop_toTopOf="@+id/room_btn"
       />
+
   <Button
       android:id="@+id/chips"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
       android:text="chips"
       app:layout_constraintStart_toStartOf="@+id/waterfall"
-      app:layout_constraintTop_toBottomOf="@+id/waterfall"
-      />
+      app:layout_constraintTop_toBottomOf="@+id/waterfall" />
+
+  <Button
+      android:id="@+id/recycle_btn"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="RecyclerView实现上拉加载"
+      app:layout_constraintStart_toEndOf="@+id/verify_btn"
+      app:layout_constraintTop_toTopOf="@+id/verify_btn" />
 
   <Button
       android:id="@+id/verify_btn"
@@ -107,5 +116,5 @@
       android:layout_height="wrap_content"
       android:text="验证码弹窗"
       app:layout_constraintStart_toEndOf="@+id/chips"
-      app:layout_constraintTop_toBottomOf="@+id/room_btn" />
+      app:layout_constraintTop_toTopOf="@+id/chips" />
 </androidx.constraintlayout.widget.ConstraintLayout>

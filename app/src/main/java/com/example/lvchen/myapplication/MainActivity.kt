@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.lvchen.myapplication.ui.*
+import com.example.lvchen.myapplication.ui.recyclerview.RecyclerViewRefreshActivity
 import com.example.lvchen.myapplication.utils.KeyboardUtils
 import com.example.lvchen.myapplication.view.TelNumCheckerView
 import com.google.android.material.navigation.NavigationView
@@ -115,6 +116,11 @@ class MainActivity : AppCompatActivity(),
         chips.setOnClickListener {
             startActivity(
                 Intent(this, ChipActivity::class.java)
+            )
+        }
+        recycle_btn.setOnClickListener {
+            startActivity(
+                Intent(this, RecyclerViewRefreshActivity::class.java)
             )
         }
         verify_btn.setOnClickListener {
