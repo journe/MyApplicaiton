@@ -6,5 +6,6 @@
   <color name="color_main_orange">#FEB800</color>
   <color name="black04">#66000000</color>
   <color name="white">#ffffff</color>
+    <color name="transparent">#00FFFFFF</color>
 
 </resources>
