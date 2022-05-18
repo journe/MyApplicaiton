@@ -14,6 +14,7 @@ import androidx.core.view.GravityCompat
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.lvchen.myapplication.ui.*
 import com.example.lvchen.myapplication.ui.recyclerview.RecyclerViewRefreshActivity
+import com.example.lvchen.myapplication.ui.vp2.ViewPager2Activity
 import com.example.lvchen.myapplication.utils.KeyboardUtils
 import com.example.lvchen.myapplication.view.TelNumCheckerView
 import com.google.android.material.navigation.NavigationView
@@ -123,9 +124,19 @@ class MainActivity : AppCompatActivity(),
                 Intent(this, RecyclerViewRefreshActivity::class.java)
             )
         }
+        vp2_btn.setOnClickListener {
+            startActivity(
+                Intent(this, ViewPager2Activity::class.java)
+            )
+        }
+        vp_btn.setOnClickListener {
+            startActivity(
+                Intent(this, com.example.lvchen.myapplication.ui.vp.ViewPagerActivity::class.java)
+            )
+        }
         verify_btn.setOnClickListener {
 
-            val dialog = AlertDialog.Builder(this,R.style.inputDialog).apply {
+            val dialog = AlertDialog.Builder(this, R.style.inputDialog).apply {
                 setView(TelNumCheckerView(context))
                 setPositiveButton(
                     "确定"
@@ -138,6 +149,7 @@ class MainActivity : AppCompatActivity(),
             }
             dialog.create().show()
         }
+
 //    NetworkService.apiService.sendVerifyCode2("18512527462")
 //        .enqueue(object :
 //            Callback<ResponseBody> {

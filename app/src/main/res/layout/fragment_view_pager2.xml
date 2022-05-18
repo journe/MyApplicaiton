@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.lvchen.myapplication.ui.vp2.NestedScrollableHost xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.vp.ViewPagerFragment">
+
+    <com.flyco.tablayout.SlidingTabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tl_indicator_color="@color/colorPrimary"
+        app:tl_indicator_corner_radius="4dp"
+        app:tl_indicator_height="4dp"
+        app:tl_indicator_width="20dp"
+        app:tl_tab_space_equal="true"
+        app:tl_textBold="SELECT"
+        app:tl_textSelectColor="#333333"
+        app:tl_textSelectSize="18sp"
+        app:tl_textUnselectColor="#333333"
+        app:tl_textsize="16sp" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/fragment_vp2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+</com.example.lvchen.myapplication.ui.vp2.NestedScrollableHost>

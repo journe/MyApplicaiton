@@ -22,6 +22,12 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".ui.vp2.ViewPager2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.vp.ViewPagerActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.recyclerview.RecyclerViewRefreshActivity"
             android:exported="false" />
         <activity
