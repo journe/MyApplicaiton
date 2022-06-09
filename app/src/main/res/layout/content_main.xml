@@ -8,129 +8,147 @@
     android:background="@color/white"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.lvchen.myapplication.MainActivity"
-    tools:showIn="@layout/app_bar_main"
-    >
-  <Button
-      android:id="@+id/viewpager_btn"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginLeft="8dp"
-      android:text="VIEWPAGER_BTN"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      />
+    tools:showIn="@layout/app_bar_main">
 
-  <Button
-      android:id="@+id/wallpaper_btn"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="0dp"
-      android:text="wallpaper_btn"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintStart_toEndOf="@+id/viewpager_btn"
-      app:layout_constraintTop_toTopOf="parent"
-      />
-  <Button
-      android:id="@+id/notification_btn"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="notification"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toEndOf="@+id/wallpaper_btn"
-      app:layout_constraintTop_toTopOf="@+id/wallpaper_btn"
-      />
-  <Button
-      android:id="@+id/router_btn"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="8dp"
-      android:text="router_btn"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/notification_btn"
-      />
-  <Button
-      android:id="@+id/catalogue"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="8dp"
-      android:text="catalogue"
-      app:layout_constraintStart_toEndOf="@+id/router_btn"
-      app:layout_constraintTop_toTopOf="@+id/router_btn"
-      />
-  <Button
-      android:id="@+id/catalogue2"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="catalogue2"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toEndOf="@+id/catalogue"
-      app:layout_constraintTop_toTopOf="@+id/catalogue"
-      />
-  <Button
-      android:id="@+id/waterfall"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="8dp"
-      android:layout_marginTop="16dp"
-      android:text="waterfall"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/catalogue2"
-      />
-  <Button
-      android:id="@+id/room_btn"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="room"
-      app:layout_constraintStart_toEndOf="@+id/waterfall"
-      app:layout_constraintTop_toTopOf="@+id/waterfall"
-      />
-  <Button
-      android:id="@+id/cycle_head_btn"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="cycle_head_btn"
-      app:layout_constraintStart_toEndOf="@+id/room_btn"
-      app:layout_constraintTop_toTopOf="@+id/room_btn"
-      />
+    <Button
+        android:id="@+id/viewpager_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:text="VIEWPAGER_BTN"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-  <Button
-      android:id="@+id/chips"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
-      android:text="chips"
-      app:layout_constraintStart_toStartOf="@+id/waterfall"
-      app:layout_constraintTop_toBottomOf="@+id/waterfall" />
+    <Button
+        android:id="@+id/wallpaper_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="wallpaper_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewpager_btn"
+        app:layout_constraintTop_toTopOf="parent" />
 
-  <Button
-      android:id="@+id/recycle_btn"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="RecyclerView实现上拉加载"
-      app:layout_constraintStart_toEndOf="@+id/verify_btn"
-      app:layout_constraintTop_toTopOf="@+id/verify_btn" />
+    <Button
+        android:id="@+id/notification_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="notification"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/wallpaper_btn"
+        app:layout_constraintTop_toTopOf="@+id/wallpaper_btn" />
 
-  <Button
-      android:id="@+id/verify_btn"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="验证码弹窗"
-      app:layout_constraintStart_toEndOf="@+id/chips"
-      app:layout_constraintTop_toTopOf="@+id/chips" />
+    <Button
+        android:id="@+id/router_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="router_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notification_btn" />
 
-  <Button
-      android:id="@+id/vp2_btn"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="VP2嵌套滑动"
-      app:layout_constraintStart_toStartOf="@+id/chips"
-      app:layout_constraintTop_toBottomOf="@+id/chips" />
+    <Button
+        android:id="@+id/catalogue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="catalogue"
+        app:layout_constraintStart_toEndOf="@+id/router_btn"
+        app:layout_constraintTop_toTopOf="@+id/router_btn" />
 
-  <Button
-      android:id="@+id/vp_btn"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="VP嵌套滑动"
-      app:layout_constraintStart_toEndOf="@+id/vp2_btn"
-      app:layout_constraintTop_toBottomOf="@+id/chips" />
+    <Button
+        android:id="@+id/catalogue2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="catalogue2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/catalogue"
+        app:layout_constraintTop_toTopOf="@+id/catalogue" />
+
+    <Button
+        android:id="@+id/waterfall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="waterfall"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/catalogue2" />
+
+    <Button
+        android:id="@+id/room_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="room"
+        app:layout_constraintStart_toEndOf="@+id/waterfall"
+        app:layout_constraintTop_toTopOf="@+id/waterfall" />
+
+    <Button
+        android:id="@+id/cycle_head_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cycle_head_btn"
+        app:layout_constraintStart_toEndOf="@+id/room_btn"
+        app:layout_constraintTop_toTopOf="@+id/room_btn" />
+
+    <Button
+        android:id="@+id/chips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="chips"
+        app:layout_constraintStart_toStartOf="@+id/waterfall"
+        app:layout_constraintTop_toBottomOf="@+id/waterfall" />
+
+    <Button
+        android:id="@+id/recycle_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RecyclerView实现上拉加载"
+        app:layout_constraintStart_toEndOf="@+id/verify_btn"
+        app:layout_constraintTop_toTopOf="@+id/verify_btn" />
+
+    <Button
+        android:id="@+id/verify_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="验证码弹窗"
+        app:layout_constraintStart_toEndOf="@+id/chips"
+        app:layout_constraintTop_toTopOf="@+id/chips" />
+
+    <Button
+        android:id="@+id/vp2_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VP2嵌套滑动"
+        app:layout_constraintStart_toStartOf="@+id/chips"
+        app:layout_constraintTop_toBottomOf="@+id/chips" />
+
+    <Button
+        android:id="@+id/vp_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VP嵌套滑动"
+        app:layout_constraintStart_toEndOf="@+id/vp2_btn"
+        app:layout_constraintTop_toBottomOf="@+id/chips" />
+
+    <Button
+        android:id="@+id/media_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MediaPlayer"
+        app:layout_constraintStart_toEndOf="@+id/vp_btn"
+        app:layout_constraintTop_toBottomOf="@+id/recycle_btn" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/loading"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:visibility="gone"
+        style="@style/Widget.AppCompat.ProgressBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vp_btn"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

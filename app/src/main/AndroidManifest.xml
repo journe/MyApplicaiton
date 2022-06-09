@@ -22,6 +22,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".ui.media.MediaPlayActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.vp2.ViewPager2Activity"
             android:exported="false" />
         <activity
@@ -73,6 +76,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.XiaoAiTestActivity" />
         <activity android:name=".ui.NotificationActivity" />
+
+        <service
+            android:name=".ui.media.MyService"
+            android:process=":MyCorn" />
+
 
         <meta-data
             android:name="IDADDY_APP_KEY"

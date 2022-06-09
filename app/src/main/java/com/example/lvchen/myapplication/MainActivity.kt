@@ -1,5 +1,6 @@
 package com.example.lvchen.myapplication
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity(),
             startActivity(intent)
         }
 
+        showLoading()
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open,
             R.string.navigation_drawer_close
@@ -134,6 +136,11 @@ class MainActivity : AppCompatActivity(),
                 Intent(this, com.example.lvchen.myapplication.ui.vp.ViewPagerActivity::class.java)
             )
         }
+        media_btn.setOnClickListener {
+            startActivity(
+                Intent(this, com.example.lvchen.myapplication.ui.media.MediaPlayActivity::class.java)
+            )
+        }
         verify_btn.setOnClickListener {
 
             val dialog = AlertDialog.Builder(this, R.style.inputDialog).apply {
@@ -150,6 +157,7 @@ class MainActivity : AppCompatActivity(),
             dialog.create().show()
         }
 
+        loading.show()
 //    NetworkService.apiService.sendVerifyCode2("18512527462")
 //        .enqueue(object :
 //            Callback<ResponseBody> {
@@ -212,6 +220,19 @@ class MainActivity : AppCompatActivity(),
             findViewById<View>(R.id.drawer_layout) as androidx.drawerlayout.widget.DrawerLayout
         drawer.closeDrawer(GravityCompat.START)
         return true
+    }
+
+
+    private var progressDialog: ProgressDialog? = null
+
+    fun showLoading() {
+        if (progressDialog == null)
+            progressDialog = ProgressDialog(this)
+        progressDialog?.show()
+    }
+
+    fun dismissLoading() {
+        progressDialog?.takeIf { it.isShowing }?.dismiss()
     }
 
 }

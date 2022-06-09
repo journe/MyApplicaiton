@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.lvchen.myapplication.databinding.FragmentViewPager2Binding
 import com.example.lvchen.myapplication.databinding.FragmentViewPagerBinding
 
 class ViewPagerFragment : Fragment() {
