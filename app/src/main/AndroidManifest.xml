@@ -22,6 +22,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".ui.FolderTextViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.media.MediaPlayActivity"
             android:exported="false" />
         <activity
@@ -80,7 +83,6 @@
         <service
             android:name=".ui.media.MyService"
             android:process=":MyCorn" />
-
 
         <meta-data
             android:name="IDADDY_APP_KEY"

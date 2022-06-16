@@ -4,7 +4,6 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -14,9 +13,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.lvchen.myapplication.ui.*
+import com.example.lvchen.myapplication.ui.media.MediaPlayActivity
 import com.example.lvchen.myapplication.ui.recyclerview.RecyclerViewRefreshActivity
 import com.example.lvchen.myapplication.ui.vp2.ViewPager2Activity
-import com.example.lvchen.myapplication.utils.KeyboardUtils
 import com.example.lvchen.myapplication.view.TelNumCheckerView
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
@@ -52,7 +51,6 @@ class MainActivity : AppCompatActivity(),
             startActivity(intent)
         }
 
-        showLoading()
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open,
             R.string.navigation_drawer_close
@@ -133,12 +131,12 @@ class MainActivity : AppCompatActivity(),
         }
         vp_btn.setOnClickListener {
             startActivity(
-                Intent(this, com.example.lvchen.myapplication.ui.vp.ViewPagerActivity::class.java)
+                Intent(this, ViewPagerActivity::class.java)
             )
         }
         media_btn.setOnClickListener {
             startActivity(
-                Intent(this, com.example.lvchen.myapplication.ui.media.MediaPlayActivity::class.java)
+                Intent(this, MediaPlayActivity::class.java)
             )
         }
         verify_btn.setOnClickListener {
@@ -157,25 +155,14 @@ class MainActivity : AppCompatActivity(),
             dialog.create().show()
         }
 
+        FolderTextView.setOnClickListener {
+            startActivity(
+                Intent(this, FolderTextViewActivity::class.java)
+            )
+        }
         loading.show()
-//    NetworkService.apiService.sendVerifyCode2("18512527462")
-//        .enqueue(object :
-//            Callback<ResponseBody> {
-//          override fun onFailure(
-//            call: Call<ResponseBody>,
-//            t: Throwable
-//          ) {
-//            Logger.d(t.message)
-//          }
-//
-//          override fun onResponse(
-//            call: Call<ResponseBody>,
-//            response: Response<ResponseBody>
-//          ) {
-//            Logger.d(response.body().toString())
-//          }
-//
-//        })
+//        showLoading()
+
     }
 
     override fun onBackPressed() {
@@ -225,7 +212,7 @@ class MainActivity : AppCompatActivity(),
 
     private var progressDialog: ProgressDialog? = null
 
-    fun showLoading() {
+    private fun showLoading() {
         if (progressDialog == null)
             progressDialog = ProgressDialog(this)
         progressDialog?.show()

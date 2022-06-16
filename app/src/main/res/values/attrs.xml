@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="CustomRroup">
-       <attr name="scaleWidth" format="dimension"></attr>
+        <attr name="scaleWidth" format="dimension"></attr>
     </declare-styleable>
     <!--自定义TextView-->
     <declare-styleable name="CustomTextView">
@@ -11,13 +11,13 @@
     </declare-styleable>
     <!--自定义图文混排-->
     <declare-styleable name="CustomImageView">
-        <attr name="titleText" format="string"/>
-        <attr name="titleTextSize" format="dimension"/>
-        <attr name="titleTextColor" format="color"/>
-        <attr name="image"  format="reference"/>
+        <attr name="titleText" format="string" />
+        <attr name="titleTextSize" format="dimension" />
+        <attr name="titleTextColor" format="color" />
+        <attr name="image" format="reference" />
         <attr name="imageScaleType" format="integer" />
     </declare-styleable>
-<!--自定义圆环进度-->
+    <!--自定义圆环进度-->
     <attr name="firstColor" format="color" />
     <attr name="secondColor" format="color" />
     <attr name="circleWidth" format="dimension" />
@@ -28,5 +28,15 @@
         <attr name="secondColor" />
         <attr name="circleWidth" />
         <attr name="speed" />
+    </declare-styleable>
+
+    <declare-styleable name="FolderTextView">
+        <attr name="foldText" format="string" />
+        <attr name="unFoldText" format="string" />
+        <attr name="mKeyword" format="string" />
+        <attr name="mKeyword2" format="string" />
+        <attr name="foldLine" format="integer" />
+        <attr name="tailTextColor" format="color" />
+        <attr name="canFoldAgain" format="boolean" />
     </declare-styleable>
 </resources>

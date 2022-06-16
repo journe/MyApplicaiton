@@ -142,13 +142,21 @@
 
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/loading"
+        style="@style/Widget.AppCompat.ProgressBar"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:visibility="gone"
-        style="@style/Widget.AppCompat.ProgressBar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vp_btn"
         tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/FolderTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FolderTextView"
+        app:layout_constraintStart_toStartOf="@+id/vp2_btn"
+        app:layout_constraintTop_toBottomOf="@+id/vp2_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
