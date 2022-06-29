@@ -22,6 +22,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".CoordinatorActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.FolderTextViewActivity"
             android:exported="false" />
         <activity
@@ -80,6 +83,7 @@
         <activity android:name=".ui.XiaoAiTestActivity" />
         <activity android:name=".ui.NotificationActivity" />
 
+        <activity android:name=".ui.coordinator.CoordinatorActivity"/>
         <service
             android:name=".ui.media.MyService"
             android:process=":MyCorn" />

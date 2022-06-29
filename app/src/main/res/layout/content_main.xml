@@ -159,4 +159,12 @@
         android:text="FolderTextView"
         app:layout_constraintStart_toStartOf="@+id/vp2_btn"
         app:layout_constraintTop_toBottomOf="@+id/vp2_btn" />
+
+    <Button
+        android:id="@+id/coordinator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="coordinator"
+        app:layout_constraintStart_toEndOf="@+id/FolderTextView"
+        app:layout_constraintTop_toTopOf="@+id/FolderTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

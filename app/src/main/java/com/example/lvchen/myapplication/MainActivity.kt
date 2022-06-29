@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.lvchen.myapplication.ui.*
+import com.example.lvchen.myapplication.ui.coordinator.CoordinatorActivity
 import com.example.lvchen.myapplication.ui.media.MediaPlayActivity
 import com.example.lvchen.myapplication.ui.recyclerview.RecyclerViewRefreshActivity
 import com.example.lvchen.myapplication.ui.vp2.ViewPager2Activity
@@ -137,6 +138,11 @@ class MainActivity : AppCompatActivity(),
         media_btn.setOnClickListener {
             startActivity(
                 Intent(this, MediaPlayActivity::class.java)
+            )
+        }
+        coordinator.setOnClickListener {
+            startActivity(
+                Intent(this, CoordinatorActivity::class.java)
             )
         }
         verify_btn.setOnClickListener {
