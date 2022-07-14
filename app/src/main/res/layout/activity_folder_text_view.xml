@@ -8,14 +8,14 @@
     tools:context=".ui.FolderTextViewActivity">
 
 
-    <com.example.lvchen.myapplication.view.FolderTextView
+    <com.example.jour.myapplication.view.FolderTextView
         android:layout_width="match_parent"
         android:layout_height="144dp"
         android:text="@string/medium_text"
         app:canFoldAgain="true"
         app:foldLine="4" />
 
-<!--    <com.example.lvchen.myapplication.view.ExpandCollapsedTextView-->
+<!--    <com.example.jour.myapplication.view.ExpandCollapsedTextView-->
 <!--        android:id="@+id/expand_text"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="200dp" />-->

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.CycleHeadActivity"
     >
-  <com.example.lvchen.myapplication.view.CustomTextView
+  <com.example.jour.myapplication.view.CustomTextView
       android:id="@+id/customTextView"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
       app:textColor="#00ff00"
       app:textSize="14sp"
       />
-  <com.example.lvchen.myapplication.view.CustomGroup
+  <com.example.jour.myapplication.view.CustomGroup
       android:id="@+id/customGroup"
       android:layout_width="match_parent"
       android:layout_height="66dp"
@@ -26,7 +26,7 @@
       app:layout_constraintTop_toBottomOf="@+id/customTextView"
       app:scaleWidth="10dp"
       />
-  <com.example.lvchen.myapplication.view.CustomImageView
+  <com.example.jour.myapplication.view.CustomImageView
       android:id="@+id/customImageView"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
       app:titleTextSize="30sp"
       />
 
-  <com.example.lvchen.myapplication.view.ImageMoveView
+  <com.example.jour.myapplication.view.ImageMoveView
       android:id="@+id/imageMoveView"
       android:layout_width="50dp"
       android:layout_height="50dp"
@@ -51,7 +51,7 @@
       app:layout_constraintEnd_toEndOf="@+id/customImageView"
       app:layout_constraintTop_toBottomOf="@+id/customImageView"
       />
-  <com.example.lvchen.myapplication.view.TextMoveView
+  <com.example.jour.myapplication.view.TextMoveView
       android:id="@+id/textMoveView"
       android:layout_width="wrap_content"
       android:layout_height="30dp"
@@ -63,7 +63,7 @@
       app:layout_constraintEnd_toEndOf="@+id/imageMoveView"
       app:layout_constraintTop_toBottomOf="@+id/imageMoveView"
       />
-  <com.example.lvchen.myapplication.view.CustomRingProgress
+  <com.example.jour.myapplication.view.CustomRingProgress
       android:id="@+id/customRingProgress"
       android:layout_width="100dp"
       android:layout_height="100dp"
@@ -74,7 +74,7 @@
       app:secondColor="#00ff00"
       app:speed="10"
       />
-  <com.example.lvchen.myapplication.view.CusVolumeView
+  <com.example.jour.myapplication.view.CusVolumeView
       android:layout_width="100dp"
       android:layout_height="100dp"
       app:layout_constraintEnd_toEndOf="@+id/customRingProgress"
