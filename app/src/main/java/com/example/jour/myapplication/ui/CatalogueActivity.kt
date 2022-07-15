@@ -24,48 +24,48 @@ class CatalogueActivity : AppCompatActivity() {
 
     cataBeans.add(
         CataBean(
-            name = "健康养生", itemIcon = R.mipmap.ic_launcher_round, cataList = arrayListOf(
-            CataItem(itemName = "养生课堂", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "减肥1", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "减肥2", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "减肥3", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "减肥4", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "减肥5", itemIcon = R.mipmap.ic_launcher_round)
+            name = "健康养生", itemIcon = R.mipmap.ic_launcher, cataList = arrayListOf(
+            CataItem(itemName = "养生课堂", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "减肥1", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "减肥2", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "减肥3", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "减肥4", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "减肥5", itemIcon = R.mipmap.ic_launcher)
         )
         )
     )
     cataBeans.add(
         CataBean(
-            name = "穿搭百科", itemIcon = R.mipmap.ic_launcher_round, cataList = arrayListOf(
-            CataItem(itemName = "穿搭百科1", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "穿搭百科2", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "穿搭百科3", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "穿搭百科4", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "穿搭百科5", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "穿搭百科6", itemIcon = R.mipmap.ic_launcher_round)
+            name = "穿搭百科", itemIcon = R.mipmap.ic_launcher, cataList = arrayListOf(
+            CataItem(itemName = "穿搭百科1", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "穿搭百科2", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "穿搭百科3", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "穿搭百科4", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "穿搭百科5", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "穿搭百科6", itemIcon = R.mipmap.ic_launcher)
         )
         )
     )
     cataBeans.add(
         CataBean(
-            name = "美食相关", itemIcon = R.mipmap.ic_launcher_round, cataList = arrayListOf(
-            CataItem(itemName = "美食相关1", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "美食相关2", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "美食相关3", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "美食相关4", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "美食相关5", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "美食相关6", itemIcon = R.mipmap.ic_launcher_round)
+            name = "美食相关", itemIcon = R.mipmap.ic_launcher, cataList = arrayListOf(
+            CataItem(itemName = "美食相关1", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "美食相关2", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "美食相关3", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "美食相关4", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "美食相关5", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "美食相关6", itemIcon = R.mipmap.ic_launcher)
         )
         )
     )
     cataBeans.add(
         CataBean(
-            name = "美妆个护", itemIcon = R.mipmap.ic_launcher_round, cataList = arrayListOf(
-            CataItem(itemName = "美妆个护1", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "美妆个护2", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "美妆个护3", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "美妆个护4", itemIcon = R.mipmap.ic_launcher_round),
-            CataItem(itemName = "美妆个护5", itemIcon = R.mipmap.ic_launcher_round)
+            name = "美妆个护", itemIcon = R.mipmap.ic_launcher, cataList = arrayListOf(
+            CataItem(itemName = "美妆个护1", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "美妆个护2", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "美妆个护3", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "美妆个护4", itemIcon = R.mipmap.ic_launcher),
+            CataItem(itemName = "美妆个护5", itemIcon = R.mipmap.ic_launcher)
         )
         )
     )

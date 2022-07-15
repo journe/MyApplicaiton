@@ -48,7 +48,7 @@ public class CustomImageView extends View {
         text=typedArray.getString(R.styleable.CustomImageView_titleText);
         textSize = typedArray.getDimension(R.styleable.CustomImageView_titleTextSize,14);
         scalleType = typedArray.getInteger(R.styleable.CustomImageView_imageScaleType,1);
-        iamge = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher_round);
+        iamge = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher);
         typedArray.recycle();
         mPaint = new Paint();
         mBounds = new Rect();

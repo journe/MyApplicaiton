@@ -47,7 +47,7 @@
       android:layout_height="50dp"
       android:layout_marginTop="12dp"
       android:scaleType="centerCrop"
-      android:src="@mipmap/ic_launcher"
+      android:src="@drawable/ic_work_hard"
       app:layout_constraintEnd_toEndOf="@+id/customImageView"
       app:layout_constraintTop_toBottomOf="@+id/customImageView"
       />
