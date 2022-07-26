@@ -14,6 +14,7 @@ import androidx.core.view.GravityCompat
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.jour.myapplication.databinding.ActivityMainBinding
 import com.example.jour.myapplication.ui.*
+import com.example.jour.myapplication.ui.banner.BannerActivity
 import com.example.jour.myapplication.ui.coordinator.CoordinatorActivity
 import com.example.jour.myapplication.ui.media.MediaPlayActivity
 import com.example.jour.myapplication.ui.recyclerview.RecyclerViewRefreshActivity
@@ -147,6 +148,12 @@ class MainActivity : AppCompatActivity(),
                 Intent(this, CoordinatorActivity::class.java)
             )
         }
+        binding.mainInclude.contentMain.scrollableBanner.setOnClickListener {
+            startActivity(
+                Intent(this, BannerActivity::class.java)
+            )
+        }
+
         binding.mainInclude.contentMain.verifyBtn.setOnClickListener {
 
             val dialog = AlertDialog.Builder(this, R.style.inputDialog).apply {

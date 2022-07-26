@@ -70,7 +70,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:text="瀑布流样式"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/catalogue2" />
@@ -95,7 +94,6 @@
         android:id="@+id/chips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="chips"
         app:layout_constraintStart_toStartOf="@+id/waterfall"
         app:layout_constraintTop_toBottomOf="@+id/waterfall" />
@@ -167,4 +165,12 @@
         android:text="coordinator悬停布局"
         app:layout_constraintStart_toEndOf="@+id/FolderTextView"
         app:layout_constraintTop_toTopOf="@+id/FolderTextView" />
+
+    <Button
+        android:id="@+id/scrollableBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="无限轮播"
+        app:layout_constraintStart_toStartOf="@+id/FolderTextView"
+        app:layout_constraintTop_toBottomOf="@+id/FolderTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

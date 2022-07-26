@@ -22,9 +22,12 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".ui.banner.BannerActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
             android:exported="true"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,9 +44,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.XiaoAiTestActivity" />
         <activity android:name=".ui.NotificationActivity" />
-
         <activity android:name=".ui.coordinator.CoordinatorActivity" />
-
         <activity
             android:name=".ui.FolderTextViewActivity"
             android:exported="false" />

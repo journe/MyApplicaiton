@@ -95,4 +95,6 @@ dependencies {
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
 
     implementation 'com.github.li-xiaojun:FlycoTabLayout:2.0.6'
+    implementation 'io.github.youth5201314:banner:2.2.2'
+
 }
