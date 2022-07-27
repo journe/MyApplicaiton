@@ -22,6 +22,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".ui.verification.VerificationCodeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.banner.BannerActivity"
             android:exported="false" />
         <activity

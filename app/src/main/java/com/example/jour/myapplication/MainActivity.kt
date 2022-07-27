@@ -18,6 +18,7 @@ import com.example.jour.myapplication.ui.banner.BannerActivity
 import com.example.jour.myapplication.ui.coordinator.CoordinatorActivity
 import com.example.jour.myapplication.ui.media.MediaPlayActivity
 import com.example.jour.myapplication.ui.recyclerview.RecyclerViewRefreshActivity
+import com.example.jour.myapplication.ui.verification.VerificationCodeActivity
 import com.example.jour.myapplication.ui.vp2.ViewPager2Activity
 import com.example.jour.myapplication.view.TelNumCheckerView
 import com.google.android.material.navigation.NavigationView
@@ -151,6 +152,11 @@ class MainActivity : AppCompatActivity(),
         binding.mainInclude.contentMain.scrollableBanner.setOnClickListener {
             startActivity(
                 Intent(this, BannerActivity::class.java)
+            )
+        }
+        binding.mainInclude.contentMain.verifyBtn2.setOnClickListener {
+            startActivity(
+                Intent(this, VerificationCodeActivity::class.java)
             )
         }
 
