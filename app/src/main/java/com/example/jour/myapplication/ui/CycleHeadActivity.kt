@@ -26,15 +26,15 @@ class CycleHeadActivity : BaseActivity() {
         "https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1498179673&di=2cebe2c7288b185bd3db7c940afd7e4a&src=http://img.tupianzj.com/uploads/allimg/160821/9-160R1150K2.jpg"
     )
 
-    for (i in image.indices) {
-      val inflate: View = LayoutInflater.from(this)
-          .inflate(layout.item_cycle_head, customGroup, false)
-      val imageView =
-        inflate.findViewById<View>(id.image) as ImageView
-      Glide.with(this)
-          .load(image[i])
-          .into(imageView)
-      customGroup.addView(inflate)
-    }
+//    for (i in image.indices) {
+//      val inflate: View = LayoutInflater.from(this)
+//          .inflate(layout.item_cycle_head, customGroup, false)
+//      val imageView =
+//        inflate.findViewById<View>(id.image) as ImageView
+//      Glide.with(this)
+//          .load(image[i])
+//          .into(imageView)
+//      customGroup.addView(inflate)
+//    }
   }
 }

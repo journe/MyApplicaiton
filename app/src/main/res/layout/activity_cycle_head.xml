@@ -26,11 +26,13 @@
       app:layout_constraintTop_toBottomOf="@+id/customTextView"
       app:scaleWidth="10dp"
       />
+
   <com.example.jour.myapplication.view.CustomImageView
       android:id="@+id/customImageView"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_margin="10dp"
+      android:layout_marginTop="8dp"
       android:padding="10dp"
       app:imageScaleType="1"
       app:layout_constraintEnd_toEndOf="parent"
@@ -38,19 +40,18 @@
       app:layout_constraintTop_toBottomOf="@+id/customGroup"
       app:titleText="hello andorid ! "
       app:titleTextColor="#ff0000"
-      app:titleTextSize="30sp"
-      />
+      app:titleTextSize="30sp" />
 
   <com.example.jour.myapplication.view.ImageMoveView
       android:id="@+id/imageMoveView"
       android:layout_width="50dp"
       android:layout_height="50dp"
-      android:layout_marginTop="12dp"
+      android:layout_marginTop="32dp"
       android:scaleType="centerCrop"
-      android:src="@drawable/ic_work_hard"
-      app:layout_constraintEnd_toEndOf="@+id/customImageView"
-      app:layout_constraintTop_toBottomOf="@+id/customImageView"
-      />
+      android:src="@drawable/ic_notification_logo"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/customImageView" />
   <com.example.jour.myapplication.view.TextMoveView
       android:id="@+id/textMoveView"
       android:layout_width="wrap_content"

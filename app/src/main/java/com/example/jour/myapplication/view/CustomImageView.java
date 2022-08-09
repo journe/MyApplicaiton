@@ -22,7 +22,7 @@ public class CustomImageView extends View {
     private float textSize;
     private int color;
     private String text;
-    private Bitmap iamge;
+    private Bitmap bitmap;
     private int scalleType;
     private Paint mPaint;
     private Rect mBounds;
@@ -48,7 +48,7 @@ public class CustomImageView extends View {
         text=typedArray.getString(R.styleable.CustomImageView_titleText);
         textSize = typedArray.getDimension(R.styleable.CustomImageView_titleTextSize,14);
         scalleType = typedArray.getInteger(R.styleable.CustomImageView_imageScaleType,1);
-        iamge = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher);
+        bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.ic_work_hard);
         typedArray.recycle();
         mPaint = new Paint();
         mBounds = new Rect();
@@ -69,14 +69,14 @@ public class CustomImageView extends View {
             mPaint.setTextSize(textSize);
             mPaint.getTextBounds(text,0,text.length(),mBounds);
             int width1 = mBounds.width();
-            int width2 = iamge.getWidth();
+            int width2 = bitmap.getWidth();
             mWidth = Math.max(width1,width2)+getPaddingRight()+getPaddingLeft();
         }
         if(heightMode == MeasureSpec.AT_MOST){
             mPaint.setTextSize(textSize);
             mPaint.getTextBounds(text,0,text.length(),mBounds);
             int height1 = mBounds.height();
-            int height2 = iamge.getHeight();
+            int height2 = bitmap.getHeight();
             mHeight= getPaddingBottom()+getPaddingTop()+height1+height2;
         }
        setMeasuredDimension(mWidth,mHeight);
@@ -115,14 +115,14 @@ public class CustomImageView extends View {
         //取消使用掉的快
         rect.bottom -= mBounds.height();
         if(scalleType == 0){
-            canvas.drawBitmap(iamge,null,rect,mPaint);
+            canvas.drawBitmap(bitmap,null,rect,mPaint);
        }else {
-           rect.left = mWidth/2 - iamge.getWidth()/2;
-           rect.top = (mHeight-mBounds.height())/2 - iamge.getHeight() /2;
-           rect.right = mWidth/2+iamge.getWidth()/2;
-           rect.bottom = (mHeight-mBounds.height())/2 + iamge.getHeight() /2;
+           rect.left = mWidth/2 - bitmap.getWidth()/2;
+           rect.top = (mHeight-mBounds.height())/2 - bitmap.getHeight() /2;
+           rect.right = mWidth/2+ bitmap.getWidth()/2;
+           rect.bottom = (mHeight-mBounds.height())/2 + bitmap.getHeight() /2;
 
-           canvas.drawBitmap(iamge,null,rect,mPaint);
+           canvas.drawBitmap(bitmap,null,rect,mPaint);
        }
     }
 }
