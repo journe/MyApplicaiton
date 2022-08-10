@@ -2,8 +2,8 @@ package com.example.jour.myapplication.ui.verification
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.blankj.utilcode.util.KeyboardUtils
 import com.example.jour.myapplication.databinding.ActivityVerificationCodeBinding
-import com.example.jour.myapplication.utils.KeyboardUtils
 import com.example.jour.myapplication.view.VerificationCodeEditText
 import org.jetbrains.anko.toast
 

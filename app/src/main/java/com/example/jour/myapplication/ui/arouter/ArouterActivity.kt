@@ -1,10 +1,11 @@
-package com.example.jour.myapplication.ui
+package com.example.jour.myapplication.ui.arouter
 
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.jour.myapplication.R
+import com.example.jour.myapplication.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_arouter.*
 
 @Route(path = "/test/activity")

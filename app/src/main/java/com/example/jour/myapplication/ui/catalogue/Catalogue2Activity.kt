@@ -1,4 +1,4 @@
-package com.example.jour.myapplication.ui
+package com.example.jour.myapplication.ui.catalogue
 
 import android.content.Intent
 import android.graphics.Color
@@ -8,6 +8,7 @@ import com.example.jour.myapplication.R
 import com.example.jour.myapplication.R.mipmap
 import com.example.jour.myapplication.bean.CataBean
 import com.example.jour.myapplication.bean.CataItem
+import com.example.jour.myapplication.ui.TopicListActivity
 import com.zhy.adapter.recyclerview.CommonAdapter
 import com.zhy.adapter.recyclerview.base.ViewHolder
 import kotlinx.android.synthetic.main.activity_catalogue2.cata2_rv
@@ -93,7 +94,7 @@ class Catalogue2Activity : AppCompatActivity() {
             R.id.catalogue_tag_cl
         ) { v ->
           if (bean.cataList.isEmpty()) {
-            startActivity(Intent(this@Catalogue2Activity,TopicListActivity::class.java))
+            startActivity(Intent(this@Catalogue2Activity, TopicListActivity::class.java))
             return@setOnClickListener
           }
           if (!bean.isExpend) {

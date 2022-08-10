@@ -15,9 +15,13 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.example.jour.myapplication.databinding.ActivityMainBinding
 import com.example.jour.myapplication.ui.*
 import com.example.jour.myapplication.ui.banner.BannerActivity
+import com.example.jour.myapplication.ui.catalogue.Catalogue2Activity
+import com.example.jour.myapplication.ui.catalogue.CatalogueActivity
 import com.example.jour.myapplication.ui.coordinator.CoordinatorActivity
+import com.example.jour.myapplication.ui.editview.EditTextActivity
 import com.example.jour.myapplication.ui.media.MediaPlayActivity
 import com.example.jour.myapplication.ui.recyclerview.RecyclerViewRefreshActivity
+import com.example.jour.myapplication.ui.room.RoomActivity
 import com.example.jour.myapplication.ui.verification.VerificationCodeActivity
 import com.example.jour.myapplication.ui.vp2.ViewPager2Activity
 import com.example.jour.myapplication.view.TelNumCheckerView
@@ -155,9 +159,7 @@ class MainActivity : AppCompatActivity(),
             )
         }
         binding.mainInclude.contentMain.verifyBtn2.setOnClickListener {
-            startActivity(
-                Intent(this, VerificationCodeActivity::class.java)
-            )
+            startActivity(Intent(this, VerificationCodeActivity::class.java))
         }
 
         binding.mainInclude.contentMain.verifyBtn.setOnClickListener {
@@ -177,9 +179,11 @@ class MainActivity : AppCompatActivity(),
         }
 
         binding.mainInclude.contentMain.FolderTextView.setOnClickListener {
-            startActivity(
-                Intent(this, FolderTextViewActivity::class.java)
-            )
+            startActivity(Intent(this, FolderTextViewActivity::class.java))
+        }
+
+        binding.mainInclude.contentMain.editBtn.setOnClickListener {
+            startActivity(Intent(this, EditTextActivity::class.java))
         }
         binding.mainInclude.contentMain.loading.show()
 //        showLoading()

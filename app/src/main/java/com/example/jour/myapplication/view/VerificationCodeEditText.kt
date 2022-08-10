@@ -13,8 +13,8 @@ import android.util.AttributeSet
 import android.util.Log
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
+import com.blankj.utilcode.util.KeyboardUtils
 import com.example.jour.myapplication.R
-import com.example.jour.myapplication.utils.KeyboardUtils
 import com.example.jour.myapplication.utils.dp2px
 import com.orhanobut.logger.Logger
 import java.text.SimpleDateFormat

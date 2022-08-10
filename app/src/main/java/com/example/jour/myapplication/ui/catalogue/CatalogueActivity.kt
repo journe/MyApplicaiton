@@ -1,4 +1,4 @@
-package com.example.jour.myapplication.ui
+package com.example.jour.myapplication.ui.catalogue
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,19 +1,14 @@
 package com.example.jour.myapplication.view
 
 import android.content.Context
-import com.example.jour.myapplication.utils.KeyboardUtils.Companion.showSoftInput
-import androidx.constraintlayout.widget.ConstraintLayout
-import android.widget.TextView
-import android.widget.EditText
-import android.view.LayoutInflater
-import com.example.jour.myapplication.R
-import com.example.jour.myapplication.utils.KeyboardUtils
-import android.text.Editable
 import android.util.AttributeSet
 import android.view.KeyEvent
+import android.view.LayoutInflater
 import android.view.View
-import android.view.inputmethod.InputMethodManager
-import com.orhanobut.logger.Logger
+import android.widget.EditText
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.jour.myapplication.R
 
 class TelNumCheckerView : ConstraintLayout {
     private var mTvTitleText: TextView? = null

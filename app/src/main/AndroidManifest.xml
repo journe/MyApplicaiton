@@ -69,7 +69,7 @@
             android:label="@string/title_activity_chip"
             android:theme="@style/ClipTheme" />
         <activity android:name=".ui.CycleHeadActivity" />
-        <activity android:name=".ui.RoomActivity" />
+        <activity android:name=".ui.room.RoomActivity" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />
@@ -81,12 +81,13 @@
             android:name=".ui.TopicListActivity"
             android:label="@string/title_activity_topic_list"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.Catalogue2Activity" />
-        <activity android:name=".ui.CatalogueActivity" />
-        <activity android:name=".ui.BaseActivity" />
-        <activity android:name=".ui.ArouterActivity" />
-        <activity android:name=".ui.Arouter2Activity" />
+        <activity android:name=".ui.catalogue.Catalogue2Activity" />
+        <activity android:name=".ui.catalogue.CatalogueActivity" />
+        <activity android:name=".base.BaseActivity" />
+        <activity android:name=".ui.arouter.ArouterActivity" />
+        <activity android:name=".ui.arouter.Arouter2Activity" />
         <activity android:name=".ui.WallPaperActivity" />
+        <activity android:name=".ui.editview.EditTextActivity"/>
 
         <service
             android:name=".ui.media.MyService"

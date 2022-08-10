@@ -1,4 +1,4 @@
-package com.example.jour.myapplication.ui
+package com.example.jour.myapplication.ui.room
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

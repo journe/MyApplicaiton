@@ -1,14 +1,8 @@
 package com.example.jour.myapplication.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.ImageView
-import com.bumptech.glide.Glide
 import com.example.jour.myapplication.R
-import com.example.jour.myapplication.R.id
-import com.example.jour.myapplication.R.layout
-import kotlinx.android.synthetic.main.activity_cycle_head.customGroup
+import com.example.jour.myapplication.base.BaseActivity
 
 class CycleHeadActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {

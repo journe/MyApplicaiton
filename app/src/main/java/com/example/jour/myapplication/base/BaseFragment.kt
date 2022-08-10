@@ -1,4 +1,4 @@
-package com.example.jour.myapplication.ui
+package com.example.jour.myapplication.base
 
 import android.os.Bundle
 import android.text.TextUtils

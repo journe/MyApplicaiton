@@ -1,4 +1,4 @@
-package com.example.jour.myapplication.ui;
+package com.example.jour.myapplication.ui.arouter;
 
 import android.annotation.SuppressLint;
 import androidx.appcompat.app.AppCompatActivity;
