@@ -185,6 +185,12 @@ class MainActivity : AppCompatActivity(),
         binding.mainInclude.contentMain.editBtn.setOnClickListener {
             startActivity(Intent(this, EditTextActivity::class.java))
         }
+
+        binding.mainInclude.contentMain.lotteryBtn.setOnClickListener {
+            startActivity(Intent(this, EditTextActivity::class.java))
+        }
+
+
         binding.mainInclude.contentMain.loading.show()
 //        showLoading()
 

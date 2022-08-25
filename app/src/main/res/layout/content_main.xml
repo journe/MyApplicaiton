@@ -189,4 +189,12 @@
         android:text="editview测试"
         app:layout_constraintStart_toEndOf="@+id/scrollableBanner"
         app:layout_constraintTop_toTopOf="@+id/scrollableBanner" />
+
+    <Button
+        android:id="@+id/lotteryBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="彩票结果展示"
+        app:layout_constraintStart_toEndOf="@+id/edit_btn"
+        app:layout_constraintTop_toBottomOf="@+id/coordinator" />
 </androidx.constraintlayout.widget.ConstraintLayout>

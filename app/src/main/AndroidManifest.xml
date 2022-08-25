@@ -22,6 +22,11 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".LotteryActivity"
+            android:exported="false"
+            android:label="@string/title_activity_lottery"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ui.verification.VerificationCodeActivity"
             android:exported="false" />
         <activity
@@ -87,7 +92,7 @@
         <activity android:name=".ui.arouter.ArouterActivity" />
         <activity android:name=".ui.arouter.Arouter2Activity" />
         <activity android:name=".ui.WallPaperActivity" />
-        <activity android:name=".ui.editview.EditTextActivity"/>
+        <activity android:name=".ui.editview.EditTextActivity" />
 
         <service
             android:name=".ui.media.MyService"
