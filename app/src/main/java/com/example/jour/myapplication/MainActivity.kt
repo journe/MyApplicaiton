@@ -19,6 +19,8 @@ import com.example.jour.myapplication.ui.catalogue.Catalogue2Activity
 import com.example.jour.myapplication.ui.catalogue.CatalogueActivity
 import com.example.jour.myapplication.ui.coordinator.CoordinatorActivity
 import com.example.jour.myapplication.ui.editview.EditTextActivity
+import com.example.jour.myapplication.ui.lottery.LotteryActivity
+import com.example.jour.myapplication.ui.md5.MD5Activity
 import com.example.jour.myapplication.ui.media.MediaPlayActivity
 import com.example.jour.myapplication.ui.recyclerview.RecyclerViewRefreshActivity
 import com.example.jour.myapplication.ui.room.RoomActivity
@@ -187,7 +189,10 @@ class MainActivity : AppCompatActivity(),
         }
 
         binding.mainInclude.contentMain.lotteryBtn.setOnClickListener {
-            startActivity(Intent(this, EditTextActivity::class.java))
+            startActivity(Intent(this, LotteryActivity::class.java))
+        }
+        binding.mainInclude.contentMain.button9.setOnClickListener {
+            startActivity(Intent(this, MD5Activity::class.java))
         }
 
 

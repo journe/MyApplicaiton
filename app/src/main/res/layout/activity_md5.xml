@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.md5.MD5Activity">
+
+    <Button
+        android:id="@+id/selectVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="选择视频"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/externalCacheDir" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="@+id/selectVideo"
+        app:layout_constraintTop_toBottomOf="@+id/selectVideo"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/filepath"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:text="textView" />
+
+    <Button
+        android:id="@+id/showMD5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="显示原MD5"
+        app:layout_constraintStart_toEndOf="@+id/selectVideo"
+        app:layout_constraintTop_toTopOf="@+id/selectVideo" />
+
+    <TextView
+        android:id="@+id/fileMD5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/filepath"
+        tools:text="TextView" />
+
+    <TextView
+        android:id="@+id/fileDri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fileDri"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dataDir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dataDir"
+        app:layout_constraintStart_toStartOf="@+id/fileDri"
+        app:layout_constraintTop_toBottomOf="@+id/fileDri" />
+
+    <TextView
+        android:id="@+id/cacheDir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cacheDir"
+        app:layout_constraintStart_toStartOf="@+id/dataDir"
+        app:layout_constraintTop_toBottomOf="@+id/dataDir" />
+
+    <TextView
+        android:id="@+id/externalCacheDir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="externalCacheDir"
+        app:layout_constraintStart_toStartOf="@+id/cacheDir"
+        app:layout_constraintTop_toBottomOf="@+id/cacheDir" />
+
+    <Button
+        android:id="@+id/changeMD5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="修改MD5"
+        app:layout_constraintStart_toEndOf="@+id/showMD5"
+        app:layout_constraintTop_toTopOf="@+id/showMD5" />
+
+    <TextView
+        android:id="@+id/newMD5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/fileMD5"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
