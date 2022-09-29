@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.roundImage.RoundImageActivity">
+
+    <com.example.jour.myapplication.view.RoundCircleImageView
+        android:id="@+id/image1"
+        android:layout_width="156dp"
+        android:layout_height="156dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:bottomRight="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:round_background_drawable="@drawable/radio_bg"
+        app:topLeft="20dp" />
+
+    <com.example.jour.myapplication.view.RoundCircleImageView
+        android:layout_width="156dp"
+        android:layout_height="156dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/black04"
+        android:src="@mipmap/ic_launcher"
+        app:isCircle="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -144,5 +144,6 @@
 \n③ 点击试听，觉得效果满意就可以下载作品啦。
 \n④ 请规范使用标点符号，使用逗号、句号断句，停顿更准确。
 \n⑤  如果多音字发音不准，可以输入发音相同的字代替，比如音乐(yue)，可以用音“月”替代。</string>
+    <string name="title_activity_round_image">RoundImageActivity</string>
 
 </resources>

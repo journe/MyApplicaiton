@@ -24,6 +24,7 @@ import com.example.jour.myapplication.ui.md5.MD5Activity
 import com.example.jour.myapplication.ui.media.MediaPlayActivity
 import com.example.jour.myapplication.ui.recyclerview.RecyclerViewRefreshActivity
 import com.example.jour.myapplication.ui.room.RoomActivity
+import com.example.jour.myapplication.ui.roundImage.RoundImageActivity
 import com.example.jour.myapplication.ui.verification.VerificationCodeActivity
 import com.example.jour.myapplication.ui.vp2.ViewPager2Activity
 import com.example.jour.myapplication.view.TelNumCheckerView
@@ -195,9 +196,12 @@ class MainActivity : AppCompatActivity(),
             startActivity(Intent(this, MD5Activity::class.java))
         }
 
+        binding.mainInclude.contentMain.button10.setOnClickListener {
+            startActivity(Intent(this, RoundImageActivity::class.java))
+        }
+
 
         binding.mainInclude.contentMain.loading.show()
-//        showLoading()
 
     }
 

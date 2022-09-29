@@ -205,4 +205,12 @@
         android:text="MD5修改"
         app:layout_constraintStart_toStartOf="@+id/scrollableBanner"
         app:layout_constraintTop_toBottomOf="@+id/scrollableBanner" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BitmapShader 显示圆角图片和背景"
+        app:layout_constraintStart_toEndOf="@+id/button9"
+        app:layout_constraintTop_toBottomOf="@+id/scrollableBanner" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,12 +23,12 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".ui.roundImage.RoundImageActivity"
+            android:exported="false"
+            android:label="@string/title_activity_round_image" />
+        <activity
             android:name=".ui.md5.MD5Activity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".ui.lottery.LotteryActivity"
             android:exported="false"

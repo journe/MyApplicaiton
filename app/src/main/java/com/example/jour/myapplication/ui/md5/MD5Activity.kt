@@ -92,7 +92,7 @@ class MD5Activity : AppCompatActivity() {
         }
     }
 
-    fun saveVideo2Public(
+    private fun saveVideo2Public(
         source: InputStream,
         fileName: String,
         suffix: String
@@ -123,85 +123,6 @@ class MD5Activity : AppCompatActivity() {
         return result
     }
 
-    //把照片和视频复制一份到相册
-    fun copyFileToGallery(file: File, fileName: String) {
-
-        var uri: Uri = MediaStore.Files.getContentUri("external")
-
-        // 将要新建的文件的文件索引插入到 external.db 数据库中
-        // 需要插入到 external.db 数据库 files 表中, 这里就需要设置一些描述信息
-        var contentValues = ContentValues()
-
-        // 设置插入 external.db 数据库中的 files 数据表的各个字段的值
-
-        // 设置存储路径 , files 数据表中的对应 relative_path 字段在 MediaStore 中以常量形式定义
-        contentValues.put(
-            MediaStore.Downloads.RELATIVE_PATH,
-            "${Environment.DIRECTORY_DOWNLOADS}/jour"
-        )
-        // 设置文件名称
-        contentValues.put(MediaStore.Downloads.DISPLAY_NAME, newFileName)
-
-        var insert: Uri = contentResolver.insert(uri, contentValues)!!
-
-        // 向 Download/hello/hello.txt 文件中插入数据
-        var os: OutputStream = contentResolver.openOutputStream(insert)!!
-        var bos = BufferedOutputStream(os)
-        bos.write("Hello World".toByteArray())
-        bos.close()
-
-
-//        val resolver: ContentResolver = contentResolver
-//        val values = ContentValues()
-//
-//        val uriSavedVideo: Uri? = if (Build.VERSION.SDK_INT >= 29) {
-//            values.put(MediaStore.Files.FileColumns.DATE_ADDED, System.currentTimeMillis() / 1000)
-//            values.put(MediaStore.Files.FileColumns.DATE_TAKEN, System.currentTimeMillis())
-//            values.put(MediaStore.Files.FileColumns.RELATIVE_PATH, "Pictures/jour")
-//            values.put(MediaStore.Files.FileColumns.IS_PENDING, true)
-//            values.put(MediaStore.Files.FileColumns.DISPLAY_NAME, fileName)
-//            if (fileName.contains("JPG")) {
-//                values.put(MediaStore.Files.FileColumns.MIME_TYPE, "image")
-//                resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
-//            } else {
-//                values.put(MediaStore.Files.FileColumns.MIME_TYPE, "video")
-//                resolver.insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, values)
-//            }
-//
-//        } else {
-//            values.put(MediaStore.Files.FileColumns.TITLE, fileName)
-//            values.put(MediaStore.Files.FileColumns.DISPLAY_NAME, fileName)
-//            values.put(MediaStore.Files.FileColumns.DATE_ADDED, System.currentTimeMillis() / 1000)
-//            if (fileName.contains("JPG")) {
-//                values.put(MediaStore.Files.FileColumns.MIME_TYPE, "image")
-//                resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
-//            } else {
-//                values.put(MediaStore.Files.FileColumns.MIME_TYPE, "video")
-//                resolver.insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, values)
-//            }
-//
-//        }
-//        uriSavedVideo?.apply {
-//            runCatching {
-//                val pfd = resolver.openFileDescriptor(this, "w") as ParcelFileDescriptor
-//                val out = FileOutputStream(pfd.fileDescriptor)
-//                val `in` = FileInputStream(file)
-//                val buf = ByteArray(8192)
-//                var len: Int
-//                while (`in`.read(buf).also { len = it } > 0) {
-//                    out.write(buf, 0, len)
-//                }
-//                out.close()
-//                `in`.close()
-//                pfd.close()
-//            }
-//            if (Build.VERSION.SDK_INT >= 29) {
-//                values.clear()
-//                values.put(MediaStore.Files.FileColumns.IS_PENDING, 0)
-//                resolver.update(this, values, null, null)
-//            }
-//        }
-    }
 
     private fun openGallery() {
         actionWithPermission(
