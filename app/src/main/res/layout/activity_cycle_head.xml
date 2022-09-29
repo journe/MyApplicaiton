@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.CycleHeadActivity"
     >
-  <com.example.jour.myapplication.view.CustomTextView
+  <com.jour.myapplication.view.CustomTextView
       android:id="@+id/customTextView"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
       app:textColor="#00ff00"
       app:textSize="14sp"
       />
-  <com.example.jour.myapplication.view.CustomGroup
+  <com.jour.myapplication.view.CustomGroup
       android:id="@+id/customGroup"
       android:layout_width="match_parent"
       android:layout_height="66dp"
@@ -27,7 +27,7 @@
       app:scaleWidth="10dp"
       />
 
-  <com.example.jour.myapplication.view.CustomImageView
+  <com.jour.myapplication.view.CustomImageView
       android:id="@+id/customImageView"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
       app:titleTextColor="#ff0000"
       app:titleTextSize="30sp" />
 
-  <com.example.jour.myapplication.view.ImageMoveView
+  <com.jour.myapplication.view.ImageMoveView
       android:id="@+id/imageMoveView"
       android:layout_width="50dp"
       android:layout_height="50dp"
@@ -52,7 +52,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="@+id/customImageView" />
-  <com.example.jour.myapplication.view.TextMoveView
+  <com.jour.myapplication.view.TextMoveView
       android:id="@+id/textMoveView"
       android:layout_width="wrap_content"
       android:layout_height="30dp"
@@ -64,7 +64,7 @@
       app:layout_constraintEnd_toEndOf="@+id/imageMoveView"
       app:layout_constraintTop_toBottomOf="@+id/imageMoveView"
       />
-  <com.example.jour.myapplication.view.CustomRingProgress
+  <com.jour.myapplication.view.CustomRingProgress
       android:id="@+id/customRingProgress"
       android:layout_width="100dp"
       android:layout_height="100dp"
@@ -75,7 +75,7 @@
       app:secondColor="#00ff00"
       app:speed="10"
       />
-  <com.example.jour.myapplication.view.CusVolumeView
+  <com.jour.myapplication.view.CusVolumeView
       android:layout_width="100dp"
       android:layout_height="100dp"
       app:layout_constraintEnd_toEndOf="@+id/customRingProgress"

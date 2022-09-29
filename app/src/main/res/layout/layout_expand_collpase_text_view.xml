@@ -8,7 +8,7 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <com.example.jour.myapplication.view.FolderTextView
+    <com.jour.myapplication.view.FolderTextView
         android:id="@+id/folder_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -7,7 +7,7 @@
     android:background="@color/white"
     tools:context=".ui.roundImage.RoundImageActivity">
 
-    <com.example.jour.myapplication.view.RoundCircleImageView
+    <com.jour.myapplication.view.RoundCircleImageView
         android:id="@+id/image1"
         android:layout_width="156dp"
         android:layout_height="156dp"
@@ -19,7 +19,7 @@
         app:round_background_drawable="@drawable/radio_bg"
         app:topLeft="20dp" />
 
-    <com.example.jour.myapplication.view.RoundCircleImageView
+    <com.jour.myapplication.view.RoundCircleImageView
         android:layout_width="156dp"
         android:layout_height="156dp"
         android:layout_marginStart="8dp"

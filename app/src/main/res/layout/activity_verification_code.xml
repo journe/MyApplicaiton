@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.verification.VerificationCodeActivity">
 
-    <com.example.jour.myapplication.view.VerificationCodeEditText
+    <com.jour.myapplication.view.VerificationCodeEditText
         android:id="@+id/et_verification_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.example.jour.myapplication.view.VerificationCodeEditText
+    <com.jour.myapplication.view.VerificationCodeEditText
         android:id="@+id/et_verification_code2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
