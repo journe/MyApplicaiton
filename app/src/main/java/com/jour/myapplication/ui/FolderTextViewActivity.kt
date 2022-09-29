@@ -2,9 +2,7 @@ package com.jour.myapplication.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.jour.myapplication.R
 import com.jour.myapplication.databinding.ActivityFolderTextViewBinding
-import kotlinx.android.synthetic.main.notification.view.*
 
 class FolderTextViewActivity : AppCompatActivity() {
     private lateinit var bingding: ActivityFolderTextViewBinding

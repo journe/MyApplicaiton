@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import com.blankj.utilcode.util.KeyboardUtils
 import com.blankj.utilcode.util.SizeUtils
-import com.jour.myapplication.base.BaseActivity
 import com.jour.myapplication.databinding.ActivityEditTextBinding
 import com.jour.myapplication.databinding.LayoutFloatViewBinding
 import com.jour.myapplication.utils.animateY
@@ -16,7 +16,7 @@ import com.jour.myapplication.utils.popup
 import com.jour.myapplication.utils.visible
 import com.orhanobut.logger.Logger
 
-class EditTextActivity : BaseActivity() {
+class EditTextActivity : AppCompatActivity() {
     lateinit var binding: ActivityEditTextBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

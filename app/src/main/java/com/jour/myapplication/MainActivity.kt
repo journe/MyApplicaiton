@@ -48,23 +48,6 @@ class MainActivity : AppCompatActivity(),
 
         setSupportActionBar(binding.mainInclude.toolbar)
 
-        binding.mainInclude.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .show()
-            val intent = Intent(Intent.ACTION_VIEW)
-            val str =
-                "suning://m.suning.com/index?adTypeCode=1002&adId=https%3A%2F%2Fcuxiao.m.suning.com%2Fscms%2Fcw03.html%3Futm_source%3Ddsp-ay%26utm_medium%3Das-cw1-30ll2-in5%26utm_campaign%3D%252C3%252Ca691f49313b24ea197107a1406aa9cf7%26utm_term%3DfZjq4KzfGgsu3k5D6IPl0PsfGaHe58%26adtype%3D7&utm_source=dsp-ay&utm_medium=as-cw1-30ll2-in5&utm_campaign=%2C3%2Ca691f49313b24ea197107a1406aa9cf7&utm_term=fZjq4KzfGgsu3k5D6IPl0PsfGaHe58&adtype=7"
-            val str1 = "http://www.baidu.com"
-            intent.data = Uri.parse(str)
-            if (intent.resolveActivity(packageManager) != null) {
-                startActivity(intent)
-            } else {
-                intent.data = Uri.parse(str1)
-            }
-            startActivity(intent)
-        }
-
         val toggle = ActionBarDrawerToggle(
             this,
             binding.drawerLayout,
@@ -199,9 +182,6 @@ class MainActivity : AppCompatActivity(),
         binding.mainInclude.contentMain.button10.setOnClickListener {
             startActivity(Intent(this, RoundImageActivity::class.java))
         }
-
-
-        binding.mainInclude.contentMain.loading.show()
 
     }
 

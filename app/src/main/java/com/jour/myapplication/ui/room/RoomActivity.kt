@@ -1,19 +1,9 @@
 package com.jour.myapplication.ui.room
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.lifecycle.Observer
-import androidx.room.Room
-import com.jour.myapplication.R
+import androidx.appcompat.app.AppCompatActivity
 import com.jour.myapplication.data.Word
-import com.jour.myapplication.data.WordDao
-import com.jour.myapplication.data.AppDatabase
-import com.jour.myapplication.data.WordRepository
-import kotlinx.android.synthetic.main.activity_room.insert
-import kotlinx.android.synthetic.main.activity_room.textView4
-import kotlinx.android.synthetic.main.activity_room.update
-import java.lang.StringBuilder
+import com.jour.myapplication.databinding.ActivityRoomBinding
 
 class RoomActivity : AppCompatActivity() {
 
@@ -27,22 +17,23 @@ class RoomActivity : AppCompatActivity() {
 //
 //  }
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_room)
-    insert.setOnClickListener {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val binding = ActivityRoomBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.insert.setOnClickListener {
 //      viewModel.insert(Word("hello1", "你好1"),Word("world2", "世界2"))
-      val a = Word("insert", "你好28")
-      a.id=2
+            val a = Word("insert", "你好28")
+            a.id = 2
 //      viewModel.update(a)
-    }
-    var string = "1"
-    update.setOnClickListener {
-      string +="2"
-      val a = Word(string, "你好28")
-      a.id=2
+        }
+        var string = "1"
+        binding.update.setOnClickListener {
+            string += "2"
+            val a = Word(string, "你好28")
+            a.id = 2
 //      viewModel.update(a)
-    }
+        }
 
 //    viewModel.wordLiveData.observe(this, Observer {
 //      var text = ""
@@ -51,6 +42,6 @@ class RoomActivity : AppCompatActivity() {
 //      }
 //      textView4.text = text
 //    })
-  }
+    }
 
 }

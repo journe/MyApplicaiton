@@ -1,22 +1,23 @@
 package com.jour.myapplication
 
-import android.app.Application
+//import cn.idaddy.android.opensdk.lib.IdaddySdk
 import android.os.Build
 import coil.ImageLoader
 import coil.ImageLoaderFactory
 import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
 import coil.decode.VideoFrameDecoder
-
-//import cn.idaddy.android.opensdk.lib.IdaddySdk
 import com.alibaba.android.arouter.launcher.ARouter
+import com.jour.myapplication.base.BaseApplication
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
+import dagger.hilt.android.HiltAndroidApp
 
 /**
  * Created by journey on 2018/8/1.
  */
-class MyApplication : Application(), ImageLoaderFactory {
+@HiltAndroidApp
+class MyApplication : BaseApplication(), ImageLoaderFactory {
     override fun onCreate() {
         super.onCreate()
 //    IdaddySdk.init(this, false)

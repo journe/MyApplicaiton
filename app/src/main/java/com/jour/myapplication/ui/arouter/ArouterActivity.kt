@@ -1,15 +1,14 @@
 package com.jour.myapplication.ui.arouter
 
-import android.os.Bundle
+import androidx.activity.viewModels
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.alibaba.android.arouter.launcher.ARouter
-import com.jour.myapplication.R
-import com.jour.myapplication.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_arouter.*
+import com.jour.myapplication.base.mvvm.vm.EmptyViewModel
+import com.jour.myapplication.common.ui.BaseActivity
+import com.jour.myapplication.databinding.ActivityArouterBinding
 
 @Route(path = "/test/activity")
-class ArouterActivity : BaseActivity() {
+class ArouterActivity : BaseActivity<ActivityArouterBinding, EmptyViewModel>() {
 
     @Autowired(name = "comment")
     @JvmField
@@ -23,20 +22,17 @@ class ArouterActivity : BaseActivity() {
     @JvmField
     var mAuditIdInt: Int = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        ARouter.getInstance()
-            .inject(this)
-        setContentView(R.layout.activity_arouter)
-        arouter_tv1.text = mCommentId
-        arouter_tv2.text = mAuditIdInt.toString()
-//    arouter_tv3.text = mAuditIdInt.toString()
+    override val mViewModel: EmptyViewModel by viewModels()
+
+    override fun ActivityArouterBinding.initView() {
+        TODO("Not yet implemented")
     }
 
-    override fun onResume() {
-        super.onResume()
-//    arouter_tv1.text = mCommentId
-//    arouter_tv2.text = mAuditId
-//    arouter_tv3.text = mAuditIdInt.toString()
+    override fun initObserve() {
+        mBinding.arouterTv1.text = mCommentId
+        mBinding.arouterTv2.text = mAuditIdInt.toString()
+    }
+
+    override fun initRequestData() {
     }
 }

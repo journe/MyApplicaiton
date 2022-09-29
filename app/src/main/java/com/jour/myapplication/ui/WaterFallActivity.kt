@@ -5,29 +5,31 @@ import android.content.Intent
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import androidx.vectordrawable.graphics.drawable.Animatable2Compat
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.State
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import android.view.View
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView.State
+import androidx.vectordrawable.graphics.drawable.Animatable2Compat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.gif.GifDrawable
 import com.jour.myapplication.R
 import com.jour.myapplication.bean.WaterFallItemData
+import com.jour.myapplication.databinding.ActivityWaterFallBinding
 import com.orhanobut.logger.Logger
 import com.zhy.adapter.recyclerview.CommonAdapter
 import com.zhy.adapter.recyclerview.base.ViewHolder
-import kotlinx.android.synthetic.main.activity_water_fall.water_recycle_view
 import org.jetbrains.anko.dip
 import org.jetbrains.anko.find
 
 class WaterFallActivity : AppCompatActivity() {
 
+    lateinit var binding: ActivityWaterFallBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_water_fall)
+        binding = ActivityWaterFallBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
         val gifList = arrayListOf(
             "https://static-cdn.xiangwushuo.com/bmgqv8rtfhp4tsev5dq0.mp4.gif",
             "https://static-cdn.xiangwushuo.com/bmgqv6rtfhp4tsev5dn0.mp4.gif",
@@ -42,8 +44,8 @@ class WaterFallActivity : AppCompatActivity() {
         gifList.forEach {
             items.add(WaterFallItemData(topicVideo = it))
         }
-        water_recycle_view.adapter = getDataItemAdapter(items)
-        water_recycle_view.addItemDecoration(object :
+        binding.waterRecycleView.adapter = getDataItemAdapter(items)
+        binding.waterRecycleView.addItemDecoration(object :
             androidx.recyclerview.widget.RecyclerView.ItemDecoration() {
             override fun getItemOffsets(
                 outRect: Rect,
@@ -58,7 +60,7 @@ class WaterFallActivity : AppCompatActivity() {
                 outRect.bottom = dip(8)
             }
         })
-        water_recycle_view.addOnScrollListener(object :
+        binding.waterRecycleView.addOnScrollListener(object :
             androidx.recyclerview.widget.RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(
                 recyclerView: androidx.recyclerview.widget.RecyclerView,
@@ -91,7 +93,7 @@ class WaterFallActivity : AppCompatActivity() {
 
     fun getVisibleItemsId(): ArrayList<Int> {
         val lm =
-            water_recycle_view.layoutManager as androidx.recyclerview.widget.StaggeredGridLayoutManager
+            binding.waterRecycleView.layoutManager as androidx.recyclerview.widget.StaggeredGridLayoutManager
         val startId = lm.findFirstVisibleItemPositions(null)[0]
         val lastIds = lm.findLastVisibleItemPositions(null)
         val lastId = lastIds[lastIds.size - 1]
@@ -105,7 +107,7 @@ class WaterFallActivity : AppCompatActivity() {
     }
 
     private fun getItemGifDrawable(position: Int): GifDrawable {
-        val itemView = water_recycle_view.findViewHolderForLayoutPosition(position)
+        val itemView = binding.waterRecycleView.findViewHolderForLayoutPosition(position)
             ?.itemView
         return itemView?.find<ImageView>(
             R.id.topic_image

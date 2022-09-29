@@ -2,26 +2,27 @@ package com.jour.myapplication.ui
 
 import android.graphics.Color
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import com.jour.myapplication.R
-import kotlinx.android.synthetic.main.activity_scrolling.*
+import com.google.android.material.snackbar.Snackbar
+import com.jour.myapplication.databinding.ActivityScrollingBinding
 
 class CoordinatorLayoutActivity : AppCompatActivity() {
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_scrolling)
-    setSupportActionBar(story_detail_toolbar)
-    story_detail_fab.setOnClickListener { view ->
-      Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-          .setAction("Action", null)
-          .show()
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val binding = ActivityScrollingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setSupportActionBar(binding.storyDetailToolbar)
+        binding.storyDetailFab.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null)
+                .show()
+        }
 
-    story_detail_toolbar_layout.setCollapsedTitleTextColor(Color.BLACK)
-    story_detail_toolbar_layout.setExpandedTitleColor(Color.BLUE)
-    story_detail_toolbar_layout.title = "testtitleAppCompatActivity"
-//    story_detail_toolbar.title = "testtitleAppCompatActivity"
-  }
+        binding.storyDetailToolbarLayout.apply {
+            setCollapsedTitleTextColor(Color.BLACK)
+            setExpandedTitleColor(Color.BLUE)
+            title = "testtitleAppCompatActivity"
+        }
+    }
 }
