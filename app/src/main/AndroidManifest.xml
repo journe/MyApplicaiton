@@ -51,7 +51,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.GranzortViewActivity" />
-        <activity android:name=".ui.ViewPagerActivity" />
+        <activity android:name=".ui.ViewPagerCatalogueActivity" />
         <activity android:name=".ui.RecycleViewActivity" />
         <activity
             android:name=".ui.CoordinatorLayoutActivity"

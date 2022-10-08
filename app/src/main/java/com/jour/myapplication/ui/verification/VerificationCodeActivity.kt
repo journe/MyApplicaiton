@@ -1,9 +1,13 @@
 package com.jour.myapplication.ui.verification
 
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.blankj.utilcode.util.KeyboardUtils
+import com.jour.myapplication.R
+import com.jour.myapplication.base.ktx.clickDelay
 import com.jour.myapplication.databinding.ActivityVerificationCodeBinding
+import com.jour.myapplication.view.TelNumCheckerView
 import com.jour.myapplication.view.VerificationCodeEditText
 import org.jetbrains.anko.toast
 
@@ -36,6 +40,20 @@ class VerificationCodeActivity : AppCompatActivity() {
         binding.etVerificationCode2.setOnClickListener {
             KeyboardUtils.showSoftInput(binding.etVerificationCode2)
             binding.etVerificationCode2.requestFocus()
+        }
+        binding.verificationCodeBtn.clickDelay {
+            val dialog = AlertDialog.Builder(this, R.style.inputDialog).apply {
+                setView(TelNumCheckerView(context))
+                setPositiveButton(
+                    "确定"
+                ) { dialog, which ->
+                }
+                setNegativeButton(
+                    "关闭"
+                ) { dialog, which ->
+                }
+            }
+            dialog.create().show()
         }
     }
 }

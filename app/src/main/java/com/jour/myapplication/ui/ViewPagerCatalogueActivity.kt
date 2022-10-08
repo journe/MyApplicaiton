@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.GridView
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -19,7 +18,7 @@ import com.jour.myapplication.utils.ProdctBean
 import java.util.ArrayList
 import kotlin.math.ceil
 
-class ViewPagerActivity : AppCompatActivity() {
+class ViewPagerCatalogueActivity : AppCompatActivity() {
   private var viewPager: ViewPager? = null
   private var group // 圆点指示器
       : LinearLayout? = null
@@ -42,7 +41,7 @@ class ViewPagerActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(layout.activity_view_pager)
+    setContentView(layout.activity_view_pager_catalogue)
     // 初始化控件
     initView()
     // 添加业务逻辑
@@ -71,7 +70,7 @@ class ViewPagerActivity : AppCompatActivity() {
           if (obj != null && obj is ProdctBean) {
             println(obj)
             Toast.makeText(
-                this@ViewPagerActivity, obj.name, Toast.LENGTH_SHORT
+                this@ViewPagerCatalogueActivity, obj.name, Toast.LENGTH_SHORT
             )
                 .show()
           }

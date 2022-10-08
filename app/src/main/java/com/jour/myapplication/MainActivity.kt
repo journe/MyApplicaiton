@@ -1,40 +1,23 @@
 package com.jour.myapplication
 
-import android.app.ProgressDialog
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import com.alibaba.android.arouter.launcher.ARouter
-import com.jour.myapplication.ui.*
-import com.jour.myapplication.ui.banner.BannerActivity
-import com.jour.myapplication.ui.catalogue.Catalogue2Activity
-import com.jour.myapplication.ui.catalogue.CatalogueActivity
-import com.jour.myapplication.ui.coordinator.CoordinatorActivity
-import com.jour.myapplication.ui.editview.EditTextActivity
-import com.jour.myapplication.ui.lottery.LotteryActivity
-import com.jour.myapplication.ui.md5.MD5Activity
-import com.jour.myapplication.ui.media.MediaPlayActivity
-import com.jour.myapplication.ui.recyclerview.RecyclerViewRefreshActivity
-import com.jour.myapplication.ui.room.RoomActivity
-import com.jour.myapplication.ui.roundImage.RoundImageActivity
-import com.jour.myapplication.ui.verification.VerificationCodeActivity
-import com.jour.myapplication.ui.vp2.ViewPager2Activity
-import com.jour.myapplication.view.TelNumCheckerView
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 import com.jour.myapplication.databinding.ActivityMainBinding
+import com.jour.myapplication.ui.CoordinatorLayoutActivity
+import com.jour.myapplication.ui.GranzortViewActivity
+import com.jour.myapplication.ui.RecycleViewActivity
+import com.jour.myapplication.ui.XiaoAiTestActivity
+import dagger.hilt.android.AndroidEntryPoint
 
 
-/**
- * @author lvchen
- */
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(),
     NavigationView.OnNavigationItemSelectedListener {
 
@@ -46,12 +29,12 @@ class MainActivity : AppCompatActivity(),
 
         setContentView(binding.root)
 
-        setSupportActionBar(binding.mainInclude.toolbar)
+        setSupportActionBar(binding.toolbar)
 
         val toggle = ActionBarDrawerToggle(
             this,
             binding.drawerLayout,
-            binding.mainInclude.toolbar,
+            binding.toolbar,
             R.string.navigation_drawer_open,
             R.string.navigation_drawer_close
         )
@@ -59,129 +42,15 @@ class MainActivity : AppCompatActivity(),
         toggle.syncState()
         binding.navView.setNavigationItemSelectedListener(this)
 
-        binding.mainInclude.contentMain.viewpagerBtn.setOnClickListener {
-            startActivity(
-                Intent(this, ViewPagerActivity::class.java)
-            )
-        }
 
-        binding.mainInclude.contentMain.notificationBtn.setOnClickListener {
-            startActivity(
-                Intent(this, NotificationActivity::class.java)
-            )
-        }
+//        binding.mainInclude.contentMain.routerBtn.setOnClickListener {
+//            ARouter.getInstance()
+//                .build("/test/activity2")
+////          .withInt("audit", 666)
+////          .withString("comment", "888")
+//                .navigation()
+//        }
 
-        binding.mainInclude.contentMain.wallpaperBtn.setOnClickListener {
-            startActivity(
-                Intent(this, WallPaperActivity::class.java)
-            )
-        }
-        binding.mainInclude.contentMain.catalogue.setOnClickListener {
-            startActivity(
-                Intent(this, CatalogueActivity::class.java)
-            )
-        }
-        binding.mainInclude.contentMain.catalogue2.setOnClickListener {
-            startActivity(
-                Intent(this, Catalogue2Activity::class.java)
-            )
-        }
-        binding.mainInclude.contentMain.waterfall.setOnClickListener {
-            startActivity(
-                Intent(this, WaterFallActivity::class.java)
-            )
-        }
-        binding.mainInclude.contentMain.routerBtn.setOnClickListener {
-            ARouter.getInstance()
-                .build("/test/activity2")
-//          .withInt("audit", 666)
-//          .withString("comment", "888")
-                .navigation()
-        }
-        binding.mainInclude.contentMain.roomBtn.setOnClickListener {
-            startActivity(
-                Intent(this, RoomActivity::class.java)
-            )
-        }
-
-        binding.mainInclude.contentMain.cycleHeadBtn.setOnClickListener {
-            startActivity(
-                Intent(this, CycleHeadActivity::class.java)
-            )
-        }
-        binding.mainInclude.contentMain.chips.setOnClickListener {
-            startActivity(
-                Intent(this, ChipActivity::class.java)
-            )
-        }
-        binding.mainInclude.contentMain.recycleBtn.setOnClickListener {
-            startActivity(
-                Intent(this, RecyclerViewRefreshActivity::class.java)
-            )
-        }
-        binding.mainInclude.contentMain.vp2Btn.setOnClickListener {
-            startActivity(
-                Intent(this, ViewPager2Activity::class.java)
-            )
-        }
-        binding.mainInclude.contentMain.vpBtn.setOnClickListener {
-            startActivity(
-                Intent(this, com.jour.myapplication.ui.vp.ViewPagerActivity::class.java)
-            )
-        }
-        binding.mainInclude.contentMain.mediaBtn.setOnClickListener {
-            startActivity(
-                Intent(this, MediaPlayActivity::class.java)
-            )
-        }
-        binding.mainInclude.contentMain.coordinator.setOnClickListener {
-            startActivity(
-                Intent(this, CoordinatorActivity::class.java)
-            )
-        }
-        binding.mainInclude.contentMain.scrollableBanner.setOnClickListener {
-            startActivity(
-                Intent(this, BannerActivity::class.java)
-            )
-        }
-        binding.mainInclude.contentMain.verifyBtn2.setOnClickListener {
-            startActivity(Intent(this, VerificationCodeActivity::class.java))
-        }
-
-        binding.mainInclude.contentMain.verifyBtn.setOnClickListener {
-
-            val dialog = AlertDialog.Builder(this, R.style.inputDialog).apply {
-                setView(TelNumCheckerView(context))
-                setPositiveButton(
-                    "确定"
-                ) { dialog, which ->
-                }
-                setNegativeButton(
-                    "关闭"
-                ) { dialog, which ->
-                }
-            }
-            dialog.create().show()
-        }
-
-        binding.mainInclude.contentMain.FolderTextView.setOnClickListener {
-            startActivity(Intent(this, FolderTextViewActivity::class.java))
-        }
-
-        binding.mainInclude.contentMain.editBtn.setOnClickListener {
-            startActivity(Intent(this, EditTextActivity::class.java))
-        }
-
-        binding.mainInclude.contentMain.lotteryBtn.setOnClickListener {
-            startActivity(Intent(this, LotteryActivity::class.java))
-        }
-        binding.mainInclude.contentMain.button9.setOnClickListener {
-            startActivity(Intent(this, MD5Activity::class.java))
-        }
-
-        binding.mainInclude.contentMain.button10.setOnClickListener {
-            startActivity(Intent(this, RoundImageActivity::class.java))
-        }
 
     }
 
@@ -227,19 +96,6 @@ class MainActivity : AppCompatActivity(),
             findViewById<View>(R.id.drawer_layout) as androidx.drawerlayout.widget.DrawerLayout
         drawer.closeDrawer(GravityCompat.START)
         return true
-    }
-
-
-    private var progressDialog: ProgressDialog? = null
-
-    private fun showLoading() {
-        if (progressDialog == null)
-            progressDialog = ProgressDialog(this)
-        progressDialog?.show()
-    }
-
-    fun dismissLoading() {
-        progressDialog?.takeIf { it.isShowing }?.dismiss()
     }
 
 }
