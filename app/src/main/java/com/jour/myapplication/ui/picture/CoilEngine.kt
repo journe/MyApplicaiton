@@ -1,3 +1,5 @@
+package com.jour.myapplication.ui.picture
+
 import android.content.Context
 import android.widget.ImageView
 import coil.imageLoader
@@ -10,7 +12,7 @@ import com.luck.picture.lib.utils.ActivityCompatHelper
 /**
  * @author：luck
  * @date：2022/2/14 3:00 下午
- * @describe：CoilEngine
+ * @describe：com.jour.myapplication.ui.picture.CoilEngine
  */
 class CoilEngine : ImageEngine {
     override fun loadImage(context: Context, url: String, imageView: ImageView) {

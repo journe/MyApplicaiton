@@ -1,4 +1,4 @@
-package tech.jour.pictureselector;
+package com.jour.myapplication.ui.picture;
 
 import android.app.Activity;
 import android.content.Context;

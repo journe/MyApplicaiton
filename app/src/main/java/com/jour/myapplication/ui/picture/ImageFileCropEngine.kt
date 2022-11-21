@@ -1,4 +1,4 @@
-package tech.jour.pictureselector
+package com.jour.myapplication.ui.picture
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -42,7 +42,7 @@ class ImageFileCropEngine : CropFileEngine {
             ) {
             }
         })
-        uCrop.start(fragment.activity!!, fragment, requestCode)
+        uCrop.start(fragment.requireActivity(), fragment, requestCode)
     }
 
     /**
