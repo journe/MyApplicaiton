@@ -1,21 +1,17 @@
 package com.jour.myapplication.ui.md5
 
-import CoilEngine
+import com.jour.myapplication.ui.picture.CoilEngine
 import android.Manifest
-import android.content.ContentResolver
 import android.content.ContentValues
 import android.content.Context
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.os.ParcelFileDescriptor
 import android.provider.MediaStore
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import coil.load
 import com.blankj.utilcode.util.FileUtils
-import com.blankj.utilcode.util.ImageUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.jour.myapplication.databinding.ActivityMd5Binding
 import com.jour.myapplication.utils.actionWithPermission
@@ -75,7 +71,7 @@ class MD5Activity : AppCompatActivity() {
 
     }
 
-    fun changeFileMD5() {
+    private fun changeFileMD5() {
         try {
             val bytes = FileUtils.getFileByPath(oldVideoPath).readBytes()
 //                contentResolver.openInputStream(oldVideoPath.toUri())

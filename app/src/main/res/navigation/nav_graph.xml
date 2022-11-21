@@ -120,4 +120,14 @@
         android:name="com.jour.myapplication.ui.vp2.ViewPager2Activity"
         android:label="ViewPager2Activity"
         tools:layout="@layout/activity_view_pager2" />
+    <activity
+        android:id="@+id/themeNightActivity"
+        android:name="com.jour.myapplication.ui.ThemeNightActivity"
+        android:label="activity_theme_night"
+        tools:layout="@layout/activity_theme_night" />
+    <fragment
+        android:id="@+id/pictureFragment"
+        android:name="com.jour.myapplication.ui.picture.PictureFragment"
+        android:label="PictureFragment"
+        tools:layout="@layout/fragment_picture" />
 </navigation>

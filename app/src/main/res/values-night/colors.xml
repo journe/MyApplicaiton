@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#ff4081</color>
-
+    <color name="colorPrimary">#00FFA4</color>
     <color name="colorOnPrimary">#083634</color>
-    <color name="colorPrimaryContainer">#151620</color>
+    <color name="colorPrimaryContainer">#346AFF</color>
     <color name="colorOnPrimaryContainer">#8486A1</color>
 
     <color name="colorSecondaryContainer">#0B0C11</color>
@@ -21,6 +18,7 @@
 
     <color name="color_line_ee">#1b1c28</color>
 
+
     <color name="grey_unable">#2b2c3a</color>
 
     <color name="colorOnSecondary">#D5D7EB</color>
@@ -30,18 +28,4 @@
     <color name="colorSecondary">#ffbecefa</color>
     <color name="colorSecondaryVariant">#ffbecefa</color>
 
-
-    <color name="color_main_orange">#FEB800</color>
-    <color name="black04">#66000000</color>
-    <color name="transparent">#00FFFFFF</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="white90">#E6FFFFFF</color>
-    <color name="white80">#CCFFFFFF</color>
-    <color name="white70">#B3FFFFFF</color>
-    <color name="white60">#99FFFFFF</color>
-    <color name="white50">#80FFFFFF</color>
-    <color name="white40">#66FFFFFF</color>
-    <color name="white30">#4DFFFFFF</color>
-    <color name="white20">#33FFFFFF</color>
-    <color name="white10">#1AFFFFFF</color>
 </resources>

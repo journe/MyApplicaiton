@@ -115,8 +115,14 @@ dependencies {
 
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
     implementation 'com.github.iwgang:countdownview:2.1.6'
+
     implementation 'io.github.lucksiege:pictureselector:v3.10.6'
+    implementation "io.github.lucksiege:compress:v3.10.6"
+    implementation "io.github.lucksiege:ucrop:v3.10.6"
 
     implementation 'com.guolindev.permissionx:permissionx:1.6.4'
+
+    implementation 'id.zelory:compressor:3.0.1'
+
 
 }
