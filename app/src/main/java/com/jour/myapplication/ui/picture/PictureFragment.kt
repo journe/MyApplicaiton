@@ -76,8 +76,6 @@ class PictureFragment : BaseFragment<FragmentPictureBinding, EmptyViewModel>() {
             mBinding.imgInfo.text = savedFile.toString()
         }
 
-
-
         result.map { it.compressPath }.d()
 //        BitmapUtils
     }

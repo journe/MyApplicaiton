@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.jour.myapplication.databinding.ActivityMainBinding
-import com.jour.myapplication.ui.CoordinatorLayoutActivity
 import com.jour.myapplication.ui.GranzortViewActivity
 import com.jour.myapplication.ui.RecycleViewActivity
 import com.jour.myapplication.ui.XiaoAiTestActivity
@@ -18,8 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(),
-    NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var binding: ActivityMainBinding
 
@@ -84,8 +82,11 @@ class MainActivity : AppCompatActivity(),
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-//      R.id.nav_camera -> startActivity(Intent(this, FragmentActivity::class.java))
-            R.id.nav_manage -> startActivity(Intent(this, CoordinatorLayoutActivity::class.java))
+            R.id.nav_manage -> startActivity(
+                Intent(
+                    this, cn.gavinliu.similar.photo.MainActivity::class.java
+                )
+            )
             R.id.nav_gallery -> startActivity(Intent(this, RecycleViewActivity::class.java))
             R.id.nav_slideshow -> startActivity(Intent(this, GranzortViewActivity::class.java))
 //      R.id.nav_share -> IdaddySdk.start()

@@ -22,6 +22,7 @@ class MainFragment : BaseFragment<FragmentMainBinding, EmptyViewModel>() {
     override fun FragmentMainBinding.initView() {
         val list = listOf(
             ItemBean(R.drawable.img_main_18, "获取当前手机壁纸", R.id.wallPaperActivity),
+            ItemBean(R.drawable.img_main_23, "折叠式标题栏", R.id.coordinatorLayoutActivity),
             ItemBean(R.drawable.img_main_1, "类别Viewpager", R.id.FirstFragment),
             ItemBean(R.drawable.img_main_2, "通知样式", R.id.notificationActivity),
             ItemBean(R.drawable.img_main_3, "上拉加载的RecyclerView", R.id.recyclerViewRefreshActivity),

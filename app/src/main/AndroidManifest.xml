@@ -22,13 +22,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name=".ThemeNightActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+        <activity android:name="cn.gavinliu.similar.photo.MainActivity"/>
+        <activity android:name="cn.gavinliu.similar.photo.GroupActivity"/>
         <activity
             android:name=".ui.roundImage.RoundImageActivity"
             android:exported="false"
@@ -106,7 +101,8 @@
         <activity android:name=".ui.arouter.Arouter2Activity" />
         <activity android:name=".ui.WallPaperActivity" />
         <activity android:name=".ui.editview.EditTextActivity" />
-        <activity android:name=".ui.ThemeNightActivity"/>
+        <activity android:name=".ui.ThemeNightActivity" />
+
         <service
             android:name=".ui.media.MyService"
             android:process=":MyCorn" />
