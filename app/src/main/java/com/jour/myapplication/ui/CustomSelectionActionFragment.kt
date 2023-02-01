@@ -1,13 +1,18 @@
 package com.jour.myapplication.ui
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context.CLIPBOARD_SERVICE
 import android.view.ActionMode
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import com.blankj.utilcode.util.ClipboardUtils
 import com.jour.myapplication.R
 import com.jour.myapplication.base.mvvm.vm.EmptyViewModel
+import com.jour.myapplication.base.utils.toast
 import com.jour.myapplication.common.ui.BaseFragment
 import com.jour.myapplication.databinding.FragmentCustomSelectionBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -72,7 +77,15 @@ class CustomSelectionActionFragment :
                         mode?.finish() //收起操作菜单
                     }
                     R.id.Informal33 -> {
-                        Toast.makeText(requireContext(), "点击的是33", Toast.LENGTH_SHORT).show()
+                        //获取选中的起始位置
+                        val selectionStart: Int = mBinding.edittext.selectionStart
+                        val selectionEnd: Int = mBinding.edittext.selectionEnd
+                        //截取选中的文本
+                        var txt: String = mBinding.edittext.text.toString()
+                        val substring = txt.substring(selectionStart, selectionEnd)
+                        //将选中的文本放到剪切板
+                        ClipboardUtils.copyText(substring)
+                        toast("复制文字 $substring")
                         mode?.finish()
                     }
                 }
@@ -93,6 +106,5 @@ class CustomSelectionActionFragment :
 
     override fun initRequestData() {
     }
-
 
 }
