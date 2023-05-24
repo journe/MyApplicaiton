@@ -140,4 +140,9 @@
         android:name="com.jour.myapplication.ui.CustomSelectionActionFragment"
         android:label="CustomSelectionActionFragment"
         tools:layout="@layout/fragment_custom_selection" />
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.jour.myapplication.ui.webview.WebViewFragment"
+        android:label="WebViewFragment"
+        tools:layout="@layout/fragment_webview" />
 </navigation>

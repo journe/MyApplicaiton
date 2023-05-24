@@ -38,6 +38,69 @@
 
     </com.google.android.material.chip.ChipGroup>
 
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:chipSpacingHorizontal="12dp"
+        app:chipSpacingVertical="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/fab"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:singleSelection="true"
+        app:checkedChip="@id/qinggan"
+        tools:layout_height="150dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/qinggan"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="情感类"
+            android:textColor="#ffffff"
+            android:textColorHighlight="#000000"
+            android:textColorLink="#000000"
+            android:textStyle="bold"
+            app:chipBackgroundColor="#252525"
+            app:chipCornerRadius="10dp"
+            app:chipMinHeight="44dp"
+            app:textEndPadding="32dp"
+            app:textStartPadding="32dp" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="情感类"
+            app:chipCornerRadius="10dp"
+            app:chipMinHeight="44dp"
+            app:textEndPadding="32dp"
+            app:textStartPadding="32dp" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="情感类"
+            app:chipCornerRadius="10dp"
+            app:chipMinHeight="44dp"
+            app:textEndPadding="32dp"
+            app:textStartPadding="32dp" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="情感类"
+            app:chipCornerRadius="10dp"
+            app:chipMinHeight="44dp"
+            app:textEndPadding="32dp"
+            app:textStartPadding="32dp" />
+
+
+    </com.google.android.material.chip.ChipGroup>
+
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/loading"
         style="@style/Widget.AppCompat.ProgressBar"
@@ -45,8 +108,8 @@
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chip_group"
         tools:visibility="visible" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

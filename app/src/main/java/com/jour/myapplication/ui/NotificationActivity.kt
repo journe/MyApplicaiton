@@ -107,4 +107,9 @@ class NotificationActivity : AppCompatActivity() {
         playingNotification.init(this)
         playingNotification.update()
     }
+
+    override fun onPause() {
+        super.onPause()
+        sendMessage()
+    }
 }

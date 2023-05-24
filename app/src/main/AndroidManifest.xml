@@ -19,11 +19,17 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
+
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="cn.gavinliu.similar.photo.MainActivity"/>
-        <activity android:name="cn.gavinliu.similar.photo.GroupActivity"/>
+        <meta-data
+            android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="false" />
+
+        <activity android:name="cn.gavinliu.similar.photo.MainActivity" />
+        <activity android:name="cn.gavinliu.similar.photo.GroupActivity" />
         <activity
             android:name=".ui.roundImage.RoundImageActivity"
             android:exported="false"

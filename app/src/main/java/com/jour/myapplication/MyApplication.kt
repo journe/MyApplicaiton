@@ -22,7 +22,7 @@ class MyApplication : BaseApplication(), ImageLoaderFactory {
     override fun onCreate() {
         super.onCreate()
 //    IdaddySdk.init(this, false)
-        Logger.addLogAdapter(AndroidLogAdapter())
+//        Logger.addLogAdapter(AndroidLogAdapter())
         ARouter.init(this)
 //        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)

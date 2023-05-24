@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //                .navigation()
 //        }
 
-
     }
 
     override fun onBackPressed() {

@@ -49,6 +49,7 @@ class MainFragment : BaseFragment<FragmentMainBinding, EmptyViewModel>() {
             ItemBean(R.drawable.img_main_21, "夜间模式Theme设置", R.id.themeNightActivity),
             ItemBean(R.drawable.img_main_22, "图片处理", R.id.pictureFragment),
             ItemBean(R.drawable.img_main_24, "自定义文本操作", R.id.customSelectionActionFragment),
+            ItemBean(R.drawable.img_main_24, "自定义webview", R.id.webViewFragment),
         )
         mBinding.recycleView.adapter = MainItemAdapter(list.reversed())
     }
