@@ -240,3 +240,11 @@ infix fun View.clickDelay(clickAction: () -> Unit) {
         }
     }
 }
+
+inline fun View.popup() {
+    animateY(0f)
+}
+
+inline fun View.animateY(y: Float) {
+    animate().translationY(context.dp2px(y).toFloat())
+}

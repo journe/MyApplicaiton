@@ -9,7 +9,7 @@ import com.jour.myapplication.R.mipmap
 import com.jour.myapplication.bean.CataBean
 import com.jour.myapplication.bean.CataItem
 import com.jour.myapplication.databinding.ActivityCatalogue2Binding
-import com.jour.myapplication.ui.TopicListActivity
+import com.jour.myapplication.ui.topiclist.TopicListActivity
 import com.zhy.adapter.recyclerview.CommonAdapter
 import com.zhy.adapter.recyclerview.base.ViewHolder
 

@@ -98,7 +98,7 @@
             android:theme="@style/PlanetDetailTheme" />
         <activity android:name=".ui.WaterFallActivity" />
         <activity
-            android:name=".ui.TopicListActivity"
+            android:name=".ui.topiclist.TopicListActivity"
             android:label="@string/title_activity_topic_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.catalogue.Catalogue2Activity" />

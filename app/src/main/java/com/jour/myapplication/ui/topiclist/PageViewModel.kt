@@ -1,4 +1,4 @@
-package com.jour.myapplication.ui
+package com.jour.myapplication.ui.topiclist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

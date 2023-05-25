@@ -8,12 +8,9 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.blankj.utilcode.util.KeyboardUtils
 import com.blankj.utilcode.util.SizeUtils
+import com.jour.myapplication.base.ktx.*
 import com.jour.myapplication.databinding.ActivityEditTextBinding
 import com.jour.myapplication.databinding.LayoutFloatViewBinding
-import com.jour.myapplication.utils.animateY
-import com.jour.myapplication.utils.gone
-import com.jour.myapplication.utils.popup
-import com.jour.myapplication.utils.visible
 import com.orhanobut.logger.Logger
 
 class EditTextActivity : AppCompatActivity() {

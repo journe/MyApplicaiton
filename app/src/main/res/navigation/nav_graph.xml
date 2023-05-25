@@ -52,7 +52,7 @@
         tools:layout="@layout/activity_notification" />
     <activity
         android:id="@+id/topicListActivity"
-        android:name="com.jour.myapplication.ui.TopicListActivity"
+        android:name="com.jour.myapplication.ui.topiclist.TopicListActivity"
         android:label="activity_topic_list"
         tools:layout="@layout/activity_topic_list" />
     <activity
@@ -140,9 +140,13 @@
         android:name="com.jour.myapplication.ui.CustomSelectionActionFragment"
         android:label="CustomSelectionActionFragment"
         tools:layout="@layout/fragment_custom_selection" />
+    <activity
+        android:id="@+id/viewPagerCatalogueActivity"
+        android:name="com.jour.myapplication.ui.ViewPagerCatalogueActivity"
+        android:label="activity_view_pager_catalogue"
+        tools:layout="@layout/activity_view_pager_catalogue" />
     <fragment
-        android:id="@+id/webViewFragment"
-        android:name="com.jour.myapplication.ui.webview.WebViewFragment"
-        android:label="WebViewFragment"
-        tools:layout="@layout/fragment_webview" />
+        android:id="@+id/scrollTextFragment"
+        android:name="com.jour.myapplication.ui.scrolltext.ScrollTextFragment"
+        android:label="ScrollTextFragment" />
 </navigation>
