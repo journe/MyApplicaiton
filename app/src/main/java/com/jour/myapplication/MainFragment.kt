@@ -58,6 +58,8 @@ class MainFragment : BaseFragment<FragmentMainBinding, EmptyViewModel>() {
 				R.drawable.img_main_24, "自定义文本长按操作", R.id.customSelectionActionFragment
 			),
 			ItemBean(R.drawable.img_main_25, "提词器悬浮窗", R.id.scrollTextFragment),
+//			ItemBean(R.drawable.ic_search_bar, "SearchBar", R.id.searchBarFragment),
+			ItemBean(R.drawable.img_main_26, "SearchBar", R.id.searchBarActivity),
 		)
 		mBinding.recycleView.adapter = MainItemAdapter(list.reversed())
 	}

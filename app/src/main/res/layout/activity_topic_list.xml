@@ -35,7 +35,7 @@
           app:layout_collapseMode="pin"
           app:popupTheme="@style/AppTheme.PopupOverlay"
           app:title="topiclist"
-          ></androidx.appcompat.widget.Toolbar>
+          />
     </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     <com.google.android.material.tabs.TabLayout

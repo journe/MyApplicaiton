@@ -5,148 +5,159 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/mainFragment">
 
-    <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.jour.myapplication.DFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first" />
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.jour.myapplication.MainFragment"
-        android:label="MainFragment"
-        tools:layout="@layout/fragment_main" />
-    <activity
-        android:id="@+id/chipActivity"
-        android:name="com.jour.myapplication.ui.ChipActivity"
-        android:label="activity_chip"
-        tools:layout="@layout/activity_chip" />
-    <activity
-        android:id="@+id/coordinatorActivity"
-        android:name="com.jour.myapplication.ui.coordinator.CoordinatorActivity"
-        android:label="CoordinatorActivity"
-        tools:layout="@layout/activity_coordinator" />
-    <activity
-        android:id="@+id/cycleHeadActivity"
-        android:name="com.jour.myapplication.ui.CycleHeadActivity"
-        android:label="activity_cycle_head"
-        tools:layout="@layout/activity_cycle_head" />
-    <activity
-        android:id="@+id/recyclerViewRefreshActivity"
-        android:name="com.jour.myapplication.ui.recyclerview.RecyclerViewRefreshActivity"
-        android:label="activity_recycler_view_refresh"
-        tools:layout="@layout/activity_recycler_view_refresh" />
-    <activity
-        android:id="@+id/folderTextViewActivity"
-        android:name="com.jour.myapplication.ui.FolderTextViewActivity"
-        android:label="activity_folder_text_view"
-        tools:layout="@layout/activity_folder_text_view" />
-    <activity
-        android:id="@+id/granzortViewActivity"
-        android:name="com.jour.myapplication.ui.GranzortViewActivity"
-        android:label="activity_granzort_view"
-        tools:layout="@layout/activity_granzort_view" />
-    <activity
-        android:id="@+id/notificationActivity"
-        android:name="com.jour.myapplication.ui.NotificationActivity"
-        android:label="activity_notification"
-        tools:layout="@layout/activity_notification" />
-    <activity
-        android:id="@+id/topicListActivity"
-        android:name="com.jour.myapplication.ui.topiclist.TopicListActivity"
-        android:label="activity_topic_list"
-        tools:layout="@layout/activity_topic_list" />
-    <activity
-        android:id="@+id/wallPaperActivity"
-        android:name="com.jour.myapplication.ui.WallPaperActivity"
-        android:label="activity_wall_paper"
-        tools:layout="@layout/activity_wall_paper" />
-    <activity
-        android:id="@+id/waterFallActivity"
-        android:name="com.jour.myapplication.ui.WaterFallActivity"
-        android:label="activity_water_fall"
-        tools:layout="@layout/activity_water_fall" />
-    <activity
-        android:id="@+id/catalogueActivity"
-        android:name="com.jour.myapplication.ui.catalogue.CatalogueActivity"
-        android:label="activity_catalogue"
-        tools:layout="@layout/activity_catalogue" />
-    <activity
-        android:id="@+id/catalogue2Activity"
-        android:name="com.jour.myapplication.ui.catalogue.Catalogue2Activity"
-        android:label="activity_catalogue2"
-        tools:layout="@layout/activity_catalogue2" />
-    <activity
-        android:id="@+id/editTextActivity"
-        android:name="com.jour.myapplication.ui.editview.EditTextActivity"
-        android:label="activity_edit_text"
-        tools:layout="@layout/activity_edit_text" />
-    <activity
-        android:id="@+id/MD5Activity"
-        android:name="com.jour.myapplication.ui.md5.MD5Activity"
-        android:label="activity_md5"
-        tools:layout="@layout/activity_md5" />
-    <activity
-        android:id="@+id/mediaPlayActivity"
-        android:name="com.jour.myapplication.ui.media.MediaPlayActivity"
-        android:label="activity_media_play"
-        tools:layout="@layout/activity_media_play" />
-    <activity
-        android:id="@+id/roundImageActivity"
-        android:name="com.jour.myapplication.ui.roundImage.RoundImageActivity"
-        android:label="activity_round_image"
-        tools:layout="@layout/activity_round_image" />
-    <activity
-        android:id="@+id/bannerActivity"
-        android:name="com.jour.myapplication.ui.banner.BannerActivity"
-        android:label="activity_banner"
-        tools:layout="@layout/activity_banner" />
-    <activity
-        android:id="@+id/verificationCodeActivity"
-        android:name="com.jour.myapplication.ui.verification.VerificationCodeActivity"
-        android:label="activity_verification_code"
-        tools:layout="@layout/activity_verification_code" />
-    <activity
-        android:id="@+id/lotteryActivity"
-        android:name="com.jour.myapplication.ui.lottery.LotteryActivity"
-        android:label="activity_lottery_item"
-        tools:layout="@layout/activity_lottery_item" />
-    <activity
-        android:id="@+id/viewPagerActivity"
-        android:name="com.jour.myapplication.ui.vp.ViewPagerActivity"
-        android:label="ViewPagerActivity"
-        tools:layout="@layout/activity_view_pager_nest" />
-    <activity
-        android:id="@+id/viewPager2Activity"
-        android:name="com.jour.myapplication.ui.vp2.ViewPager2Activity"
-        android:label="ViewPager2Activity"
-        tools:layout="@layout/activity_view_pager2" />
-    <activity
-        android:id="@+id/themeNightActivity"
-        android:name="com.jour.myapplication.ui.ThemeNightActivity"
-        android:label="activity_theme_night"
-        tools:layout="@layout/activity_theme_night" />
-    <fragment
-        android:id="@+id/pictureFragment"
-        android:name="com.jour.myapplication.ui.picture.PictureFragment"
-        android:label="PictureFragment"
-        tools:layout="@layout/fragment_picture" />
-    <activity
-        android:id="@+id/coordinatorLayoutActivity"
-        android:name="com.jour.myapplication.ui.CoordinatorLayoutActivity"
-        android:label="content_scrolling"
-        tools:layout="@layout/content_scrolling" />
-    <fragment
-        android:id="@+id/customSelectionActionFragment"
-        android:name="com.jour.myapplication.ui.CustomSelectionActionFragment"
-        android:label="CustomSelectionActionFragment"
-        tools:layout="@layout/fragment_custom_selection" />
-    <activity
-        android:id="@+id/viewPagerCatalogueActivity"
-        android:name="com.jour.myapplication.ui.ViewPagerCatalogueActivity"
-        android:label="activity_view_pager_catalogue"
-        tools:layout="@layout/activity_view_pager_catalogue" />
-    <fragment
-        android:id="@+id/scrollTextFragment"
-        android:name="com.jour.myapplication.ui.scrolltext.ScrollTextFragment"
-        android:label="ScrollTextFragment" />
+  <fragment
+      android:id="@+id/FirstFragment"
+      android:name="com.jour.myapplication.DFragment"
+      android:label="@string/first_fragment_label"
+      tools:layout="@layout/fragment_first" />
+  <fragment
+      android:id="@+id/mainFragment"
+      android:name="com.jour.myapplication.MainFragment"
+      android:label="MainFragment"
+      tools:layout="@layout/fragment_main" />
+  <activity
+      android:id="@+id/chipActivity"
+      android:name="com.jour.myapplication.ui.ChipActivity"
+      android:label="activity_chip"
+      tools:layout="@layout/activity_chip" />
+  <activity
+      android:id="@+id/coordinatorActivity"
+      android:name="com.jour.myapplication.ui.coordinator.CoordinatorActivity"
+      android:label="CoordinatorActivity"
+      tools:layout="@layout/activity_coordinator" />
+  <activity
+      android:id="@+id/cycleHeadActivity"
+      android:name="com.jour.myapplication.ui.CycleHeadActivity"
+      android:label="activity_cycle_head"
+      tools:layout="@layout/activity_cycle_head" />
+  <activity
+      android:id="@+id/recyclerViewRefreshActivity"
+      android:name="com.jour.myapplication.ui.recyclerview.RecyclerViewRefreshActivity"
+      android:label="activity_recycler_view_refresh"
+      tools:layout="@layout/activity_recycler_view_refresh" />
+  <activity
+      android:id="@+id/folderTextViewActivity"
+      android:name="com.jour.myapplication.ui.FolderTextViewActivity"
+      android:label="activity_folder_text_view"
+      tools:layout="@layout/activity_folder_text_view" />
+  <activity
+      android:id="@+id/granzortViewActivity"
+      android:name="com.jour.myapplication.ui.GranzortViewActivity"
+      android:label="activity_granzort_view"
+      tools:layout="@layout/activity_granzort_view" />
+  <activity
+      android:id="@+id/notificationActivity"
+      android:name="com.jour.myapplication.ui.NotificationActivity"
+      android:label="activity_notification"
+      tools:layout="@layout/activity_notification" />
+  <activity
+      android:id="@+id/topicListActivity"
+      android:name="com.jour.myapplication.ui.topiclist.TopicListActivity"
+      android:label="activity_topic_list"
+      tools:layout="@layout/activity_topic_list" />
+  <activity
+      android:id="@+id/wallPaperActivity"
+      android:name="com.jour.myapplication.ui.WallPaperActivity"
+      android:label="activity_wall_paper"
+      tools:layout="@layout/activity_wall_paper" />
+  <activity
+      android:id="@+id/waterFallActivity"
+      android:name="com.jour.myapplication.ui.WaterFallActivity"
+      android:label="activity_water_fall"
+      tools:layout="@layout/activity_water_fall" />
+  <activity
+      android:id="@+id/catalogueActivity"
+      android:name="com.jour.myapplication.ui.catalogue.CatalogueActivity"
+      android:label="activity_catalogue"
+      tools:layout="@layout/activity_catalogue" />
+  <activity
+      android:id="@+id/catalogue2Activity"
+      android:name="com.jour.myapplication.ui.catalogue.Catalogue2Activity"
+      android:label="activity_catalogue2"
+      tools:layout="@layout/activity_catalogue2" />
+  <activity
+      android:id="@+id/editTextActivity"
+      android:name="com.jour.myapplication.ui.editview.EditTextActivity"
+      android:label="activity_edit_text"
+      tools:layout="@layout/activity_edit_text" />
+  <activity
+      android:id="@+id/MD5Activity"
+      android:name="com.jour.myapplication.ui.md5.MD5Activity"
+      android:label="activity_md5"
+      tools:layout="@layout/activity_md5" />
+  <activity
+      android:id="@+id/mediaPlayActivity"
+      android:name="com.jour.myapplication.ui.media.MediaPlayActivity"
+      android:label="activity_media_play"
+      tools:layout="@layout/activity_media_play" />
+  <activity
+      android:id="@+id/roundImageActivity"
+      android:name="com.jour.myapplication.ui.roundImage.RoundImageActivity"
+      android:label="activity_round_image"
+      tools:layout="@layout/activity_round_image" />
+  <activity
+      android:id="@+id/bannerActivity"
+      android:name="com.jour.myapplication.ui.banner.BannerActivity"
+      android:label="activity_banner"
+      tools:layout="@layout/activity_banner" />
+  <activity
+      android:id="@+id/verificationCodeActivity"
+      android:name="com.jour.myapplication.ui.verification.VerificationCodeActivity"
+      android:label="activity_verification_code"
+      tools:layout="@layout/activity_verification_code" />
+  <activity
+      android:id="@+id/lotteryActivity"
+      android:name="com.jour.myapplication.ui.lottery.LotteryActivity"
+      android:label="activity_lottery_item"
+      tools:layout="@layout/activity_lottery_item" />
+  <activity
+      android:id="@+id/viewPagerActivity"
+      android:name="com.jour.myapplication.ui.vp.ViewPagerActivity"
+      android:label="ViewPagerActivity"
+      tools:layout="@layout/activity_view_pager_nest" />
+  <activity
+      android:id="@+id/viewPager2Activity"
+      android:name="com.jour.myapplication.ui.vp2.ViewPager2Activity"
+      android:label="ViewPager2Activity"
+      tools:layout="@layout/activity_view_pager2" />
+  <activity
+      android:id="@+id/themeNightActivity"
+      android:name="com.jour.myapplication.ui.ThemeNightActivity"
+      android:label="activity_theme_night"
+      tools:layout="@layout/activity_theme_night" />
+  <fragment
+      android:id="@+id/pictureFragment"
+      android:name="com.jour.myapplication.ui.picture.PictureFragment"
+      android:label="PictureFragment"
+      tools:layout="@layout/fragment_picture" />
+  <activity
+      android:id="@+id/coordinatorLayoutActivity"
+      android:name="com.jour.myapplication.ui.CoordinatorLayoutActivity"
+      android:label="content_scrolling"
+      tools:layout="@layout/content_scrolling" />
+  <fragment
+      android:id="@+id/customSelectionActionFragment"
+      android:name="com.jour.myapplication.ui.CustomSelectionActionFragment"
+      android:label="CustomSelectionActionFragment"
+      tools:layout="@layout/fragment_custom_selection" />
+  <activity
+      android:id="@+id/viewPagerCatalogueActivity"
+      android:name="com.jour.myapplication.ui.ViewPagerCatalogueActivity"
+      android:label="activity_view_pager_catalogue"
+      tools:layout="@layout/activity_view_pager_catalogue" />
+  <fragment
+      android:id="@+id/scrollTextFragment"
+      android:name="com.jour.myapplication.ui.scrolltext.ScrollTextFragment"
+      android:label="ScrollTextFragment"
+      tools:layout="@layout/fragment_test_text_view" />
+  <fragment
+      android:id="@+id/searchBarFragment"
+      android:name="com.jour.myapplication.ui.SearchBarFragment"
+      android:label="SearchBarFragment"
+      tools:layout="@layout/fragment_search_bar" />
+  <activity
+      android:id="@+id/searchBarActivity"
+      android:name="com.jour.myapplication.ui.SearchBarActivity"
+      android:label="SearchBarActivity"
+      tools:layout="@layout/fragment_search_bar" />
 </navigation>
