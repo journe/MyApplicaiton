@@ -30,7 +30,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.jour.myapplication.ui.scrolltext.ScrollTextView
+        <com.jour.demo.ui.scrolltext.ScrollTextView
             android:id="@+id/scrollTextView"
             android:layout_width="match_parent"
             android:layout_height="0dp"

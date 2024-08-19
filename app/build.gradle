@@ -4,128 +4,145 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
 android {
-    compileSdkVersion 34
-    defaultConfig {
-        minSdkVersion 26
-        targetSdkVersion 34
-        versionCode 1
-        versionName "1.0"
+  namespace 'com.jour.demo'
+  compileSdk 34
+  defaultConfig {
+    minSdkVersion 26
+    targetSdkVersion 34
+    versionCode 1
+    versionName "1.0"
+  }
+
+  compileOptions {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+  }
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
+  buildFeatures {
+    viewBinding true
+  }
+  signingConfigs {
+    release {
+      storeFile file('../keystore/com.jour.demo.jks')
+      keyAlias = 'delun'
+      storePassword 'delun123456'
+      keyPassword 'delun123456'
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      signingConfig signingConfigs.release
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+    debug {
+      signingConfig signingConfigs.release
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-    buildFeatures {
-        viewBinding true
-    }
-    namespace 'com.jour.myapplication'
+  }
 }
 
 kapt {
-    arguments {
-        arg("AROUTER_MODULE_NAME", project.getName())
-    }
+  arguments {
+    arg("AROUTER_MODULE_NAME", project.getName())
+  }
+  correctErrorTypes true
+}
+hilt {
+  enableAggregatingTask = false //hilt 2.44以上版本兼容 Arouter 需要添加这个
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':app:similar')
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation project(':app:similar')
 
-    //androidx
-    implementation "androidx.core:core-ktx:1.12.0"
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.annotation:annotation:1.7.1'
-    implementation "androidx.fragment:fragment-ktx:1.6.2"
-    implementation 'com.google.android.material:material:1.11.0'
-    implementation "androidx.collection:collection-ktx:1.4.0"
+  //androidx
+  implementation "androidx.core:core-ktx:1.12.0"
+  implementation 'androidx.appcompat:appcompat:1.7.0'
+  implementation 'androidx.annotation:annotation:1.8.0'
+  implementation "androidx.fragment:fragment-ktx:1.6.2"
+  implementation 'com.google.android.material:material:1.12.0'
+  implementation "androidx.collection:collection-ktx:1.4.0"
 
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+  implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.7.0"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0"
+  implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+  implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.7.0"
+  implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0"
 
-    //navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.6'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.7.6'
-
-
-    //glide
-    implementation 'com.google.code.gson:gson:2.9.0'
-    implementation 'com.github.bumptech.glide:glide:4.12.0'
-    implementation 'com.github.bumptech.glide:okhttp3-integration:4.9.0'
-
-    //coil
-    implementation "io.coil-kt:coil:2.2.2"
-    implementation "io.coil-kt:coil-gif:2.2.2"
-    implementation "io.coil-kt:coil-video:2.1.0"
-
-    //retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.7.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
-
-    //hilt
-    implementation "com.google.dagger:hilt-android:2.44"
-    kapt "com.google.dagger:hilt-compiler:2.44"
-    implementation "com.google.auto.service:auto-service:1.0"
-    kapt "com.google.auto.service:auto-service-annotations:1.0"
-
-    //arouter
-    api 'com.alibaba:arouter-api:1.5.2'
-    kapt 'com.alibaba:arouter-compiler:1.5.2'
-
-    //room
-    def room_version = "2.5.0"
-
-    implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
-
-    // To use Kotlin annotation processing tool (kapt)
-    kapt "androidx.room:room-compiler:$room_version"
-    // To use Kotlin Symbol Processing (KSP)
-//    ksp "androidx.room:room-compiler:$room_version"
-    // optional - Paging 3 Integration
-    implementation "androidx.room:room-paging:$room_version"
-
-    implementation 'androidx.work:work-runtime:2.8.1'
-    implementation "androidx.work:work-runtime-ktx:2.8.1"
-
-    //others
-    implementation 'org.jetbrains.anko:anko:0.10.8'
-
-    implementation 'com.orhanobut:logger:2.2.0'
-    implementation 'org.jsoup:jsoup:1.13.1'
-    implementation 'com.zhy:base-rvadapter:3.0.3'
-
-    implementation 'cat.ereza:customactivityoncrash:2.3.0'
-    implementation 'io.jsonwebtoken:jjwt:0.9.1'
-
-    implementation 'com.github.li-xiaojun:FlycoTabLayout:2.0.6'
-    implementation 'io.github.youth5201314:banner:2.2.2'
-    implementation 'com.blankj:utilcodex:1.31.1'
-
-    implementation 'com.github.lygttpod:SuperTextView:2.4.6'
-
-    implementation 'com.google.android.flexbox:flexbox:3.0.0'
-    implementation 'com.github.iwgang:countdownview:2.1.6'
-
-    implementation 'io.github.lucksiege:pictureselector:v3.10.6'
-    implementation "io.github.lucksiege:compress:v3.10.6"
-    implementation "io.github.lucksiege:ucrop:v3.10.6"
-
-    implementation 'com.guolindev.permissionx:permissionx:1.7.1'
-
-    implementation 'id.zelory:compressor:3.0.1'
+  //navigation
+  implementation 'androidx.navigation:navigation-fragment-ktx:2.7.6'
+  implementation 'androidx.navigation:navigation-ui-ktx:2.7.6'
 
 
+  //glide
+  implementation 'com.google.code.gson:gson:2.9.0'
+  implementation 'com.github.bumptech.glide:glide:4.15.1'
+  implementation 'com.github.bumptech.glide:okhttp3-integration:4.9.0'
+
+  //coil
+  implementation "io.coil-kt:coil:2.6.0"
+  implementation "io.coil-kt:coil-gif:2.6.0"
+  implementation "io.coil-kt:coil-video:2.1.0"
+
+  //retrofit
+  implementation 'com.squareup.retrofit2:retrofit:2.7.0'
+  implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
+  implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+
+  //hilt
+  implementation "com.google.dagger:hilt-android:2.52"
+  kapt "com.google.dagger:hilt-compiler:2.52"
+
+  implementation "com.google.auto.service:auto-service:1.0"
+  kapt "com.google.auto.service:auto-service-annotations:1.0"
+
+  //arouter
+  implementation 'com.alibaba:arouter-api:1.5.2'
+  kapt 'com.alibaba:arouter-compiler:1.5.2'
+
+  //room
+  def room_version = "2.5.0"
+
+  implementation "androidx.room:room-runtime:$room_version"
+  annotationProcessor "androidx.room:room-compiler:$room_version"
+
+  // To use Kotlin annotation processing tool (kapt)
+  kapt "androidx.room:room-compiler:$room_version"
+  // To use Kotlin Symbol Processing (KSP)
+  //    ksp "androidx.room:room-compiler:$room_version"
+  // optional - Paging 3 Integration
+  implementation "androidx.room:room-paging:$room_version"
+
+  implementation 'androidx.work:work-runtime:2.8.1'
+  implementation "androidx.work:work-runtime-ktx:2.8.1"
+
+  //others
+  implementation 'org.jetbrains.anko:anko:0.10.8'
+
+  implementation 'com.orhanobut:logger:2.2.0'
+  implementation 'org.jsoup:jsoup:1.13.1'
+  implementation 'com.zhy:base-rvadapter:3.0.3'
+
+  implementation 'io.jsonwebtoken:jjwt:0.9.1'
+
+  implementation 'com.github.li-xiaojun:FlycoTabLayout:2.0.8'
+  implementation 'io.github.youth5201314:banner:2.2.2'
+  implementation 'com.blankj:utilcodex:1.31.1'
+
+  implementation 'com.github.lygttpod:SuperTextView:2.4.6'
+
+  implementation 'com.google.android.flexbox:flexbox:3.0.0'
+  implementation 'com.github.iwgang:countdownview:2.1.6'
+
+  implementation 'io.github.lucksiege:pictureselector:v3.10.6'
+  implementation "io.github.lucksiege:compress:v3.10.6"
+  implementation "io.github.lucksiege:ucrop:v3.10.6"
+
+  implementation 'com.guolindev.permissionx:permissionx:1.7.1'
+
+  implementation 'id.zelory:compressor:3.0.1'
+
+  debugImplementation 'cat.ereza:customactivityoncrash:2.4.0'
 }

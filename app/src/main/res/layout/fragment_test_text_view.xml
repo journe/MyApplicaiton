@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.jour.myapplication.ui.scrolltext.ScrollTextView
+    <com.jour.demo.ui.scrolltext.ScrollTextView
         android:id="@+id/scrollTextView"
         android:layout_width="match_parent"
         android:layout_height="300dp"

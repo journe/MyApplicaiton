@@ -1,8 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.7.10'
-
+    ext.kotlin_version = '1.9.0'
     repositories {
         jcenter()
         google()
@@ -10,15 +9,16 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:8.3.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.44'
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.52'
     }
 }
 
 allprojects {
     repositories {
         maven { url 'https://jitpack.io' }
-        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+//        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
         jcenter()
+        mavenCentral()
         google()
     }
 }
