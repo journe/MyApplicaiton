@@ -160,4 +160,9 @@
       android:name="com.jour.demo.ui.SearchBarActivity"
       android:label="SearchBarActivity"
       tools:layout="@layout/fragment_search_bar" />
+  <activity
+      android:id="@+id/amapActivity"
+      tools:layout="@layout/activity_amap"
+      android:name="com.jour.demo.ui.AmapActivity"
+      android:label="AmapActivity" />
 </navigation>

@@ -9,6 +9,7 @@ import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
 import coil.decode.VideoFrameDecoder
 import com.alibaba.android.arouter.launcher.ARouter
+import com.amap.apis.utils.core.api.AMapUtilCoreApi
 import com.jour.demo.base.BaseApplication
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
@@ -19,25 +20,27 @@ import dagger.hilt.android.HiltAndroidApp
  */
 @HiltAndroidApp
 class MyApplication : BaseApplication(), ImageLoaderFactory {
-    override fun onCreate() {
-        super.onCreate()
+	override fun onCreate() {
+		super.onCreate()
 //    IdaddySdk.init(this, false)
-        ARouter.init(this)
+		ARouter.init(this)
 //        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-    }
+		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+		AMapUtilCoreApi.setCollectInfoEnable(false)
 
-    override fun newImageLoader(): ImageLoader {
-        return ImageLoader.Builder(this)
-            .crossfade(true)
-            .components {
-                add(VideoFrameDecoder.Factory())
-                if (Build.VERSION.SDK_INT >= 28) {
-                    add(ImageDecoderDecoder.Factory())
-                } else {
-                    add(GifDecoder.Factory())
-                }
-            }
-            .build()
-    }
+	}
+
+	override fun newImageLoader(): ImageLoader {
+		return ImageLoader.Builder(this)
+			.crossfade(true)
+			.components {
+				add(VideoFrameDecoder.Factory())
+				if (Build.VERSION.SDK_INT >= 28) {
+					add(ImageDecoderDecoder.Factory())
+				} else {
+					add(GifDecoder.Factory())
+				}
+			}
+			.build()
+	}
 }

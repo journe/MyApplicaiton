@@ -1,6 +1,9 @@
 package com.jour.demo.common.ui
 
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
 import com.jour.demo.base.mvvm.v.BaseFrameActivity
 import com.jour.demo.base.mvvm.vm.BaseViewModel
@@ -14,33 +17,36 @@ import com.jour.demo.base.utils.BarUtils
  * @author Qu Yunshuo
  * @since 8/27/20
  */
-abstract class BaseActivity<VB : ViewBinding, VM : BaseViewModel> : BaseFrameActivity<VB, VM>(),
-    IUiView {
+abstract class BaseActivity<VB : ViewBinding, VM : BaseViewModel> : BaseFrameActivity<VB, VM>()
+//	, IUiView
+{
 
-    /**
-     * 设置状态栏
-     * 子类需要自定义时重写该方法即可
-     * @return Unit
-     */
-    override fun setStatusBar() {
-        BarUtils.transparentStatusBar(this)
-        BarUtils.setStatusBarLightMode(this, true)
-    }
+//	override val lifecycle: Lifecycle by lazy { (this as AppCompatActivity).lifecycle }
 
-    override fun onResume() {
-        super.onResume()
-        Log.d("ActivityLifecycle", "ActivityStack: ${ActivityStackManager.activityStack}")
-    }
+	/**
+	 * 设置状态栏
+	 * 子类需要自定义时重写该方法即可
+	 * @return Unit
+	 */
+	override fun setStatusBar() {
+		BarUtils.transparentStatusBar(this)
+		BarUtils.setStatusBarLightMode(this, true)
+	}
 
-    override fun onDestroy() {
-        super.onDestroy()
-        // 解决某些特定机型会触发的Android本身的Bug
-        AndroidBugFixUtils().fixSoftInputLeaks(this)
-    }
+	override fun onResume() {
+		super.onResume()
+		Log.d("ActivityLifecycle", "ActivityStack: ${ActivityStackManager.activityStack}")
+	}
 
-    override fun showLoading() {
-    }
+	override fun onDestroy() {
+		super.onDestroy()
+		// 解决某些特定机型会触发的Android本身的Bug
+		AndroidBugFixUtils().fixSoftInputLeaks(this)
+	}
 
-    override fun dismissLoading() {
-    }
+//	override fun showLoading() {
+//	}
+//
+//	override fun dismissLoading() {
+//	}
 }

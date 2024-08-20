@@ -10,29 +10,26 @@ import com.jour.demo.databinding.ActivityArouterBinding
 @Route(path = "/test/activity")
 class ArouterActivity : BaseActivity<ActivityArouterBinding, EmptyViewModel>() {
 
-    @Autowired(name = "comment")
-    @JvmField
-    var mCommentId: String? = ""
+	@Autowired(name = "comment")
+	@JvmField
+	var mCommentId: String? = ""
 
 //  @Autowired(name = "auditS")
 //  @JvmField
 //  var mAuditId: String? = ""
 
-    @Autowired(name = "audit")
-    @JvmField
-    var mAuditIdInt: Int = 0
+	@Autowired(name = "audit")
+	@JvmField
+	var mAuditIdInt: Int = 0
 
-    override val mViewModel: EmptyViewModel by viewModels()
+	override fun ActivityArouterBinding.initView() {
+	}
 
-    override fun ActivityArouterBinding.initView() {
-        TODO("Not yet implemented")
-    }
+	override fun initObserve() {
+		mBinding.arouterTv1.text = mCommentId
+		mBinding.arouterTv2.text = mAuditIdInt.toString()
+	}
 
-    override fun initObserve() {
-        mBinding.arouterTv1.text = mCommentId
-        mBinding.arouterTv2.text = mAuditIdInt.toString()
-    }
-
-    override fun initRequestData() {
-    }
+	override fun initRequestData() {
+	}
 }

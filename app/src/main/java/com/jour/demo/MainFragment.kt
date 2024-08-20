@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.annotation.DrawableRes
 import androidx.annotation.IdRes
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -60,6 +61,7 @@ class MainFragment : BaseFragment<FragmentMainBinding, EmptyViewModel>() {
 			ItemBean(R.drawable.img_main_25, "提词器悬浮窗", R.id.scrollTextFragment),
 //			ItemBean(R.drawable.ic_search_bar, "SearchBar", R.id.searchBarFragment),
 			ItemBean(R.drawable.img_main_26, "SearchBar", R.id.searchBarActivity),
+			ItemBean(R.drawable.img_main_27, "高德地图", R.id.amapActivity),
 		)
 		mBinding.recycleView.adapter = MainItemAdapter(list.reversed())
 	}

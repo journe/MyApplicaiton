@@ -11,7 +11,6 @@ import com.jour.demo.databinding.AcitvitySearchBarBinding
 import org.jetbrains.anko.toggleButton
 
 class SearchBarActivity : BaseActivity<AcitvitySearchBarBinding, EmptyViewModel>() {
-	override val mViewModel: EmptyViewModel by viewModels()
 
 	override fun AcitvitySearchBarBinding.initView() {
 		setSupportActionBar(searchBar)
