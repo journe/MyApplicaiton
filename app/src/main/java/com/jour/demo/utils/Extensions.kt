@@ -2,9 +2,8 @@ package com.jour.demo.utils
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.jour.demo.base.utils.toast
 import com.permissionx.guolindev.PermissionX
-import org.jetbrains.anko.support.v4.toast
-import org.jetbrains.anko.toast
 
 
 fun Fragment.actionWithPermission(permissions: List<String>, action: () -> Unit) {

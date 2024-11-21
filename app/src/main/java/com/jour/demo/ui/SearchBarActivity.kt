@@ -1,6 +1,5 @@
 package com.jour.demo.ui
 
-import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
 import com.google.android.material.color.MaterialColors
@@ -8,7 +7,6 @@ import com.jour.demo.R
 import com.jour.demo.base.mvvm.vm.EmptyViewModel
 import com.jour.demo.common.ui.BaseActivity
 import com.jour.demo.databinding.AcitvitySearchBarBinding
-import org.jetbrains.anko.toggleButton
 
 class SearchBarActivity : BaseActivity<AcitvitySearchBarBinding, EmptyViewModel>() {
 

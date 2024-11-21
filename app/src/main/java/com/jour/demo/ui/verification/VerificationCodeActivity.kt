@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.blankj.utilcode.util.KeyboardUtils
 import com.jour.demo.R
 import com.jour.demo.base.ktx.clickDelay
+import com.jour.demo.base.utils.toast
 import com.jour.demo.databinding.ActivityVerificationCodeBinding
 import com.jour.demo.view.TelNumCheckerView
 import com.jour.demo.view.VerificationCodeEditText
-import org.jetbrains.anko.toast
 
 class VerificationCodeActivity : AppCompatActivity() {
     lateinit var binding: ActivityVerificationCodeBinding
@@ -22,14 +22,14 @@ class VerificationCodeActivity : AppCompatActivity() {
         binding.etVerificationCode.setOnInputTextListener(object :
             VerificationCodeEditText.OnInputTextListener {
             override fun onInputTextComplete(text: CharSequence) {
-                toast(text)
+                toast(text.toString())
             }
         })
 
         binding.etVerificationCode2.setOnInputTextListener(object :
             VerificationCodeEditText.OnInputTextListener {
             override fun onInputTextComplete(text: CharSequence) {
-                toast(text)
+                toast(text.toString())
             }
         })
         binding.etVerificationCode.setOnClickListener {

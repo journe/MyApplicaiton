@@ -15,7 +15,7 @@ import com.jour.demo.databinding.ActivityNotificationBinding
 import com.jour.demo.utils.notification.PlayingNotification
 import com.jour.demo.utils.notification.PlayingNotificationImpl
 import com.jour.demo.utils.notification.PlayingNotificationImpl24
-import org.jetbrains.anko.sdk27.coroutines.onClick
+//import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class NotificationActivity : AppCompatActivity() {
 
@@ -35,7 +35,7 @@ class NotificationActivity : AppCompatActivity() {
             updateNotification()
         }
 
-        binding.buttonMessage.onClick {
+        binding.buttonMessage.setOnClickListener {
             sendMessage()
         }
     }

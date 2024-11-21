@@ -8,8 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.jour.demo.databinding.ActivityChipBinding
 import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
-import org.jetbrains.anko.textColor
-import org.jetbrains.anko.toast
+import com.jour.demo.base.utils.toast
+
+//import org.jetbrains.anko.textColor
+//import org.jetbrains.anko.toast
 
 class ChipActivity : AppCompatActivity() {
 
@@ -41,7 +43,7 @@ class ChipActivity : AppCompatActivity() {
 		textList.forEach { string ->
 			binding.chipGroup.addView(Chip(this).apply {
 				text = string
-				textColor = Color.BLUE
+				setTextColor(Color.BLUE)
 				setOnClickListener {
 					toast(string)
 				}

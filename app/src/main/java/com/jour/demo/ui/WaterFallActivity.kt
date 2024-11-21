@@ -16,10 +16,10 @@ import com.jour.demo.R
 import com.jour.demo.bean.WaterFallItemData
 import com.jour.demo.databinding.ActivityWaterFallBinding
 import com.orhanobut.logger.Logger
-import com.zhy.adapter.recyclerview.CommonAdapter
-import com.zhy.adapter.recyclerview.base.ViewHolder
-import org.jetbrains.anko.dip
-import org.jetbrains.anko.find
+//import com.zhy.adapter.recyclerview.CommonAdapter
+//import com.zhy.adapter.recyclerview.base.ViewHolder
+//import org.jetbrains.anko.dip
+//import org.jetbrains.anko.find
 
 class WaterFallActivity : AppCompatActivity() {
 
@@ -44,7 +44,7 @@ class WaterFallActivity : AppCompatActivity() {
         gifList.forEach {
             items.add(WaterFallItemData(topicVideo = it))
         }
-        binding.waterRecycleView.adapter = getDataItemAdapter(items)
+//        binding.waterRecycleView.adapter = getDataItemAdapter(items)
         binding.waterRecycleView.addItemDecoration(object :
             androidx.recyclerview.widget.RecyclerView.ItemDecoration() {
             override fun getItemOffsets(
@@ -54,10 +54,10 @@ class WaterFallActivity : AppCompatActivity() {
                 state: State
             ) {
                 super.getItemOffsets(outRect, view, parent, state)
-                outRect.top = dip(8)
-                outRect.left = dip(8)
-                outRect.right = dip(8)
-                outRect.bottom = dip(8)
+//                outRect.top = dip(8)
+//                outRect.left = dip(8)
+//                outRect.right = dip(8)
+//                outRect.bottom = dip(8)
             }
         })
         binding.waterRecycleView.addOnScrollListener(object :
@@ -109,7 +109,7 @@ class WaterFallActivity : AppCompatActivity() {
     private fun getItemGifDrawable(position: Int): GifDrawable {
         val itemView = binding.waterRecycleView.findViewHolderForLayoutPosition(position)
             ?.itemView
-        return itemView?.find<ImageView>(
+        return itemView?.findViewById<ImageView>(
             R.id.topic_image
         )?.drawable as GifDrawable
     }
@@ -137,32 +137,32 @@ class WaterFallActivity : AppCompatActivity() {
 
     }
 
-    private fun getDataItemAdapter(cataItems: ArrayList<WaterFallItemData>): CommonAdapter<WaterFallItemData> {
-        return object : CommonAdapter<WaterFallItemData>(
-            this, R.layout.list_item_video, cataItems
-        ) {
-            override fun convert(
-                holder: ViewHolder?,
-                itemData: WaterFallItemData?,
-                position: Int
-            ) {
-                val sharedImage = holder!!.getView<ImageView>(R.id.topic_image)
-
-                Glide.with(this@WaterFallActivity)
-                    .load(itemData?.topicVideo)
-                    .into(holder!!.getView(R.id.topic_image))
-
-                holder.convertView.setOnClickListener {
-                    val intent = Intent(this@WaterFallActivity, WaterFallDetailActivity::class.java)
-                    intent.putExtra("url", itemData!!.topicVideo)
-                    val options = ActivityOptions.makeSceneTransitionAnimation(
-                        this@WaterFallActivity, sharedImage,
-                        "topicVideo"
-                    )
-                    startActivity(intent, options.toBundle())
-                }
-
-            }
-        }
-    }
+//    private fun getDataItemAdapter(cataItems: ArrayList<WaterFallItemData>): CommonAdapter<WaterFallItemData> {
+//        return object : CommonAdapter<WaterFallItemData>(
+//            this, R.layout.list_item_video, cataItems
+//        ) {
+//            override fun convert(
+//                holder: ViewHolder?,
+//                itemData: WaterFallItemData?,
+//                position: Int
+//            ) {
+//                val sharedImage = holder!!.getView<ImageView>(R.id.topic_image)
+//
+//                Glide.with(this@WaterFallActivity)
+//                    .load(itemData?.topicVideo)
+//                    .into(holder!!.getView(R.id.topic_image))
+//
+//                holder.convertView.setOnClickListener {
+//                    val intent = Intent(this@WaterFallActivity, WaterFallDetailActivity::class.java)
+//                    intent.putExtra("url", itemData!!.topicVideo)
+//                    val options = ActivityOptions.makeSceneTransitionAnimation(
+//                        this@WaterFallActivity, sharedImage,
+//                        "topicVideo"
+//                    )
+//                    startActivity(intent, options.toBundle())
+//                }
+//
+//            }
+//        }
+//    }
 }

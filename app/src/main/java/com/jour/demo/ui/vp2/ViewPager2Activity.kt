@@ -19,8 +19,8 @@ class ViewPager2Activity : AppCompatActivity() {
 
         val arrayList = arrayListOf("视频样例", "配音样例")
 
-        fragments.add(ViewPagerFragment())
-        fragments.add(ViewPagerFragment())
+        fragments.add(ViewPager2Fragment())
+        fragments.add(ViewPager2Fragment())
 
         binding.activityVp2.adapter = ViewPager2Adapter(supportFragmentManager, lifecycle, fragments)
         binding.tabLayout.setViewPager2(binding.activityVp2, arrayList)

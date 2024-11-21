@@ -71,7 +71,7 @@
     <activity android:name=".ui.ViewPagerCatalogueActivity" />
     <activity android:name=".ui.RecycleViewActivity" />
     <activity
-        android:name=".ui.CoordinatorLayoutActivity"
+        android:name=".ui.coordinator.CoordinatorLayoutActivity"
         android:label="@string/title_activity_scrolling"
         android:theme="@style/AppTheme.NoActionBar" />
     <activity android:name=".ui.XiaoAiTestActivity" />

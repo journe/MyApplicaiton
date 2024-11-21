@@ -9,6 +9,7 @@ import com.blankj.utilcode.util.ImageUtils
 import com.jour.demo.base.ktx.clickDelay
 import com.jour.demo.base.ktx.d
 import com.jour.demo.base.mvvm.vm.EmptyViewModel
+import com.jour.demo.base.utils.toast
 import com.jour.demo.common.ui.BaseFragment
 import com.jour.demo.databinding.FragmentPictureBinding
 import com.jour.demo.utils.actionWithPermission
@@ -20,7 +21,6 @@ import com.luck.picture.lib.utils.DateUtils
 import copyToAlbum
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import org.jetbrains.anko.support.v4.toast
 import saveToAlbum
 import java.io.File
 

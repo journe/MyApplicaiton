@@ -13,13 +13,13 @@ import androidx.core.net.toUri
 import coil.load
 import com.blankj.utilcode.util.FileUtils
 import com.blankj.utilcode.util.ToastUtils
+import com.jour.demo.base.utils.toast
 import com.jour.demo.databinding.ActivityMd5Binding
 import com.jour.demo.utils.actionWithPermission
 import com.luck.picture.lib.basic.PictureSelector
 import com.luck.picture.lib.config.SelectMimeType
 import com.luck.picture.lib.entity.LocalMedia
 import com.luck.picture.lib.interfaces.OnResultCallbackListener
-import org.jetbrains.anko.toast
 import java.io.*
 
 class MD5Activity : AppCompatActivity() {

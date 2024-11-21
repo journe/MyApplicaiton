@@ -10,8 +10,8 @@ import com.jour.demo.bean.CataBean
 import com.jour.demo.bean.CataItem
 import com.jour.demo.databinding.ActivityCatalogue2Binding
 import com.jour.demo.ui.topiclist.TopicListActivity
-import com.zhy.adapter.recyclerview.CommonAdapter
-import com.zhy.adapter.recyclerview.base.ViewHolder
+//import com.zhy.adapter.recyclerview.CommonAdapter
+//import com.zhy.adapter.recyclerview.base.ViewHolder
 
 class Catalogue2Activity : AppCompatActivity() {
 
@@ -66,85 +66,69 @@ class Catalogue2Activity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		val binding = ActivityCatalogue2Binding.inflate(layoutInflater)
 		setContentView(binding.root)
-		binding.cata2Rv.adapter = getCataAdapter(cataBeans)
+//		binding.cata2Rv.adapter = getCataAdapter(cataBeans)
 	}
 
-	private fun getCataAdapter(cataBeans: ArrayList<CataBean>): CommonAdapter<CataBean> {
-		return object : CommonAdapter<CataBean>(this, R.layout.item_catalogue_grid, cataBeans) {
-			var count = cataBeans.size
-			override fun convert(
-				holder: ViewHolder?,
-				bean: CataBean?,
-				position: Int
-			) {
-				//二级菜单
-				if (bean!!.cataList.isEmpty()) {
-					holder?.setBackgroundColor(R.id.catalogue_tag_iv, Color.WHITE)
-				} else {
-					holder?.setBackgroundColor(R.id.catalogue_tag_iv, Color.GRAY)
-				}
-				holder?.setText(R.id.catalogue_tag_name, bean?.name)
-				holder?.setImageResource(R.id.catalogue_tag_iv, bean?.itemIcon!!)
-
-				holder?.setOnClickListener(
-					R.id.catalogue_tag_cl
-				) { v ->
-					if (bean.cataList.isEmpty()) {
-						startActivity(
-							Intent(
-								this@Catalogue2Activity,
-								TopicListActivity::class.java
-							)
-						)
-						return@setOnClickListener
-					}
-
-					val subSize = bean.cataList.size
-					if (!bean.isExpend) {
-						val cata2 = bean.cataList.map {
-							CataBean(it.itemName, it.itemIcon, cataList = arrayListOf())
-						}
-						count += subSize
-						cataBeans.addAll(position + 1, cata2)
-
-						//插入或者移除后其他的item中的position不会变
-						notifyItemRangeInserted(position + 1, subSize)
-						//刷新后面的item更新position
-						notifyItemRangeChanged(position + subSize, count)
-//            notifyItemRangeChanged(0, count, "change_position")
-//            notifyDataSetChanged()
-					} else {
-						count -= subSize
-						bean.cataList.forEach { item ->
-							cataBeans.removeAll { it.name == item.itemName }
-						}
-						notifyItemRangeRemoved(position + 1, subSize)
-						notifyItemRangeChanged(position + 1, count)
-//                        notifyDataSetChanged()
-					}
-					bean.isExpend = !bean.isExpend
-				}
-
-			}
-
-//      override fun onBindViewHolder(
-//        holder: ViewHolder,
-//        position: Int,
-//        payloads: MutableList<Any>
-//      ) {
-//        if (payloads.isEmpty()) {
-//          super.onBindViewHolder(holder, position, payloads)
-//        } else {
-//          val str = payloads[0] as String
-//          Logger.d(position)
-//          holder.setTag(R.id.catalogue_tag_name, position)
-//          holder.position
-//        }
-//      }
-
-			override fun getItemCount(): Int {
-				return count
-			}
-		}
-	}
+//	private fun getCataAdapter(cataBeans: ArrayList<CataBean>): CommonAdapter<CataBean> {
+//		return object : CommonAdapter<CataBean>(this, R.layout.item_catalogue_grid, cataBeans) {
+//			var count = cataBeans.size
+//			override fun convert(
+//				holder: ViewHolder?,
+//				bean: CataBean?,
+//				position: Int
+//			) {
+//				//二级菜单
+//				if (bean!!.cataList.isEmpty()) {
+//					holder?.setBackgroundColor(R.id.catalogue_tag_iv, Color.WHITE)
+//				} else {
+//					holder?.setBackgroundColor(R.id.catalogue_tag_iv, Color.GRAY)
+//				}
+//				holder?.setText(R.id.catalogue_tag_name, bean?.name)
+//				holder?.setImageResource(R.id.catalogue_tag_iv, bean?.itemIcon!!)
+//
+//				holder?.setOnClickListener(
+//					R.id.catalogue_tag_cl
+//				) { v ->
+//					if (bean.cataList.isEmpty()) {
+//						startActivity(
+//							Intent(
+//								this@Catalogue2Activity,
+//								TopicListActivity::class.java
+//							)
+//						)
+//						return@setOnClickListener
+//					}
+//
+//					val subSize = bean.cataList.size
+//					if (!bean.isExpend) {
+//						val cata2 = bean.cataList.map {
+//							CataBean(it.itemName, it.itemIcon, cataList = arrayListOf())
+//						}
+//						count += subSize
+//						cataBeans.addAll(position + 1, cata2)
+//
+//						//插入或者移除后其他的item中的position不会变
+//						notifyItemRangeInserted(position + 1, subSize)
+//						//刷新后面的item更新position
+//						notifyItemRangeChanged(position + subSize, count)
+////            notifyItemRangeChanged(0, count, "change_position")
+////            notifyDataSetChanged()
+//					} else {
+//						count -= subSize
+//						bean.cataList.forEach { item ->
+//							cataBeans.removeAll { it.name == item.itemName }
+//						}
+//						notifyItemRangeRemoved(position + 1, subSize)
+//						notifyItemRangeChanged(position + 1, count)
+////                        notifyDataSetChanged()
+//					}
+//					bean.isExpend = !bean.isExpend
+//				}
+//
+//			}
+//			override fun getItemCount(): Int {
+//				return count
+//			}
+//		}
+//	}
 }

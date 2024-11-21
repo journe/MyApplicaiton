@@ -7,8 +7,8 @@ import com.jour.demo.R
 import com.jour.demo.bean.CataBean
 import com.jour.demo.bean.CataItem
 import com.jour.demo.databinding.ActivityCatalogueBinding
-import com.zhy.adapter.recyclerview.CommonAdapter
-import com.zhy.adapter.recyclerview.base.ViewHolder
+//import com.zhy.adapter.recyclerview.CommonAdapter
+//import com.zhy.adapter.recyclerview.base.ViewHolder
 
 class CatalogueActivity : AppCompatActivity() {
 
@@ -71,54 +71,54 @@ class CatalogueActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCatalogueBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.catalogueRv.adapter = getCataAdapter(cataBeans)
-        binding.catalogueItemRv.adapter = getCataItemAdapter(cataBeans[0].cataList)
+//        binding.catalogueRv.adapter = getCataAdapter(cataBeans)
+//        binding.catalogueItemRv.adapter = getCataItemAdapter(cataBeans[0].cataList)
     }
 
     private fun changeCataItem(position: Int) {
-        binding.catalogueItemRv.adapter = getCataItemAdapter(cataBeans[position].cataList)
+//        binding.catalogueItemRv.adapter = getCataItemAdapter(cataBeans[position].cataList)
     }
 
-    private fun getCataAdapter(cataBeans: ArrayList<CataBean>): CommonAdapter<CataBean> {
-        return object : CommonAdapter<CataBean>(this, R.layout.item_catalogue, cataBeans) {
-            var lastPosition = 0
-            override fun convert(
-                holder: ViewHolder?,
-                t: CataBean?,
-                position: Int
-            ) {
-                holder?.setText(R.id.catalogue_tv, t?.name)
-                holder?.setOnClickListener(
-                    R.id.linearLayout
-                ) { v ->
-                    if (position != lastPosition) {
-                        v.isSelected = true
-                        notifyDataSetChanged()
-                        changeCataItem(position)
-                    }
-                    lastPosition = position
-                }
-                holder?.getView<View>(R.id.linearLayout)!!.isSelected = lastPosition == position
-                holder?.getView<View>(R.id.catalogue_indicator)!!
-                    .visibility = if (holder?.getView<View>(R.id.linearLayout)!!.isSelected) {
-                    View.VISIBLE
-                } else {
-                    View.GONE
-                }
-            }
-        }
-    }
-
-    private fun getCataItemAdapter(cataItems: ArrayList<CataItem>): CommonAdapter<CataItem> {
-        return object : CommonAdapter<CataItem>(this, R.layout.item_catalogue_grid, cataItems) {
-            override fun convert(
-                holder: ViewHolder?,
-                t: CataItem?,
-                position: Int
-            ) {
-                holder?.setText(R.id.catalogue_tag_name, t?.itemName)
-                holder?.setImageResource(R.id.catalogue_tag_iv, t?.itemIcon!!)
-            }
-        }
-    }
+//    private fun getCataAdapter(cataBeans: ArrayList<CataBean>): CommonAdapter<CataBean> {
+//        return object : CommonAdapter<CataBean>(this, R.layout.item_catalogue, cataBeans) {
+//            var lastPosition = 0
+//            override fun convert(
+//                holder: ViewHolder?,
+//                t: CataBean?,
+//                position: Int
+//            ) {
+//                holder?.setText(R.id.catalogue_tv, t?.name)
+//                holder?.setOnClickListener(
+//                    R.id.linearLayout
+//                ) { v ->
+//                    if (position != lastPosition) {
+//                        v.isSelected = true
+//                        notifyDataSetChanged()
+//                        changeCataItem(position)
+//                    }
+//                    lastPosition = position
+//                }
+//                holder?.getView<View>(R.id.linearLayout)!!.isSelected = lastPosition == position
+//                holder?.getView<View>(R.id.catalogue_indicator)!!
+//                    .visibility = if (holder?.getView<View>(R.id.linearLayout)!!.isSelected) {
+//                    View.VISIBLE
+//                } else {
+//                    View.GONE
+//                }
+//            }
+//        }
+//    }
+//
+//    private fun getCataItemAdapter(cataItems: ArrayList<CataItem>): CommonAdapter<CataItem> {
+//        return object : CommonAdapter<CataItem>(this, R.layout.item_catalogue_grid, cataItems) {
+//            override fun convert(
+//                holder: ViewHolder?,
+//                t: CataItem?,
+//                position: Int
+//            ) {
+//                holder?.setText(R.id.catalogue_tag_name, t?.itemName)
+//                holder?.setImageResource(R.id.catalogue_tag_iv, t?.itemIcon!!)
+//            }
+//        }
+//    }
 }

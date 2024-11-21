@@ -1,6 +1,5 @@
 package com.jour.demo
 
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.DrawableRes
@@ -22,8 +21,7 @@ class MainFragment : BaseFragment<FragmentMainBinding, EmptyViewModel>() {
 
 	override fun FragmentMainBinding.initView() {
 		val list = listOf(
-			ItemBean(R.drawable.img_main_18, "获取当前手机壁纸", R.id.wallPaperActivity),
-			ItemBean(R.drawable.img_main_23, "折叠式标题栏", R.id.coordinatorLayoutActivity),
+
 			ItemBean(R.drawable.img_main_1, "类别Viewpager", R.id.viewPagerCatalogueActivity),
 			ItemBean(R.drawable.img_main_2, "通知样式", R.id.notificationActivity),
 			ItemBean(
@@ -38,23 +36,23 @@ class MainFragment : BaseFragment<FragmentMainBinding, EmptyViewModel>() {
 			ItemBean(R.drawable.img_main_11, "媒体控制，播放在线视频", R.id.mediaPlayActivity),
 			ItemBean(R.drawable.img_main_12, "折叠的TextView", R.id.folderTextViewActivity),
 			ItemBean(
-				R.drawable.img_main_13,
-				"滑动悬停布局设置CoordinatorLayout",
+				R.drawable.img_main_13, "滑动悬停布局设置CoordinatorLayout",
 				R.id.coordinatorActivity
 			),
 			ItemBean(R.drawable.img_main_14, "无限轮播走马灯", R.id.bannerActivity),
 			ItemBean(R.drawable.img_main_15, "收起键盘悬浮按钮", R.id.editTextActivity),
 			ItemBean(
-				R.drawable.img_main_16,
-				"BitmapShader 显示圆角图片和背景圆角ImageView",
+				R.drawable.img_main_16, "BitmapShader 显示圆角图片和背景圆角ImageView",
 				R.id.roundImageActivity
 			),
+			ItemBean(R.drawable.img_main_17, "修改视频MD5和绕过权限", R.id.MD5Activity),
+			ItemBean(R.drawable.img_main_18, "获取当前手机壁纸", R.id.wallPaperActivity),
+			ItemBean(R.drawable.img_main_19, "彩票结果展示和倒计时view", R.id.lotteryActivity),
 			ItemBean(R.drawable.img_main_20, "viewPager滑动没问题", R.id.viewPagerActivity),
 			ItemBean(R.drawable.img_main_20, "viewPager2有问题", R.id.viewPager2Activity),
-			ItemBean(R.drawable.img_main_19, "彩票结果展示和倒计时view", R.id.lotteryActivity),
-			ItemBean(R.drawable.img_main_17, "修改视频MD5和绕过权限", R.id.MD5Activity),
 			ItemBean(R.drawable.img_main_21, "夜间模式Theme设置", R.id.themeNightActivity),
 			ItemBean(R.drawable.img_main_22, "图片处理", R.id.pictureFragment),
+			ItemBean(R.drawable.img_main_23, "折叠式标题栏", R.id.coordinatorLayoutActivity),
 			ItemBean(
 				R.drawable.img_main_24, "自定义文本长按操作", R.id.customSelectionActionFragment
 			),

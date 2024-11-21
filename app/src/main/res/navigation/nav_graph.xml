@@ -132,9 +132,9 @@
       tools:layout="@layout/fragment_picture" />
   <activity
       android:id="@+id/coordinatorLayoutActivity"
-      android:name="com.jour.demo.ui.CoordinatorLayoutActivity"
+      android:name="com.jour.demo.ui.coordinator.CoordinatorLayoutActivity"
       android:label="content_scrolling"
-      tools:layout="@layout/content_scrolling" />
+      tools:layout="@layout/activity_scrolling" />
   <fragment
       android:id="@+id/customSelectionActionFragment"
       android:name="com.jour.demo.ui.CustomSelectionActionFragment"
