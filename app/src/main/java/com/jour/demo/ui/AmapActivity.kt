@@ -1,5 +1,6 @@
 package com.jour.demo.ui
 
+import android.Manifest
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Lifecycle
@@ -17,14 +18,14 @@ import com.amap.api.maps.model.MyLocationStyle
 //import com.amap.api.maps2d.model.MyLocationStyle
 import com.jour.demo.base.ktx.d
 import com.jour.demo.base.mvvm.vm.EmptyViewModel
+import com.jour.demo.base.utils.toast
 import com.jour.demo.common.ui.BaseActivity
 import com.jour.demo.databinding.ActivityAmapBinding
+import com.permissionx.guolindev.PermissionX
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AmapActivity : BaseActivity<ActivityAmapBinding, EmptyViewModel>(), AMapLocationListener
-//	BusStationSearch.OnBusStationSearchListener
-{
+class AmapActivity : BaseActivity<ActivityAmapBinding, EmptyViewModel>(), AMapLocationListener {
 
 	private var mListener: LocationSource.OnLocationChangedListener? = null
 
@@ -89,6 +90,21 @@ class AmapActivity : BaseActivity<ActivityAmapBinding, EmptyViewModel>(), AMapLo
 	}
 
 	override fun initRequestData() {
+		val plist = listOf(
+			PermissionX.permission.POST_NOTIFICATIONS,
+			Manifest.permission.ACCESS_COARSE_LOCATION,
+			Manifest.permission.ACCESS_FINE_LOCATION,
+		)
+		PermissionX.init(this).permissions(plist).onExplainRequestReason { scope, deniedList ->
+			val message = "需要您同意以下权限才能正常使用"
+			scope.showRequestReasonDialog(deniedList, message, "允许", "拒绝")
+		}.request { allGranted, grantedList, deniedList ->
+			if (allGranted) {
+				toast("授权成功")
+			} else {
+				toast("您拒绝了如下权限：$deniedList")
+			}
+		}
 	}
 
 	override fun onResume() {

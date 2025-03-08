@@ -29,7 +29,7 @@ class SearchBarActivity : BaseActivity<AcitvitySearchBarBinding, EmptyViewModel>
 
 		val drawerArrowDrawable = DrawerArrowDrawable(this@SearchBarActivity)
 		drawerArrowDrawable.color =
-			MaterialColors.getColor(content.searchBar, R.attr.colorOnSurface)
+			MaterialColors.getColor(content.searchBar, com.google.android.material.R.attr.colorOnSurface)
 		content.searchBar.navigationIcon = drawerArrowDrawable
 
 		val toggle = ActionBarDrawerToggle(
