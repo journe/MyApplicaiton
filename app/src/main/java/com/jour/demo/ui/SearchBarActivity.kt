@@ -25,6 +25,10 @@ class SearchBarActivity : BaseActivity<AcitvitySearchBarBinding, EmptyViewModel>
 	private lateinit var searchButton: ImageButton
 
 	override fun AcitvitySearchBarBinding.initView() {
+		headerContainer = content.catTocHeaderContainer
+		searchView = content.catTocSearchView
+		searchButton = content.catTocSearchButton
+
 		setSupportActionBar(content.searchBar)
 
 		val drawerArrowDrawable = DrawerArrowDrawable(this@SearchBarActivity)
@@ -44,10 +48,6 @@ class SearchBarActivity : BaseActivity<AcitvitySearchBarBinding, EmptyViewModel>
 		content.searchBar.setNavigationOnClickListener {
 			drawerLayout.open()
 		}
-
-		headerContainer = content.catTocHeaderContainer
-		searchView = content.catTocSearchView
-		searchButton = content.catTocSearchButton
 
 		initSearchButton()
 		initSearchView()

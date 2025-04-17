@@ -35,12 +35,12 @@
       android:layout_marginTop="8dp"
       android:padding="10dp"
       app:imageScaleType="1"
-      app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/customGroup"
       app:titleText="hello andorid ! "
       app:titleTextColor="#ff0000"
-      app:titleTextSize="30sp" />
+      app:titleTextSize="30sp"
+      />
 
   <com.jour.demo.view.ImageMoveView
       android:id="@+id/imageMoveView"
@@ -50,14 +50,14 @@
       android:scaleType="centerCrop"
       android:src="@drawable/ic_notification_logo"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/customImageView" />
+      app:layout_constraintStart_toEndOf="@+id/customImageView"
+      app:layout_constraintTop_toTopOf="@+id/customImageView"
+      />
   <com.jour.demo.view.TextMoveView
       android:id="@+id/textMoveView"
       android:layout_width="wrap_content"
       android:layout_height="30dp"
       android:layout_centerInParent="true"
-      android:layout_marginTop="32dp"
       android:background="#00ff00"
       android:gravity="center"
       android:text="我是美女"
@@ -70,15 +70,68 @@
       android:layout_height="100dp"
       app:circleWidth="10dp"
       app:firstColor="#Fe4646"
-      app:layout_constraintEnd_toEndOf="@+id/textMoveView"
-      app:layout_constraintTop_toBottomOf="@+id/textMoveView"
+      app:layout_constraintStart_toStartOf="@+id/customImageView"
+      app:layout_constraintTop_toBottomOf="@+id/customImageView"
       app:secondColor="#00ff00"
       app:speed="10"
       />
   <com.jour.demo.view.CusVolumeView
+      android:id="@+id/cusVolumeView"
       android:layout_width="100dp"
       android:layout_height="100dp"
-      app:layout_constraintEnd_toEndOf="@+id/customRingProgress"
-      app:layout_constraintTop_toBottomOf="@+id/customRingProgress"
+      android:layout_marginStart="16dp"
+      app:layout_constraintStart_toEndOf="@+id/customRingProgress"
+      app:layout_constraintTop_toTopOf="@+id/customRingProgress"
       />
+
+  <com.jour.demo.view.ImageMoveScaleView
+      android:id="@+id/imageMoveScaleView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="19dp"
+      android:layout_marginEnd="16dp"
+      android:src="@drawable/default_album_art"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textMoveView"
+      />
+
+  <eightbitlab.com.blurview.BlurView
+      android:id="@+id/blurView"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:layout_gravity="center"
+      app:blurOverlayColor="#10000000"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/cusVolumeView"
+      />
+  <com.jour.demo.view.ImageMoveScaleGestureDetectorView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="24dp"
+      android:layout_marginEnd="16dp"
+      android:src="@drawable/img_main_2"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/imageMoveScaleView"
+      />
+
+  <com.jour.demo.view.EdgeTransparentView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:edge_position="top"
+      app:edge_width="30dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      >
+    <com.jour.demo.view.MultiTouchGestureView
+        android:id="@+id/multiTouchGestureView"
+        android:layout_width="match_parent"
+        android:layout_height="168dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+  </com.jour.demo.view.EdgeTransparentView>
 </androidx.constraintlayout.widget.ConstraintLayout>

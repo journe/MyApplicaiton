@@ -12,7 +12,7 @@ class BannerActivity : AppCompatActivity() {
     private val imageList = listOf(
         R.drawable.head_default,
         R.drawable.default_album_art,
-        cat.ereza.customactivityoncrash.R.drawable.customactivityoncrash_error_image,
+//        cat.ereza.customactivityoncrash.R.drawable.customactivityoncrash_error_image,
         R.drawable.ic_notification_logo,
         R.drawable.ic_work_hard,
         R.drawable.radio_bg,
