@@ -30,7 +30,7 @@ class CoordinatorLayoutActivity : AppCompatActivity() {
 		binding.storyDetailToolbarLayout.apply {
 			setCollapsedTitleTextColor(Color.BLACK)
 			setExpandedTitleColor(Color.BLUE)
-			title = "CoordinatorLayoutActivity"
+			title = "testtitleAppCompatActivity"
 		}
 
 		val arrayList = arrayListOf("视频样例", "配音样例")

@@ -20,7 +20,6 @@ class ViewPagerActivity : AppCompatActivity() {
         fragments.add(ViewPagerFragment())
         fragments.add(ViewPagerFragment())
 
-        binding.tabLayout
         binding.tabLayout.setViewPager(
             binding.activityVp2,
             arrayList.toTypedArray(),
