@@ -60,6 +60,7 @@ class MainFragment : BaseFragment<FragmentMainBinding, EmptyViewModel>() {
 			ItemBean(R.drawable.img_main_26, "SearchBar", R.id.searchBarFragment),
 //			ItemBean(R.drawable.img_main_26, "SearchBar", R.id.searchBarActivity),
 			ItemBean(R.drawable.img_main_27, "高德地图", R.id.amapActivity),
+			ItemBean(R.drawable.img_main_28, "Assets操作", R.id.assetsFragment),
 		)
 		mBinding.recycleView.adapter = MainItemAdapter(list.reversed())
 	}

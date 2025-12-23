@@ -33,6 +33,8 @@
 
     <color name="color_main_orange">#FEB800</color>
     <color name="black04">#66000000</color>
+    <color name="black70">#B3000000</color>
+
     <color name="transparent">#00FFFFFF</color>
     <color name="white">#FFFFFFFF</color>
     <color name="white90">#E6FFFFFF</color>
