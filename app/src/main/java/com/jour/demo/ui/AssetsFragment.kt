@@ -2,20 +2,17 @@ package com.jour.demo.ui
 
 import android.content.Context
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import com.google.android.material.chip.Chip
+import com.jour.demo.base.ktx.d
 import com.jour.demo.base.mvvm.vm.EmptyViewModel
 import com.jour.demo.common.ui.BaseFragment
 import com.jour.demo.databinding.FragmentAssetsBinding
-import com.jour.demo.databinding.FragmentFirstBinding
-import com.jour.demo.xpop.CenterPopup
 import com.jour.demo.xpop.JsonDtResultPopup
 import com.jour.demo.xpop.JsonResultPopup
 import com.lxj.xpopup.XPopup
 import dagger.hilt.android.AndroidEntryPoint
-import java.io.BufferedReader
 import java.io.InputStream
-import java.io.InputStreamReader
+import kotlin.math.roundToInt
 
 @AndroidEntryPoint
 class AssetsFragment : BaseFragment<FragmentAssetsBinding, EmptyViewModel>() {
@@ -51,16 +48,49 @@ class AssetsFragment : BaseFragment<FragmentAssetsBinding, EmptyViewModel>() {
             mBinding.chipGroup.addView(Chip(requireContext()).apply {
                 text = fileName
                 setOnClickListener {
-                    val json =
+                    val waveformData =
                         AssetsUtils.parseDtFile(requireActivity(), "SYN/DAT/$fileName")
+                    waveformData.d()
+                    val resultData = smoothWithMovingAverage(waveformData)
                     XPopup.Builder(context)
                         .hasShadowBg(true)
-                        .asCustom(JsonDtResultPopup(context, json))
+                        .asCustom(JsonDtResultPopup(context, waveformData))
                         .show()
                 }
             })
         }
         mBinding.resultTv.text = result
+    }
+
+    private fun smoothWithMovingAverage(correctedData: List<Int>): MutableList<Int> {
+        // 目标显示范围（0~4095）
+        val targetMin = 0
+        val targetMax = 1023
+
+        // 步骤2：数值归一化（映射到0~4095）
+        val minVal = correctedData.minOrNull() ?: 0
+        val maxVal = correctedData.maxOrNull() ?: 0
+        val normalizedData = if (maxVal == minVal) {
+            correctedData.map { 0 } // 避免除零
+        } else {
+            correctedData.map { value ->
+                ((value - minVal).toFloat() * (targetMax - targetMin) / (maxVal - minVal) + targetMin).roundToInt()
+            }
+        }
+        // 步骤3：3点滑动平均滤波
+        val smoothed = mutableListOf<Int>()
+        for (i in normalizedData.indices) {
+            when (i) {
+                0 -> smoothed.add(normalizedData[i]) // 首点用原数据
+                normalizedData.size - 1 -> smoothed.add(normalizedData[i]) // 尾点用原数据
+                else -> {
+                    val avg =
+                        (normalizedData[i - 1] + normalizedData[i] + normalizedData[i + 1]) / 3
+                    smoothed.add(avg)
+                }
+            }
+        }
+        return smoothed
     }
 }
 
@@ -121,19 +151,7 @@ object AssetsUtils {
                     return emptyList()
                 }
 
-                // 3. 每 2 个字节解析为一个大端序整数，循环 1024 次
-                for (i in 0 until INTEGER_COUNT) {
-                    val index = i * 2 // 每个整数对应字节数组的起始索引
-                    if (index + 1 >= byteArray.size) break // 防止数组越界
-
-                    // 高位字节（前一个字节）和低位字节（后一个字节）
-                    val highByte = byteArray[index]
-                    val lowByte = byteArray[index + 1]
-
-                    // 解析大端序整数：高位左移8位，与低位按位或
-                    val intValue = (highByte.toInt() and 0xFF) shl 8 or (lowByte.toInt() and 0xFF)
-                    intList.add(intValue)
-                }
+                intList.addAll(LittleEndianConverter.byteArrayToIntList(byteArray))
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -142,3 +160,72 @@ object AssetsUtils {
         return intList
     }
 }
+
+object LittleEndianConverter {
+
+    /**
+     * 场景1：小端序组合两个字节为16位整数（核心逻辑）
+     * @param highByte 高位字节（如0x8E）
+     * @param lowByte 低位字节（如0xFD）
+     * @param xorFlag 是否先对每个字节执行 ^0xFF 操作（true=执行，false=不执行）
+     * @return 组合后的16位整数
+     */
+    fun bytesToInt16(highByte: Byte, lowByte: Byte, xorFlag: Boolean = false): Int {
+        // 步骤1：将Byte转为无符号Int（避免负数干扰）
+        var hb = highByte.toInt() and 0xFF // 0x8E → 142
+        var lb = lowByte.toInt() and 0xFF  // 0xFD → 253
+
+        // 步骤2：可选：每个字节^0xFF（你之前要求的预处理）
+        if (xorFlag) {
+            hb = hb xor 0xFF // 0x8E ^ 0xFF → 0x71 (113)
+            lb = lb xor 0xFF // 0xFD ^ 0xFF → 0x02 (2)
+        }
+
+        // 步骤3：小端序组合（低位左移8位 + 高位）
+        return (lb shl 8) + hb
+    }
+
+    /**
+     * 场景2：16位整数拆分为小端序的两个字节
+     * @param value 16位整数（如64910）
+     * @param xorFlag 是否对拆分后的每个字节执行 ^0xFF 操作
+     * @return Pair(高位字节, 低位字节)
+     */
+    fun int16ToBytes(value: Int, xorFlag: Boolean = false): Pair<Byte, Byte> {
+        // 步骤1：确保值在16位范围内
+        val validValue = value and 0xFFFF
+
+        // 步骤2：小端序拆分（先取低位字节，再取高位字节）
+        var lowByte = (validValue shr 8) and 0xFF // 低位字节（小端序：高8位是原数的低位）
+        var highByte = validValue and 0xFF        // 高位字节（小端序：低8位是原数的高位）
+
+        // 步骤3：可选：每个字节^0xFF
+        if (xorFlag) {
+            lowByte = lowByte xor 0xFF
+            highByte = highByte xor 0xFF
+        }
+
+        // 转换为Byte并返回（高位、低位）
+        return Pair(highByte.toByte(), lowByte.toByte())
+    }
+
+    /**
+     * 场景3：批量处理字节数组为小端序整数列表（适配1024个采样点场景）
+     * @param byteArray 原始字节数组（长度需为偶数，每两个字节对应一个16位整数）
+     * @param xorFlag 是否预处理^0xFF
+     * @return 小端序组合后的整数列表
+     */
+    fun byteArrayToIntList(byteArray: ByteArray, xorFlag: Boolean = true): List<Int> {
+        require(byteArray.size % 2 == 0) { "字节数组长度必须为偶数！" }
+        val result = mutableListOf<Int>()
+        for (i in byteArray.indices step 2) {
+            // 小端序：数组中先读低位字节，后读高位字节
+            val highByte = byteArray[i]
+            val lowByte = byteArray[i + 1]
+            val intValue = bytesToInt16(highByte, lowByte, xorFlag)
+            result.add(intValue)
+        }
+        return result
+    }
+}
+

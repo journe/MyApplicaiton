@@ -32,6 +32,7 @@
 
 
     <color name="color_main_orange">#FEB800</color>
+    <color name="black">#000000</color>
     <color name="black04">#66000000</color>
     <color name="black70">#B3000000</color>
 
