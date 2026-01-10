@@ -118,6 +118,7 @@
         <activity android:name=".ui.editview.EditTextActivity" />
         <activity android:name=".ui.ThemeNightActivity" />
         <activity android:name=".ui.AmapActivity" />
+        <activity android:name=".ui.amap.AmapTextureActivity" />
         <activity android:name=".ui.recyclerview.AnimatedRecyclerActivity" />
         <activity
             android:name=".ui.SearchBarActivity"
