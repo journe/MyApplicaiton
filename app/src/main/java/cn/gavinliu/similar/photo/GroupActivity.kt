@@ -13,8 +13,8 @@ import cn.gavinliu.similar.photo.entry.Photo
 import cn.gavinliu.similar.photo.util.PermissionsUtils
 import cn.gavinliu.similar.photo.util.PhotoRepository
 import coil.load
-import tech.jour.similar.R
-import tech.jour.similar.databinding.ItemListGroupBinding
+import com.jour.demo.R
+import com.jour.demo.databinding.ItemListGroupBinding
 
 /**
  * Created by gavin on 2017/3/27.

@@ -17,8 +17,8 @@ import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
 import coil.decode.VideoFrameDecoder
 import coil.load
-import tech.jour.similar.R
-import tech.jour.similar.databinding.ItemGridImageBinding
+import com.jour.demo.R
+import com.jour.demo.databinding.ItemGridImageBinding
 
 
 class MainActivity : AppCompatActivity(), ImageLoaderFactory {
