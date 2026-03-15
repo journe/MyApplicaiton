@@ -1,6 +1,17 @@
 package com.jour.demo.ui
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
+import android.graphics.Point
+import android.os.Build
+import android.os.Bundle
+import android.util.DisplayMetrics
+import android.view.Display
+import android.view.View
+import android.view.WindowManager
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import com.google.android.material.chip.Chip
 import com.jour.demo.base.ktx.d
@@ -19,9 +30,13 @@ class AssetsFragment : BaseFragment<FragmentAssetsBinding, EmptyViewModel>() {
     override val mViewModel: EmptyViewModel by viewModels()
 
     override fun FragmentAssetsBinding.initView() {
+        // 获取所有屏幕信息并展示
+        val screenInfo = getCompleteScreenInfo(requireActivity())
+        resultTv.setText(showScreenInfo(screenInfo))
     }
 
     override fun initObserve() {
+
     }
 
     override fun initRequestData() {
@@ -33,12 +48,9 @@ class AssetsFragment : BaseFragment<FragmentAssetsBinding, EmptyViewModel>() {
             mBinding.chipGroup.addView(Chip(requireContext()).apply {
                 text = fileName
                 setOnClickListener {
-                    val json =
-                        AssetsUtils.readAssetsFileAndXor(requireActivity(), "SYN/$fileName")
-                    XPopup.Builder(context)
-                        .hasShadowBg(true)
-                        .asCustom(JsonResultPopup(context, json))
-                        .show()
+                    val json = AssetsUtils.readAssetsFileAndXor(requireActivity(), "SYN/$fileName")
+                    XPopup.Builder(context).hasShadowBg(true)
+                        .asCustom(JsonResultPopup(context, json)).show()
                 }
             })
         }
@@ -52,10 +64,8 @@ class AssetsFragment : BaseFragment<FragmentAssetsBinding, EmptyViewModel>() {
                         AssetsUtils.parseDtFile(requireActivity(), "SYN/DAT/$fileName")
                     waveformData.d()
                     val resultData = smoothWithMovingAverage(waveformData)
-                    XPopup.Builder(context)
-                        .hasShadowBg(true)
-                        .asCustom(JsonDtResultPopup(context, waveformData))
-                        .show()
+                    XPopup.Builder(context).hasShadowBg(true)
+                        .asCustom(JsonDtResultPopup(context, waveformData)).show()
                 }
             })
         }
@@ -91,6 +101,130 @@ class AssetsFragment : BaseFragment<FragmentAssetsBinding, EmptyViewModel>() {
             }
         }
         return smoothed
+    }
+
+
+    /**
+     * 核心方法：获取完整的屏幕信息
+     * @param context Activity 上下文（必须用 Activity，不能用 Application）
+     * @return 封装的屏幕信息实体类
+     */
+    @SuppressLint("ObsoleteSdkInt")
+    private fun getCompleteScreenInfo(context: Activity): ScreenInfo {
+        val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val displayMetrics = DisplayMetrics()
+        val screenInfo = ScreenInfo()
+
+        // ========== 1. 获取屏幕宽高（px） ==========
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            // Android 11+ 推荐方式（兼容折叠屏/多窗口）
+            val windowMetrics = windowManager.currentWindowMetrics
+            val bounds = windowMetrics.bounds
+            // 屏幕总宽高（包含导航栏/通知栏）
+            screenInfo.screenWidth = bounds.width()
+            screenInfo.screenHeight = bounds.height()
+
+            // 应用可用宽高（排除导航栏/通知栏，即应用窗口尺寸）
+            val insets = windowMetrics.windowInsets
+            val usableRect = insets.getInsetsIgnoringVisibility(
+                android.view.WindowInsets.Type.systemBars()
+            )
+            screenInfo.appWidth = bounds.width() - usableRect.left - usableRect.right
+            screenInfo.appHeight = bounds.height() - usableRect.top - usableRect.bottom
+        } else {
+            // Android 11 以下兼容方式
+            val display: Display = windowManager.defaultDisplay
+            // 方式1：获取屏幕总宽高
+            display.getRealMetrics(displayMetrics)
+            screenInfo.screenWidth = displayMetrics.widthPixels
+            screenInfo.screenHeight = displayMetrics.heightPixels
+
+            // 方式2：获取应用可用宽高
+            val point = Point()
+            display.getSize(point)
+            screenInfo.appWidth = point.x
+            screenInfo.appHeight = point.y
+        }
+
+        // ========== 2. 获取屏幕 DPI（密度） ==========
+        context.resources.displayMetrics.apply {
+            screenInfo.dpi = densityDpi // 屏幕密度（120/160/240/320/480 等）
+            screenInfo.density = density // 密度比例（如 2.0 对应 240dpi，3.0 对应 360dpi）
+            screenInfo.scaledDensity = scaledDensity // 字体密度比例
+        }
+
+        // ========== 3. 获取通知栏高度 ==========
+        screenInfo.statusBarHeight = getStatusBarHeight(context)
+
+        // ========== 4. 获取导航栏高度 ==========
+        screenInfo.navigationBarHeight = getNavigationBarHeight(context)
+
+        return screenInfo
+    }
+
+    /**
+     * 获取通知栏（状态栏）高度（px）
+     */
+    private fun getStatusBarHeight(context: Context): Int {
+        var statusBarHeight = 0
+        val resourceId = context.resources.getIdentifier(
+            "status_bar_height", "dimen", "android"
+        )
+        if (resourceId > 0) {
+            statusBarHeight = context.resources.getDimensionPixelSize(resourceId)
+        }
+        return statusBarHeight
+    }
+
+    /**
+     * 获取导航栏高度（px）
+     */
+    private fun getNavigationBarHeight(context: Context): Int {
+        var navigationBarHeight = 0
+        val resourceId = context.resources.getIdentifier(
+            "navigation_bar_height", "dimen", "android"
+        )
+        if (resourceId > 0) {
+            navigationBarHeight = context.resources.getDimensionPixelSize(resourceId)
+        }
+        // 验证：如果是全面屏且导航栏隐藏，高度为0
+        if (isNavigationBarHidden(context as Activity)) {
+            navigationBarHeight = 0
+        }
+        return navigationBarHeight
+    }
+
+    /**
+     * 判断导航栏是否隐藏（适配全面屏）
+     */
+    private fun isNavigationBarHidden(activity: Activity): Boolean {
+        val decorView = activity.window.decorView
+        val uiOptions = decorView.systemUiVisibility
+        return uiOptions and View.SYSTEM_UI_FLAG_HIDE_NAVIGATION != 0
+    }
+
+    /**
+     * 展示屏幕信息到 TextView
+     */
+    private fun showScreenInfo(screenInfo: ScreenInfo): String {
+        val infoText = """
+            === 屏幕核心信息 ===
+            屏幕总宽度：${screenInfo.screenWidth} px
+            屏幕总高度：${screenInfo.screenHeight} px
+            应用可用宽度：${screenInfo.appWidth} px
+            应用可用高度：${screenInfo.appHeight} px
+            
+            === 屏幕密度信息 ===
+            屏幕 DPI：${screenInfo.dpi}
+            密度比例：${screenInfo.density} (1.0=160dpi)
+            字体密度比例：${screenInfo.scaledDensity}
+            
+            === 系统栏高度 ===
+            通知栏（状态栏）高度：${screenInfo.statusBarHeight} px
+            导航栏高度：${screenInfo.navigationBarHeight} px
+        """.trimIndent()
+        infoText.d()
+        return infoText
     }
 }
 
@@ -229,3 +363,17 @@ object LittleEndianConverter {
     }
 }
 
+/**
+ * 封装屏幕信息的实体类
+ */
+data class ScreenInfo(
+    var screenWidth: Int = 0,      // 屏幕总宽度（px）
+    var screenHeight: Int = 0,     // 屏幕总高度（px）
+    var appWidth: Int = 0,         // 应用可用宽度（px）
+    var appHeight: Int = 0,        // 应用可用高度（px）
+    var dpi: Int = 0,              // 屏幕DPI
+    var density: Float = 0f,       // 密度比例
+    var scaledDensity: Float = 0f, // 字体密度比例
+    var statusBarHeight: Int = 0,  // 通知栏高度（px）
+    var navigationBarHeight: Int = 0 // 导航栏高度（px）
+)
