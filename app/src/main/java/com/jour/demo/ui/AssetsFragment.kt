@@ -275,6 +275,14 @@ object AssetsUtils {
         try {
             // 1. 打开 Assets 文件输入流
             context.assets.open(assetsFilePath).use { inputStream ->
+
+                // 2. 核心修改：定位文件指针到 1024 字节偏移处（关键步骤）
+                // 注意：需要加上 assets 文件本身的起始偏移（assetFileDescriptor.startOffset）
+                val targetPosition = 1024L * 0 // 从 1024 字节后开始
+                // 移动文件指针到目标位置
+//                inputStream.channel.position(targetPosition)
+                inputStream.skip(targetPosition)
+
                 // 2. 读取指定长度的字节（最多 TOTAL_BYTES 个）
                 val byteArray = ByteArray(TOTAL_BYTES)
                 val actualRead = inputStream.read(byteArray)
